@@ -6,5 +6,8 @@ public class JugadorPrincipal extends Personaje {
     super(nombre, vida, danio, resistencia, velocidad, armaEnMano);
     }
 
+    public static void caminar(){
+
+    }
 
 }

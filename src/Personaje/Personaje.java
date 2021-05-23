@@ -17,10 +17,7 @@ public class Personaje {
         this.velocidad = velocidad;
         this.armaEnMano = armaEnMano;
     }
-
-    public Personaje(){
-
-    }
+    public Personaje(){}
 
     //region [Getters y Setters]
 
