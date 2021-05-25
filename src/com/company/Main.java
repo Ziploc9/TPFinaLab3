@@ -1,11 +1,11 @@
 package com.company;
 import RecursoNatural.Recurso;
-
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+
 
         correrjuego();
     }
