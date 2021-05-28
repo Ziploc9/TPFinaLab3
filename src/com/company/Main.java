@@ -326,6 +326,7 @@ public class Main {
                                   if (piedra.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
                                       acumuladorRecurso = piedra.recolectarRecurso(personaje.getArmaenMano(),20);
+                                      acumuladorRecurso = 2;
                                   } else {
                                       efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
                                   }

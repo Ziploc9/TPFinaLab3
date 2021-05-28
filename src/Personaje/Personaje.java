@@ -80,5 +80,14 @@ public class Personaje {
     public static void comer(){
 
     }
+
+    public static void equipar(){
+    }
+
+    public static void desequipar(){
+
+    }
     //endregion
 }
+
+
