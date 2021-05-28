@@ -40,11 +40,6 @@ public class TipoRecurso {
         this.existe = existe;
     }
 
-    public TipoRecurso(String nombre, boolean existe){
-        this.nombre = nombre;
-        this.existe = existe;
-    }
-
     public boolean recursoExiste(){
         if(isExiste()){
             System.out.println("\n Recolectando recurso..");

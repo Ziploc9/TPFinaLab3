@@ -76,5 +76,9 @@ public class Personaje {
     public static void abrircasa(){
 
     }
+
+    public static void comer(){
+
+    }
     //endregion
 }

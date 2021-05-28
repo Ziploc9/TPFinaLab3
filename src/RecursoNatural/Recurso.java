@@ -13,13 +13,6 @@ public class Recurso extends TipoRecurso {
         this.tiempoMadurez = tiempoMadurez;
     }
 
-    public Recurso(String nombre, boolean existe, int resistencia, int tiempoMadurez, int cantidadRecurso){
-        super(nombre, existe);
-        this.resistencia = resistencia;
-        this.tiempoMadurez = tiempoMadurez;
-        this.cantidadRecurso = cantidadRecurso;
-    }
-
 
     //region [getters setters]
 
@@ -95,8 +88,8 @@ public class Recurso extends TipoRecurso {
         return isExiste();
     }
 
-    public void recolectarRecurso(boolean armaEnMano,double danio){
-        int recu = getCantidadRecurso();
+    public int recolectarRecurso(boolean armaEnMano,double danio){
+        int acumuladorRecurso=0;
         if(comprobarRecurso()){                                                 // compruebo que el recurso este disponible
             if(armaEnMano) {                                                     // compruebo que tenga el arma en mano
                 if(getResistencia() < danio) {                              // compruebo que el danio del arma sea mayor al de la resistencia del recurso
@@ -104,23 +97,18 @@ public class Recurso extends TipoRecurso {
                         System.out.println("Agarraste el Hacha con la mano derecha y llegaste hasta el arbol..");
                         System.out.println("Comienzas a talar el arbol..");
                         System.out.println("Felicidades obtuviste 1 de madera..");
-                        setCantidadRecurso(recu-1);
+                        acumuladorRecurso++;
                     } else if ("peces".equals(getNombre())) {
                         System.out.println("Agarraste la cania y caminas hasta el lago..");
                         System.out.println("Lanzas el ansuelo al lago..");
                         System.out.println("Comienzas a luchar contra el pez");
                         System.out.println("Felicidades obtuviste 1 pescado..");
-                        setCantidadRecurso(recu-1);
-                    } else if ("frutos".equals(getNombre())) {
-                        System.out.println("Te colocas los guantes y vas al huerto..");
-                        System.out.println("Comienzas a revisar los frutos para tratar de sacarlos..");
-                        System.out.println("Felicidades obtuviste 1 fruto..");
-                        setCantidadRecurso(recu-1);
+                        acumuladorRecurso++;
                     } else if ("piedra".equals(getNombre())) {
                         System.out.println("Agarraste el Pico con la mano derecha y llegas a donde hay piedras..");
                         System.out.println("Comienzas a picar las piedras..");
                         System.out.println("Felicidades obtuviste 1 de piedra..");
-                        setCantidadRecurso(recu-1);
+                        acumuladorRecurso++;
                     }
                 }else{
                     System.out.println("El arma que tienes no es lo suficiente fuerte para utilizar en este recurso.");
@@ -132,9 +120,24 @@ public class Recurso extends TipoRecurso {
         }else{
             System.out.println("\n Recurso en regeneracion..");
         }
+        return acumuladorRecurso;
     }
 
-    public void reiniciarRecurso(){             // setear los recursos al default
+    public int recolectarRecurso(){
+        int acumladorRecurso=0;
+        if(comprobarRecurso()){                                                 // compruebo que el recurso este disponible
+            System.out.println("Te colocas los guantes y vas al huerto..");
+            System.out.println("Comienzas a revisar los frutos para tratar de sacarlos..");
+            System.out.println("Felicidades obtuviste 1 fruto..");
+            acumladorRecurso++;
+        }else{
+            System.out.println("\n Recurso en regeneracion..");
+        }
+        return acumladorRecurso;
+    }
+
+
+    public void reiniciarRecurso(){
         if(getCantidadRecurso()<=0) {
             if ("peces".equals(getNombre())) {
                 setCantidadRecurso(9);
@@ -149,5 +152,26 @@ public class Recurso extends TipoRecurso {
     }
 
 
+    public int explotarRecurso(){
+        int recu = 1;
+        setCantidadRecurso(getCantidadRecurso() - recu);
+
+       /*
+        if ("madera".equals(getNombre())) {
+            recu = getCantidadRecurso();
+            setCantidadRecurso(recu-1);
+        } else if ("peces".equals(getNombre())) {
+            recu = getCantidadRecurso();
+            setCantidadRecurso(recu-1);
+        } else if ("frutos".equals(getNombre())) {
+            recu = getCantidadRecurso();
+            setCantidadRecurso(recu-1);
+        } else if ("piedra".equals(getNombre())) {
+            recu = getCantidadRecurso();
+            setCantidadRecurso(recu-1);
+        }
+        */
+        return recu;
+    }
 
 }
