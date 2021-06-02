@@ -9,31 +9,26 @@ public class Inventario {
     public Inventario(){
     }
 
-    public void agregarAlInventario(Recurso x, int cantidad){
+    public void agregarAlInventario(Recurso x, int cantidadAgregar){
         int i=0;
-        for (TipoRecurso aux:this.recursos) {
-            if (aux.getNombre().equals(x.getNombre())) {
-                if (peso < 30) {
-                    recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidad);
-                    this.peso = peso + cantidad;
+        if(this.cantRecursosActuales == 0) {
+            recursos[0] = x;
+            recursos[0].setCantidadRecurso(recursos[0].getCantidadRecurso() + cantidadAgregar);
+        }
+        else{
+            for (TipoRecurso aux:this.recursos) {
+                if (aux.getNombre().equals(x.getNombre())) {
+                    if (peso < 30) {
+                        recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregar);
+                        this.peso = this.peso + cantidadAgregar;
+                    } else {
+                        System.out.println("Llevas demasiado peso!");
+                    }
                 }
+                i++;
             }
-            else {
-                if(this.cantRecursosActuales == 0){
-                    recursos[0] = x;
-                    recursos[0].setCantidadRecurso(recursos[0].getCantidadRecurso() + cantidad);
-
-                }
-                else {
-                    recursos[cantRecursosActuales + 1] = x;
-                    recursos[cantRecursosActuales + 1].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidad);
-                }
-            }
-            i++;
         }
     }
-
-
 
     public void verInventario(){
         for (Recurso aux:this.recursos){
@@ -41,6 +36,25 @@ public class Inventario {
         }
     }
 
-    public void soltarItem(){
+    public void soltarRecurso(Recurso x, int cantidadTirar){
+        int i=0;
+        if(this.cantRecursosActuales == 0) {
+            System.out.println("El inventario esta vacio!");
+        }
+        else{
+            for (TipoRecurso aux:this.recursos) {
+                if (aux.getNombre().equals(x.getNombre())) {
+                    if(recursos[i].getCantidadRecurso() - cantidadTirar > 0){
+                        recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() - cantidadTirar);
+                        this.peso = this.peso - cantidadTirar;
+                    }
+                    else{
+                        System.out.println("No puedes arrojar mas de lo que tienes!");
+                    }
+                }
+                i++;
+            }
+        }
+
     }
 }
