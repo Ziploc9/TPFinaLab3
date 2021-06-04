@@ -1,4 +1,5 @@
 package com.company;
+import RecursoNatural.Inventario;
 import RecursoNatural.Recurso;
 import java.util.Scanner;
 
@@ -119,6 +120,7 @@ public class Main {
     public static int juego_deDia() {
         int option =0, contadorDia=0;
         Scanner scan = new Scanner(System.in);
+        Inventario inv = new Inventario();
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", true, 15, 20, 30);

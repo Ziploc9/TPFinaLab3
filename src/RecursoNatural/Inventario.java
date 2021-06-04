@@ -49,7 +49,7 @@ public class Inventario {
                         this.peso = this.peso - cantidadTirar;
                     }
                     else{
-                        System.out.println("No puedes arrojar mas de lo que tienes!");
+                        System.out.println("No puedes soltar mas de lo que tienes!");
                     }
                 }
                 i++;
@@ -57,7 +57,7 @@ public class Inventario {
         }
     }
 
-    public int buscarEnInventario(Recurso x){
+    public int buscarEnInventario(Recurso x){ //solo para usar en otras funciones!
         for (Recurso aux:this.recursos) {
             if (aux.getNombre().equals(x.getNombre())) {
                 return aux.getCantidadRecurso();
