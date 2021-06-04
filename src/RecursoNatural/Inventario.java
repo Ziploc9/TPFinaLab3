@@ -57,4 +57,13 @@ public class Inventario {
         }
 
     }
+
+    public int buscarEnInventario(Recurso x){
+        for (Recurso aux:this.recursos) {
+            if (aux.getNombre().equals(x.getNombre())) {
+                return aux.getCantidadRecurso();
+            }
+        }
+        return 0;
+    }
 }
