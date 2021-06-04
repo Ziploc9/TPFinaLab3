@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.Scanner;
 
 public class Main {
@@ -28,6 +29,20 @@ public class Main {
         System.out.println("5- Ir a pescar");
         System.out.println("7- menu principal");
     }
+
+    public static void menuJuegoNocheA(){
+        System.out.println("\n1- Entrar a la Casa");
+        System.out.println("\n1- Buscar Mounstro");
+    }
+
+    public static void menuJuegoNocheC(){
+        System.out.println("\n1- Salir de la Casa");
+        System.out.println("\n2- Dormir");
+        System.out.println("\n3- Mejorar Instrumento");
+        System.out.println("\n4- Crear Instrumento");
+    }
+
+
 
     /**------- Switch inicia el menu principal del juego----*/
 
@@ -145,8 +160,21 @@ public class Main {
 
     /**-----Modo juego noche------**/
     public static void juego_deNoche(){
+        int option =0, contadorNoche=0;
+        Scanner scan = new Scanner(System.in);
 
-    }
+
+        while (option != 999) {
+            menuJuegoNocheA();
+            System.out.print("Elijes: ");
+            option = scan.nextInt();
+            switch (option) {
+
+                return contadorNoche;
+
+
+            }
+        }
 
 }
 
