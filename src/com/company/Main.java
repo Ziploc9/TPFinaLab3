@@ -1,13 +1,17 @@
 package com.company;
 import Personaje.Personaje;
 import RecursoNatural.Recurso;
+<<<<<<< HEAD
 import java.util.Random;
 
+=======
+>>>>>>> maintest
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+
 
         correrjuego();
     }
