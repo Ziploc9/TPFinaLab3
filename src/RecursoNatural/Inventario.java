@@ -55,6 +55,7 @@ public class Inventario {
                 i++;
             }
         }
+
     }
 
     public void buscarEnInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
