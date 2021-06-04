@@ -2,12 +2,12 @@ package com.company;
 import Personaje.Personaje;
 import RecursoNatural.Recurso;
 import java.util.Random;
-
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+
 
         correrjuego();
     }

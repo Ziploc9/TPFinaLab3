@@ -1,4 +1,5 @@
 package RecursoNatural;
+import RecursoNatural.Recurso;
 
 public class Recurso extends TipoRecurso {
     private int resistencia;
