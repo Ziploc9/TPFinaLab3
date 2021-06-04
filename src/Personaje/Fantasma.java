@@ -22,6 +22,7 @@ public class Fantasma extends Personaje{
         }
         else{
             System.out.println("El fantasma no logro entrar a la casa. Pero logro causar algunos daños");
+            if(inv.soltarRecurso())
 
 
         }
