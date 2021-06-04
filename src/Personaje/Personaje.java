@@ -17,10 +17,7 @@ public class Personaje {
         this.velocidad = velocidad;
         this.armaEnMano = armaEnMano;
     }
-
-    public Personaje(){
-
-    }
+    public Personaje(){}
 
     //region [Getters y Setters]
 
@@ -72,6 +69,7 @@ public class Personaje {
 
     //region [Metodos]
 
+
     public static void caminar(String lugar){
         System.out.println("Estas caminando hacia "+lugar);
     }
@@ -79,5 +77,18 @@ public class Personaje {
     public static void abrircasa(){
 
     }
+
+    public static void comer(){
+
+    }
+
+    public static void equipar(){
+    }
+
+    public static void desequipar(){
+
+    }
     //endregion
 }
+
+
