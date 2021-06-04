@@ -69,6 +69,7 @@ public class Personaje {
 
     //region [Metodos]
 
+
     public static void caminar(String lugar){
         System.out.println("Estas caminando hacia "+lugar);
     }

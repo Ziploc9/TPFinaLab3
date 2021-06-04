@@ -136,7 +136,6 @@ public class Recurso extends TipoRecurso {
         return acumladorRecurso;
     }
 
-
     public void reiniciarRecurso(){
         if(getCantidadRecurso()<=0) {
             if ("peces".equals(getNombre())) {
@@ -150,7 +149,6 @@ public class Recurso extends TipoRecurso {
             }
         }
     }
-
 
     public int explotarRecurso(){
         int recu = 1;

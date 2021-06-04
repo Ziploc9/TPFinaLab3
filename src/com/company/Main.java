@@ -1,12 +1,9 @@
 package com.company;
 import Personaje.Personaje;
-import RecursoNatural.Inventario;
 import RecursoNatural.Recurso;
 import java.util.Random;
 
 import java.util.Scanner;
-
-import static java.awt.SystemColor.*;
 
 public class Main {
 
@@ -24,11 +21,11 @@ public class Main {
     //region [Menus]
 
     public static void menuStart() {
-        System.out.println("\n1- Iniciar juego");
-        System.out.println("2- Controles");
-        System.out.println("3- Guardar partida");
-        System.out.println("4- Creditos");
-        System.out.println("5- Salir juego\n");
+        System.out.println("-> 1- Iniciar juego");
+        System.out.println("-> 2- Controles");
+        System.out.println("-> 3- Guardar partida");
+        System.out.println("-> 4- Creditos");
+        System.out.println("-> 5- Salir juego\n");
     }
 
     public static void controles() {
@@ -36,12 +33,12 @@ public class Main {
     }
 
     public static void menuJuego() {
-        System.out.println("\n1- Ir por madera.");
-        System.out.println("2- Ir por piedra.");
-        System.out.println("3- Ir a la huerta");
-        System.out.println("4- Ir a pescar");
-        System.out.println("5- Caminar por el lugar");
-        System.out.println("6- Estirar");
+        System.out.println("-> 1- Ir por madera.");
+        System.out.println("-> 2- Ir por piedra.");
+        System.out.println("-> 3- Ir a la huerta");
+        System.out.println("-> 4- Ir a pescar");
+        System.out.println("-> 5- Caminar por el lugar");
+        System.out.println("-> 6- Estirar\n");
     }
 
     public static void intro(Scanner scan) {
@@ -55,16 +52,14 @@ public class Main {
         efectoTipoGrafia("*El anonimo colgo*");
         pausa();
         efectoTipoGrafia("-Buuu..eno ¿Ahora que hago despierto a esta hora?..Me siento raro..como si alguien me observara o me controlara..Meh..debe ser la manaos y los memes de linux.");
-        efectoTipoGrafia("*Sales de la casa, el sol te da plenamente*");
+        efectoTipoGrafia("*Sales de la casa, el sol te da plenamente*\n");
     }
 
     public static void pausa(){
         String seguir;
         Scanner scan = new Scanner(System.in);
-        try {
-            seguir = scan.nextLine();
-        } catch (Exception e) {
-        }
+        seguir = scan.nextLine();
+
     }
 
     public static void LimpiarConsola(){
@@ -76,7 +71,7 @@ public class Main {
     public static void efectoTipoGrafia(String message) {
         if (message == null)
             return;
-        StringBuilder backspaceBuilder = new StringBuilder();
+        StringBuilder espaciado = new StringBuilder();
         for (int i = 0 ;  i < message.length() ; i++) {
             String sub = message.substring(0, i + 1);
             try {
@@ -84,38 +79,38 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.print(backspaceBuilder.toString() + sub);
-            backspaceBuilder.append('\b');
+            System.out.print(espaciado.toString() + sub);
+            espaciado.append('\b');
         }
         System.out.println();
     }
 
     public static void menuMadera(){
-        System.out.println("\n1- Observar.");
-        System.out.println("2- Talar");
-        System.out.println("3- Guardar Madera");
-        System.out.println("4- Dejar de talar");
+        System.out.println("-> 1- Observar.");
+        System.out.println("-> 2- Talar");
+        System.out.println("-> 3- Guardar Madera");
+        System.out.println("-> 4- Dejar de talar\n");
     }
 
     public static void menuPiedra(){
-        System.out.println("\n1- Observar.");
-        System.out.println("2- Picar");
-        System.out.println("3- Guardar piedra");
-        System.out.println("4- Dejar la mineria");
+        System.out.println("-> 1- Observar.");
+        System.out.println("-> 2- Picar");
+        System.out.println("-> 3- Guardar piedra");
+        System.out.println("-> 4- Dejar la mineria\n");
     }
 
     public static void menuPeces(){
-        System.out.println("\n1- Observar.");
-        System.out.println("2- Pescar");
-        System.out.println("3- Guardar Pescado");
-        System.out.println("4- Dejar la pesca");
+        System.out.println("-> 1- Observar.");
+        System.out.println("-> 2- Pescar");
+        System.out.println("-> 3- Guardar Pescado");
+        System.out.println("-> 4- Dejar la pesca\n");
     }
 
     public static void menuFrutos(){
-        System.out.println("\n1- Observar.");
-        System.out.println("2- Recolectar frutos");
-        System.out.println("3- Guardar frutos");
-        System.out.println("4- Dejar la huerta");
+        System.out.println("-> 1- Observar.");
+        System.out.println("-> 2- Recolectar frutos");
+        System.out.println("-> 3- Guardar frutos");
+        System.out.println("-> 4- Dejar la huerta\n");
     }
     //endregion
 
@@ -170,6 +165,10 @@ public class Main {
         int option = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\nBienvenido a la Comarca");
+        Recurso peces = new Recurso("peces", 10,true,8,10,9);
+        Recurso frutos = new Recurso("frutos",5, true,5,7,20);
+        Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
+        Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
 
         while (option != 11199207){
 
@@ -187,7 +186,7 @@ public class Main {
                     intro(scan);
                     pausa();
                     LimpiarConsola();
-                    juego_deDia(personaje);
+                    juego_deDia(personaje,madera,piedra,frutos,peces);
                     break;
 
                 case 2:
@@ -226,15 +225,10 @@ public class Main {
 
     /**---------Modo juego de dia--------------*/
 
-    public static int juego_deDia(Personaje personaje) {
+    public static int juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces) {
         int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
         Scanner scan = new Scanner(System.in);
         Random numeroRandom = new Random();
-        Inventario inventario = new Inventario();
-        Recurso peces = new Recurso("peces", 10,true,8,10,9);
-        Recurso frutos = new Recurso("frutos",5, true,5,7,20);
-        Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
-        Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
 
           while (option != 9212) {
               efectoTipoGrafia("¿Que quieres hacer ahora?");
@@ -279,8 +273,9 @@ public class Main {
                                   break;
 
                               case 3:
+
                                   if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(madera,acumuladorRecurso);
+                                      //*** agregar inventario****
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -334,7 +329,7 @@ public class Main {
 
                               case 3:
                                   if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(piedra,acumuladorRecurso);
+                                     //**** guardar inventario ****
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -387,7 +382,7 @@ public class Main {
 
                               case 3:
                                   if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(frutos,acumuladorRecurso);
+                                      //****guardar inventario*****
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -440,7 +435,7 @@ public class Main {
 
                               case 3:
                                   if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(peces,acumuladorRecurso);
+                                      //****guardar inventario****
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
