@@ -1,4 +1,5 @@
 package com.company;
+import Inventario.Inventario;
 import Personaje.Personaje;
 import RecursoNatural.Recurso;
 import java.util.Random;
@@ -7,15 +8,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-
         correrjuego();
     }
-
-        /**
-         * Terminar los recursos naturales
-         * mejorar el contador para cambiar horaria a la noche
-         * */
 
         /**--------Menus de juego ----------------*/
     //region [Menus]
@@ -89,28 +83,32 @@ public class Main {
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Talar");
         System.out.println("-> 3- Guardar Madera");
-        System.out.println("-> 4- Dejar de talar\n");
+        System.out.println("-> 4- Ver Inventario");
+        System.out.println("-> 5- Dejar de talar\n");
     }
 
     public static void menuPiedra(){
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Picar");
         System.out.println("-> 3- Guardar piedra");
-        System.out.println("-> 4- Dejar la mineria\n");
+        System.out.println("-> 4- Ver Inventario");
+        System.out.println("-> 5- Dejar la mineria\n");
     }
 
     public static void menuPeces(){
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Pescar");
         System.out.println("-> 3- Guardar Pescado");
-        System.out.println("-> 4- Dejar la pesca\n");
+        System.out.println("-> 4- Ver Inventario");
+        System.out.println("-> 5- Dejar la pesca\n");
     }
 
     public static void menuFrutos(){
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Recolectar frutos");
         System.out.println("-> 3- Guardar frutos");
-        System.out.println("-> 4- Dejar la huerta\n");
+        System.out.println("-> 4- Ver Inventario");
+        System.out.println("-> 5- Dejar la huerta\n");
     }
     //endregion
 
@@ -118,7 +116,7 @@ public class Main {
 
     //region [Crear Personaje]
     public static void crearPersonaje(Personaje personaje){
-        personaje = new Personaje("Devian",200,10,10,10,true);
+        personaje = new Personaje("Devian",200,10,10,10,false);
         nombrePersonaje(personaje);
 
     }
@@ -130,7 +128,7 @@ public class Main {
         efectoTipoGrafia("Sincronizando estimulos y vista del personaje..");
         efectoTipoGrafia("Sistema cargado, pulse enter");
         pausa();
-        efectoTipoGrafia("Hola..Mi nombre es Simba y sere tu guia.. ");
+        efectoTipoGrafia("Hola..Mi nombre es Chaldu y sere tu guia ch ch ch.. ");
         efectoTipoGrafia("Primero dime el nombre que quieres que tu personaje tenga.. si no eliges tendre que hacerlo por ti.");
         efectoTipoGrafia("¿Quieres colocarle un nombre a tu personaje? (Y/N)");
         confirm=scan.nextLine();
@@ -140,8 +138,10 @@ public class Main {
             personaje.setNombre(nom);
         }else if("n".equals(confirm) || "N".equals(confirm)){
             efectoTipoGrafia("Se te asignara un nombre aguarda un instante..");
+            personaje.setNombre("Guido");
         } else{
             efectoTipoGrafia("Error en confirmacion..se auto seteara un nombre..disfruta la experiencia y recuerda es un juego.");
+
         }
         System.out.println("----------------------------------");
         efectoTipoGrafia("Nombre: "+ personaje.getNombre());
@@ -169,7 +169,7 @@ public class Main {
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
         Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
-
+        Inventario inventario = new Inventario();
         while (option != 11199207){
 
             menuStart();
@@ -186,7 +186,7 @@ public class Main {
                     intro(scan);
                     pausa();
                     LimpiarConsola();
-                    juego_deDia(personaje,madera,piedra,frutos,peces);
+                    juego_deDia(personaje,madera,piedra,frutos,peces,inventario);
                     break;
 
                 case 2:
@@ -225,11 +225,10 @@ public class Main {
 
     /**---------Modo juego de dia--------------*/
 
-    public static int juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces) {
+    public static int juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces,Inventario inventario) {
         int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
         Scanner scan = new Scanner(System.in);
         Random numeroRandom = new Random();
-
           while (option != 9212) {
               efectoTipoGrafia("¿Que quieres hacer ahora?");
               menuJuego();
@@ -273,9 +272,9 @@ public class Main {
                                   break;
 
                               case 3:
-
+                                        acumuladorRecurso = 1; //Sacar, se uso solo para testear
                                   if(acumuladorRecurso > 0){
-                                      //*** agregar inventario****
+                                        inventario.agregarAlInventario(madera,acumuladorRecurso);
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -283,6 +282,10 @@ public class Main {
                                   break;
 
                               case 4:
+                                  inventario.verInventario();
+                                  break;
+
+                              case 5:
                                         optionRecurso = 9124;
                                   break;
                               default:
@@ -329,13 +332,17 @@ public class Main {
 
                               case 3:
                                   if(acumuladorRecurso > 0){
-                                     //**** guardar inventario ****
+                                      inventario.agregarAlInventario(piedra,acumuladorRecurso);
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
                                   break;
 
                               case 4:
+                                  inventario.verInventario();
+                                  break;
+
+                              case 5:
                                   optionRecurso = 9124;
                                   break;
                               default:
@@ -382,13 +389,16 @@ public class Main {
 
                               case 3:
                                   if(acumuladorRecurso > 0){
-                                      //****guardar inventario*****
+                                      inventario.agregarAlInventario(frutos,acumuladorRecurso);
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
                                   break;
 
                               case 4:
+                                  inventario.verInventario();
+                                  break;
+                              case 5:
                                   optionRecurso = 9124;
                                   break;
                               default:
@@ -435,13 +445,16 @@ public class Main {
 
                               case 3:
                                   if(acumuladorRecurso > 0){
-                                      //****guardar inventario****
+                                      inventario.agregarAlInventario(peces,acumuladorRecurso);
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
                                   break;
 
                               case 4:
+                                  inventario.verInventario();
+                                  break;
+                              case 5:
                                   optionRecurso = 9124;
                                   break;
                               default:
