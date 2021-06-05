@@ -1,12 +1,14 @@
 package com.company.Herramientas;
 
-public class Instrumentos {
+import javax.sound.midi.Instrument;
+
+public class Instrumento {
     private int daño;
     private int durabilidad;
     private int resistencia;
     private String nombre;
 
-    public Instrumentos(int daño, int durabilidad, int resistencia, String nombre) {
+    public Instrumento(int daño, int durabilidad, int resistencia, String nombre) {
         this.daño = daño;
         this.durabilidad = durabilidad;
         this.resistencia = resistencia;
@@ -61,8 +63,8 @@ public class Instrumentos {
             this.setDurabilidad(durabilidad--);
     }
 
-    public void crearInstrumento(){
-
+    public Instrumento crearInstrumento(){
+        return
     }
 
 

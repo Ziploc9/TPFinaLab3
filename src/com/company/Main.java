@@ -42,6 +42,16 @@ public class Main {
         System.out.println("\n4- Crear Instrumento");
     }
 
+    public static void menuInstrumento(){
+        System.out.println("\n1- Azada");
+        System.out.println("\n2- Cania de Pescar");
+        System.out.println("\n3- Escudo");
+        System.out.println("\n4- Espada");
+        System.out.println("\n5- Hacha");
+        System.out.println("\n6- Pico");
+
+    }
+
 
 
     /**------- Switch inicia el menu principal del juego----*/
@@ -159,22 +169,72 @@ public class Main {
     }
 
     /**-----Modo juego noche------**/
-    public static void juego_deNoche(){
-        int option =0, contadorNoche=0;
+    public static void juego_deNoche() {
+        int option = 0, contadorNoche = 0;
         Scanner scan = new Scanner(System.in);
-
 
         while (option != 999) {
             menuJuegoNocheA();
             System.out.print("Elijes: ");
             option = scan.nextInt();
             switch (option) {
+                case 1://Entrar a la casa
+                    System.out.println("");
+                    System.out.println("\n1- Entrar a la Casa");
+                    System.out.println("\n1- Entrar a la Casa");
+
+                    break;
+
+                case 2://Buscar Mounstro
+
+                    break;
 
                 return contadorNoche;
 
 
             }
         }
+    }
+
+
+    public static void juegoCasa(){
+        int option = 0;
+        Scanner scan = new Scanner(System.in);
+
+        while (option != 999){
+            switch (option){
+                case 1: //Salir de la casa
+
+                    break;
+
+                case 2: //Dormir
+
+                    break;
+
+                case 3: //Mejorar Instrumento
+
+                    break;
+
+                case 4: //Crear Instrumento
+
+                    break;
+            }
+        }
+    }
+
+    public static void menuMejorar(){
+        int option = 0;
+        Scanner scan = new Scanner(System.in);
+
+        menuInstrumento();
+        System.out.println("Elijes: ");
+        option = scan.nextInt();
+        switch (option){
+
+        }
+
+
+    }
 
 }
 
