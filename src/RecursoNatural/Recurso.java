@@ -138,6 +138,8 @@ public class Recurso extends TipoRecurso {
     }
 
     public void reiniciarRecurso(){
+
+
         if(getCantidadRecurso()<=0) {
             if ("peces".equals(getNombre())) {
                 setCantidadRecurso(9);
