@@ -11,28 +11,39 @@ public class Inventario {
 
     public void agregarAlInventario(Recurso x, int cantidadAgregar){
         int i=0;
+        boolean noExisteTodavia=true;
         if(this.cantRecursosActuales == 0) {
             recursos[0] = x;
-            recursos[0].setCantidadRecurso(recursos[0].getCantidadRecurso() + cantidadAgregar);
+            recursos[0].setCantidadRecurso(cantidadAgregar);
             peso = peso + cantidadAgregar;
             this.cantRecursosActuales++;
         }
         else{
             for (TipoRecurso aux:this.recursos) {
                 if (aux.getNombre().equals(x.getNombre())) {
-                    if (peso + cantidadAgregar < 30) {
-                        recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregar);
-                        this.peso = this.peso + cantidadAgregar;
-                    }
-                    else {
-                        int exceso = peso + cantidadAgregar - 30;
-                        int cantidadAgregarNueva = cantidadAgregar - exceso;
-                        recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregarNueva);
-                        System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!");
-                    }
+                    noExisteTodavia = false;
+                    checkearPeso(cantidadAgregar,i);
                 }
                 i++;
             }
+            if(noExisteTodavia){
+                recursos[cantRecursosActuales] = x;
+                checkearPeso(cantidadAgregar,cantRecursosActuales);
+                this.cantRecursosActuales++;
+                }
+        }
+    }
+
+    public void checkearPeso(int cantidadAgregar, int i){
+        if (peso + cantidadAgregar < 30) {
+            recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregar);
+            this.peso = this.peso + cantidadAgregar;
+        }
+        else {
+            int exceso = peso + cantidadAgregar - 30;
+            int cantidadAgregarNueva = cantidadAgregar - exceso;
+            recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregarNueva);
+            System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!");
         }
     }
 
