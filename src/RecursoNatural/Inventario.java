@@ -15,6 +15,7 @@ public class Inventario {
             recursos[0] = x;
             recursos[0].setCantidadRecurso(recursos[0].getCantidadRecurso() + cantidadAgregar);
             peso = peso + cantidadAgregar;
+            this.cantRecursosActuales++;
         }
         else{
             for (TipoRecurso aux:this.recursos) {
