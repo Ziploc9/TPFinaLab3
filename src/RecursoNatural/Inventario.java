@@ -3,34 +3,28 @@ package RecursoNatural;
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
     private int peso;
-    private int cantRecursosActuales=0;
+    private int cantRecursosActuales;
 
 
-    public Inventario(){
+    public Inventario(Recurso madera, Recurso piedra, Recurso frutos, Recurso peces){
+        this.peso=0;
+        this.recursos[0] = madera;
+        this.recursos[1] = piedra;
+        this.recursos[2] = frutos;
+        this.recursos[3] = peces;
+        recursos[0].setCantidadRecurso(0);
+        recursos[1].setCantidadRecurso(0);
+        recursos[2].setCantidadRecurso(0);
+        recursos[3].setCantidadRecurso(0);
     }
 
     public void agregarAlInventario(Recurso x, int cantidadAgregar){
         int i=0;
-        boolean noExisteTodavia=true;
-        if(this.cantRecursosActuales == 0) {
-            recursos[0] = x;
-            recursos[0].setCantidadRecurso(cantidadAgregar);
-            peso = peso + cantidadAgregar;
-            this.cantRecursosActuales++;
-        }
-        else{
-            for (TipoRecurso aux:this.recursos) {
-                if (aux.getNombre().equals(x.getNombre())) {
-                    noExisteTodavia = false;
-                    checkearPeso(cantidadAgregar,i);
-                }
-                i++;
+        for (TipoRecurso aux : recursos){
+            if (aux.getNombre().equals(x.getNombre())){
+                checkearPeso(cantidadAgregar,i);
             }
-            if(noExisteTodavia){
-                recursos[cantRecursosActuales] = x;
-                checkearPeso(cantidadAgregar,cantRecursosActuales);
-                this.cantRecursosActuales++;
-                }
+            i++;
         }
     }
 

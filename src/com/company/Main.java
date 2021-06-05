@@ -120,11 +120,11 @@ public class Main {
     public static int juego_deDia() {
         int option =0, contadorDia=0;
         Scanner scan = new Scanner(System.in);
-        Inventario inv = new Inventario();
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", true, 15, 20, 30);
         Recurso madera = new Recurso("madera",  true,10, 20, 25);
+        Inventario inv = new Inventario(peces,frutos,piedra,madera);
 
             menuJuego();
             System.out.print("Elijes: ");
