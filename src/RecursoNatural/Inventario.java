@@ -18,11 +18,15 @@ public class Inventario {
         else{
             for (TipoRecurso aux:this.recursos) {
                 if (aux.getNombre().equals(x.getNombre())) {
-                    if (peso < 30) {
+                    if (peso + cantidadAgregar < 30) {
                         recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregar);
                         this.peso = this.peso + cantidadAgregar;
-                    } else {
-                        System.out.println("Llevas demasiado peso!");
+                    }
+                    else {
+                        int exceso = peso + cantidadAgregar - 30;
+                        int cantidadAgregarNueva = cantidadAgregar - exceso;
+                        recursos[i].setCantidadRecurso(recursos[i].getCantidadRecurso() + cantidadAgregarNueva);
+                        System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!");
                     }
                 }
                 i++;
