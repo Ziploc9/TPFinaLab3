@@ -45,22 +45,23 @@ public class Instrumentos {
         this.nombre = nombre;
     }
 
-    public void mejorarObjeto() {
-        // coprobar si tienen los items en el inventario. (Caña = madera, espada = piedra, Hacha/Pico/Azada = madera+piedra, Escudo = madera, a  }
-        if (/*tenes los objetos en el inventario*/){
-            setDaño(this.daño+10);
+    public void mejorarInstrumento() {
+        if (buscarEnInventario()>2){
+            soltarRecurso(madera,2);
+            this.setDaño(this.daño+10);
+            System.out.format("Mejoraste tu %s, ahora tiene %i de daño", this.getNombre(), this.getDaño());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
     }
 
-    public void romperObjeto(){
+    public void romperInstrumento(){
         int durabilidad = this.getDurabilidad();
         if(durabilidad > 0)
             this.setDurabilidad(durabilidad--);
     }
 
-    public void crearObjeto(){
+    public void crearInstrumento(){
 
     }
 
