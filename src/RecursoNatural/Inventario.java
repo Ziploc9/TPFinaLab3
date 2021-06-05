@@ -1,7 +1,7 @@
 package RecursoNatural;
 
 public class Inventario {
-    private Recurso recursos[];
+    private Recurso recursos[] = new Recurso[4];
     private int peso;
     private int cantRecursosActuales=0;
 
