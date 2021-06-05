@@ -31,9 +31,17 @@ public class Inventario {
     }
 
     public void verInventario(){
-        for (Recurso aux:this.recursos){
-            System.out.println("*" + aux.getNombre() + " (" + aux.getCantidadRecurso() + ")");
+        if(this.cantRecursosActuales == 0) {
+            System.out.println("El inventario esta vacio!");
         }
+        else{
+            for (Recurso aux:this.recursos){
+                System.out.println("*" + aux.getNombre() + " (" + aux.getCantidadRecurso() + ")");
+            }
+        }
+
+
+
     }
 
     public void soltarRecurso(String nombre, int cantidadTirar){
@@ -58,13 +66,21 @@ public class Inventario {
 
     }
 
-    public void buscarEnInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
+    public boolean usarDelInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
         for (Recurso aux:this.recursos) {
             if (aux.getNombre().equals(nombre)) {
                 if((aux.getCantidadRecurso() - cantidad) > 0){
                     aux.setCantidadRecurso(aux.getCantidadRecurso() - cantidad);
+                    return true;
+                }
+                else{
+                    return false;
                 }
             }
+            else{
+                return false;
+            }
         }
+        return false;
     }
 }
