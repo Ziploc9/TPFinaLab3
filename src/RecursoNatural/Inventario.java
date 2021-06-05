@@ -39,9 +39,6 @@ public class Inventario {
                 System.out.println("*" + aux.getNombre() + " (" + aux.getCantidadRecurso() + ")");
             }
         }
-
-
-
     }
 
     public void soltarRecurso(String nombre, int cantidadTirar){
