@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Herramientas.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -169,7 +171,7 @@ public class Main {
     }
 
     /**-----Modo juego noche------**/
-    public static void juego_deNoche() {
+    public static void juego_deNoche(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico) {
         int option = 0, contadorNoche = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -197,7 +199,7 @@ public class Main {
     }
 
 
-    public static void juegoCasa(){
+    public static void juegoCasa(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
         int option = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -213,28 +215,172 @@ public class Main {
 
                 case 3: //Mejorar Instrumento
 
+                    menuMejorar(azada, cania, escudo, espada, hacha, pico);
+
                     break;
 
                 case 4: //Crear Instrumento
+
+
 
                     break;
             }
         }
     }
 
-    public static void menuMejorar(){
+    public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
         int option = 0;
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("Elije la herramienta a mejorar: ");
         menuInstrumento();
         System.out.println("Elijes: ");
         option = scan.nextInt();
         switch (option){
 
+            case 1://Azada
+
+                System.out.println("Vamos a mejorar tu Azada");
+                System.out.println("Condicion actual: ");
+                azada.mostrarInstrumento();
+                azada.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                azada.mostrarInstrumento();
+
+                break;
+
+            case 2://CaniaDePescar
+
+                System.out.println("Vamos a mejorar tu Cania de Pescar...");
+                System.out.println("Condicion actual: ");
+                cania.mostrarInstrumento();
+                cania.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                cania.mostrarInstrumento();
+
+                break;
+
+            case 3://Escudo
+
+                System.out.println("Vamos a mejorar tu Escudo");
+                System.out.println("Condicion actual: ");
+                escudo.mostrarInstrumento();
+                escudo.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                escudo.mostrarInstrumento();
+
+                break;
+
+            case 4://Espada
+
+                System.out.println("Vamos a mejorar tu Espada");
+                System.out.println("Condicion actual: ");
+                espada.mostrarInstrumento();
+                espada.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                espada.mostrarInstrumento();
+
+                break;
+            case 5://Hacha
+
+                System.out.println("Vamos a mejorar tu Hacha");
+                System.out.println("Condicion actual: ");
+                hacha.mostrarInstrumento();
+                hacha.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                hacha.mostrarInstrumento();
+
+                break;
+
+            case 6://Pico
+
+                System.out.println("Vamos a mejorar tu Pico");
+                System.out.println("Condicion actual: ");
+                pico.mostrarInstrumento();
+                pico.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                pico.mostrarInstrumento();
+
+                break;
         }
 
 
     }
 
+    public static void menuCrear(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+        int option = 0;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Elije la herramienta a Crear: ");
+        menuInstrumento();
+        System.out.println("Elijes: ");
+        option = scan.nextInt();
+        switch (option){
+
+            case 1://Azada
+
+                System.out.println("Vamos a crear tu Azada");
+                System.out.println("Condicion actual: ");
+
+
+                break;
+
+            case 2://CaniaDePescar
+
+                System.out.println("Vamos a mejorar tu Cania de Pescar...");
+                System.out.println("Condicion actual: ");
+                cania.mostrarInstrumento();
+                cania.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                cania.mostrarInstrumento();
+
+                break;
+
+            case 3://Escudo
+
+                System.out.println("Vamos a mejorar tu Escudo");
+                System.out.println("Condicion actual: ");
+                escudo.mostrarInstrumento();
+                escudo.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                escudo.mostrarInstrumento();
+
+                break;
+
+            case 4://Espada
+
+                System.out.println("Vamos a mejorar tu Espada");
+                System.out.println("Condicion actual: ");
+                espada.mostrarInstrumento();
+                espada.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                espada.mostrarInstrumento();
+
+                break;
+            case 5://Hacha
+
+                System.out.println("Vamos a mejorar tu Hacha");
+                System.out.println("Condicion actual: ");
+                hacha.mostrarInstrumento();
+                hacha.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                hacha.mostrarInstrumento();
+
+                break;
+
+            case 6://Pico
+
+                System.out.println("Vamos a mejorar tu Pico");
+                System.out.println("Condicion actual: ");
+                pico.mostrarInstrumento();
+                pico.mejorarInstrumento();
+                System.out.println("Condicion despues de ser mejorada: ");
+                pico.mostrarInstrumento();
+
+                break;
+        }
+
+
+    }
 }
 

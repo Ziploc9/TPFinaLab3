@@ -11,7 +11,7 @@ public class Pico extends Instrumento {
             soltarRecurso(madera,2);
             soltarRcurso(piedra,2);
             this.setDaño(this.daño+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %i de daño", this.getNombre(), this.getDaño());
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
@@ -19,5 +19,11 @@ public class Pico extends Instrumento {
 
     public void minar(){
 
+    }
+
+
+    @Override
+    public void mostrarInstrumento(){
+        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDaño(), this.getDurabilidad(), this.getResistencia());
     }
 }

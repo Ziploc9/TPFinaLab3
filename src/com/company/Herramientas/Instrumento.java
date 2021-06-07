@@ -1,26 +1,35 @@
 package com.company.Herramientas;
 
-import javax.sound.midi.Instrument;
-
 public class Instrumento {
-    private int daño;
+    private int danio;
     private int durabilidad;
     private int resistencia;
     private String nombre;
 
-    public Instrumento(int daño, int durabilidad, int resistencia, String nombre) {
-        this.daño = daño;
+    public Instrumento(int danio, int durabilidad, int resistencia, String nombre) {
+        this.danio = danio;
         this.durabilidad = durabilidad;
         this.resistencia = resistencia;
         this.nombre = nombre;
     }
 
-    public int getDaño() {
-        return daño;
+    public enum Instrumentonombre {
+        AZADA,
+        CANIADEPESCAR,
+        ESCUDO,
+        ESPADA,
+        HACHA,
+        PICO;
     }
 
-    public void setDaño(int daño) {
-        this.daño = daño;
+
+
+    public int getDaño() {
+        return danio;
+    }
+
+    public void setDaño(int danio) {
+        this.danio = danio;
     }
 
     public int getDurabilidad() {
@@ -47,11 +56,15 @@ public class Instrumento {
         this.nombre = nombre;
     }
 
+    public void mostrarInstrumento(){
+        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDaño(), this.getDurabilidad(), this.getResistencia());
+    }
+
     public void mejorarInstrumento() {
         if (buscarEnInventario()>2){
             soltarRecurso(madera,2);
-            this.setDaño(this.daño+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %i de daño", this.getNombre(), this.getDaño());
+            this.setDaño(this.danio+10);
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
@@ -64,7 +77,8 @@ public class Instrumento {
     }
 
     public Instrumento crearInstrumento(){
-        return
+        Instrumento aux = new Instrumento(5,5,5,Instrumentonombre.PICO.name());
+        return aux;
     }
 
 
