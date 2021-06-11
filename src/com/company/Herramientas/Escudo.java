@@ -16,11 +16,7 @@ public class Escudo extends Instrumento {
         }
     }
 
-    @Override
-    public Instrumento crearInstrumento(){
-        Instrumento aux = new Instrumento(5,5,5,Instrumentonombre.ESCUDO.name());
-        return aux;
-    }
+
 
     @Override
     public void mostrarInstrumento(){

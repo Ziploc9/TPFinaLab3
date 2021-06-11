@@ -41,7 +41,7 @@ public class Main {
         System.out.println("\n1- Salir de la Casa");
         System.out.println("\n2- Dormir");
         System.out.println("\n3- Mejorar Instrumento");
-        System.out.println("\n4- Crear Instrumento");
+
     }
 
     public static void menuInstrumento(){
@@ -206,11 +206,11 @@ public class Main {
         while (option != 999){
             switch (option){
                 case 1: //Salir de la casa
-
+                    System.out.println("Usted esta saliendo de la casa");
                     break;
 
                 case 2: //Dormir
-
+                    // hacer transcurrir el tiempo hasta que se haga de dia
                     break;
 
                 case 3: //Mejorar Instrumento
@@ -219,16 +219,24 @@ public class Main {
 
                     break;
 
-                case 4: //Crear Instrumento
 
 
 
-                    break;
             }
         }
     }
 
     public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+
+        /*Azada azada = new Azada(10,20,25,"Azada Inicial");
+        CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania Inicial");
+        Escudo escudo = new Escudo(0,20,50,"Escudo Inical");
+        Espada espada = new Espada(25,25,15,"Esoada Inicial");
+        Hacha hacha = new Hacha(20,20,15,"Hacha Inicial");
+        Pico pico = new Pico(10,20,15,"Pico Inical");*/
+
+        Recurso peces = new Recurso("peces", 10,true,8,10,9);
+
         int option = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -307,7 +315,7 @@ public class Main {
 
     }
 
-    public static void menuCrear(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+    /*public static void menuCrear(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
         int option = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -381,6 +389,6 @@ public class Main {
         }
 
 
-    }
+    }*/
 }
 

@@ -23,9 +23,7 @@ public class Hacha extends Instrumento implements  Armas{
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDaño(), this.getDurabilidad(), this.getResistencia());
     }
 
-    public void minar(){
 
-    }
 
 
 }
