@@ -1,4 +1,5 @@
 package Personaje;
+import Herramientas.Instrumento;
 
 public class Personaje {
 
@@ -7,17 +8,25 @@ public class Personaje {
     private int damage;
     private int resistencia;
     private float velocidad;
-    private boolean armaEnMano = false;
+    private Instrumento enMano;
 
-    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad, boolean armaEnMano){
+    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad, Instrumento enMano){
         this.nombre = nombre;
         this.vida = vida;
         this.damage = damage;
         this.resistencia = resistencia;
         this.velocidad = velocidad;
-        this.armaEnMano = armaEnMano;
+        this.enMano = enMano;
     }
-    public Personaje(){}
+
+    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad){
+
+        this.nombre = nombre;
+        this.vida = vida;
+        this.damage = damage;
+        this.resistencia = resistencia;
+        this.velocidad = velocidad;
+    }
 
     //region [Getters y Setters]
 
@@ -61,13 +70,11 @@ public class Personaje {
         this.velocidad = velocidad;
     }
 
-    public boolean getArmaenMano(){return armaEnMano;}
-
-    public void setArmaEnMano(boolean armaenmano){this.armaEnMano = armaenmano;}
 
     //endregion
 
     //region [Metodos]
+
 
 
     public static void caminar(String lugar){
@@ -75,7 +82,7 @@ public class Personaje {
     }
 
     public static void abrircasa(){
-
+        System.out.println("Abriste la casa");
     }
 
     public static void comer(){

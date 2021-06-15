@@ -9,13 +9,7 @@ public class Azada extends Instrumento {
 
     @Override
     public void mejorarInstrumento(){
-        if (buscarEnInventario()>2){
-            soltarRecurso(madera,2);
-            this.setDaño(this.getDaño()+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
-        }else{
-            System.out.println("No tenes los objetos necesarios");
-        }
+
     }
 
     @Override

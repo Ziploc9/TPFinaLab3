@@ -42,14 +42,10 @@ public class Inventario {
         }
     }
 
-    public void verInventario(){
-        if(this.cantRecursosActuales == 0) {
-            System.out.println("El inventario esta vacio!");
-        }
-        else{
-            for (Recurso aux:this.recursos){
-                System.out.println("*" + aux.getNombre() + " (" + aux.getCantidadRecurso() + ")");
-            }
+    public void verInventario() {
+
+        for (Recurso aux : this.recursos) {
+            System.out.println("*" + aux.getNombre() + " (" + aux.getCantidadRecurso() + ")");
         }
     }
 

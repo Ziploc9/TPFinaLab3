@@ -4,14 +4,13 @@ import Inventario.*;
 
 public class Fantasma extends Personaje {
 
-    public Fantasma(String nombre, int vida, int danio, int resistencia, float velocidad, boolean armaEnMano) {
-        super(nombre, vida, danio, resistencia, velocidad, armaEnMano);
-        nombre = "elmalo";
+    public Fantasma(String nombre, int vida, int danio, int resistencia, float velocidad) {
+        super(nombre, vida, danio, resistencia, velocidad);
+        nombre = "CHALM";
         vida = 120;
         danio = 20;
         resistencia = 50;
         velocidad = 5;
-        armaEnMano = false;
     }
 
     public boolean casaAbierta() {

@@ -8,13 +8,7 @@ public class Hacha extends Instrumento implements  Armas{
 
     @Override
     public void mejorarInstrumento(){
-        if (buscarEnInventario()== true){
-            soltarRecurso(madera,2);
-            this.setDaño(this.daño+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
-        }else{
-            System.out.println("No tenes los objetos necesarios");
-        }
+
     }
 
 
@@ -24,6 +18,8 @@ public class Hacha extends Instrumento implements  Armas{
     }
 
 
+    @Override
+    public void Atacar() {
 
-
+    }
 }

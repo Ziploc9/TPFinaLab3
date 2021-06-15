@@ -1,4 +1,6 @@
 package Herramientas;
+import Inventario.Inventario;
+import RecursoNatural.Recurso;
 
 public class Instrumento {
     private int danio;
@@ -61,19 +63,17 @@ public class Instrumento {
     }
 
     public void mejorarInstrumento() {
-        if (buscarEnInventario()>2){
-            soltarRecurso(madera,2);
-            this.setDaño(this.danio+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
-        }else{
-            System.out.println("No tenes los objetos necesarios");
-        }
+
+
     }
 
     public void romperInstrumento(){
-        int durabilidad = this.getDurabilidad();
-        if(durabilidad > 0)
-            this.setDurabilidad(durabilidad--);
+        if(this.getDurabilidad() > 0) {
+            this.setDurabilidad(this.getDurabilidad()-1);
+            System.out.println("se mejoro tu " + this.getNombre());
+        }else{
+            System.out.println(" Tu "+ this.getNombre() + "esta roto, no se puede usar");
+        }
     }
 
     public Instrumento crearInstrumento(){

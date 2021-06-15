@@ -139,11 +139,6 @@ public class Main {
     /**------- Crear personaje ---------*/
 
     //region [Crear Personaje]
-    public static void crearPersonaje(Personaje personaje){
-        personaje = new Personaje("Devian",200,10,10,10,false);
-        nombrePersonaje(personaje);
-
-    }
 
     public static void nombrePersonaje(Personaje personaje) {
         String nom="";
@@ -159,10 +154,10 @@ public class Main {
         if("Y".equals(confirm) || "y".equals(confirm)){
             efectoTipoGrafia("Nombre del personaje: ");
             nom = scan.nextLine();
-            personaje.setNombre(nom);
+            System.out.println("Asignaste tu nombre con exito invocador.");
         }else if("n".equals(confirm) || "N".equals(confirm)){
             efectoTipoGrafia("Se te asignara un nombre aguarda un instante..");
-            personaje.setNombre("Guido");
+
         } else{
             efectoTipoGrafia("Error en confirmacion..se auto seteara un nombre..disfruta la experiencia y recuerda es un juego.");
 
@@ -185,15 +180,26 @@ public class Main {
 
     //region [Menu principal]
     public static void correrjuego(){
-        Personaje personaje = new Personaje();
         int option = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\nBienvenido a la Comarca");
+
+        Personaje personaje = new Personaje("Julian",200,10,10,10);
+
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
         Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
+
+        Azada azada = new Azada(10,20,25,"Azada");
+        CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania");
+        Escudo escudo = new Escudo(0,20,50,"Escudo");
+        Espada espada = new Espada(25,25,15,"Espada");
+        Hacha hacha = new Hacha(20,20,15,"Hacha");
+        Pico pico = new Pico(10,20,15,"Pico");
+
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
+
         while (option != 11199207){
 
             menuStart();
@@ -203,14 +209,19 @@ public class Main {
             switch (option) {
 
                 case 1:
+
                     LimpiarConsola();
-                    crearPersonaje(personaje);
+                    nombrePersonaje(personaje);
                     pausa();
                     LimpiarConsola();
                     intro(scan);
                     pausa();
                     LimpiarConsola();
-                    juego_deDia(personaje,madera,piedra,frutos,peces,inventario);
+
+                    juego_deDia(personaje, madera, piedra, frutos, peces, inventario);
+
+
+
                     break;
 
                 case 2:
@@ -287,7 +298,7 @@ public class Main {
                               case 2:
                                   if (madera.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = madera.recolectarRecurso(personaje.getArmaenMano(),20);
+                                      acumuladorRecurso = madera.recolectarRecurso(20);
 
                                   } else {
                                       efectoTipoGrafia("Tomas el Hacha pero no encuentras ningun arbol para talar..");
@@ -347,7 +358,7 @@ public class Main {
                               case 2:
                                   if (piedra.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = piedra.recolectarRecurso(personaje.getArmaenMano(),20);
+                                      acumuladorRecurso = piedra.recolectarRecurso(20);
                                       acumuladorRecurso = 2;
                                   } else {
                                       efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
@@ -462,7 +473,7 @@ public class Main {
                               case 2:
                                   if (peces.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = peces.recolectarRecurso(personaje.getArmaenMano(),20);
+                                      acumuladorRecurso = peces.recolectarRecurso(20);
                                   } else {
                                       efectoTipoGrafia("Tomas la cania de pescar pero no encuentras ningun pez..");
                                   }
@@ -492,15 +503,15 @@ public class Main {
                       break;
 
                   case 5: // caminar por el lugar
-                      efectoTipoGrafia("Caminas al rededor de tu casa y ves que todo esta bien");
+                      efectoTipoGrafia("Caminas al rededor de tu casa y ves que todo esta bien\n");
                       break;
 
                   case 6: //estirarse
                         if(numeroRandom.nextInt() == 8){
-                            efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..");
+                            efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..\n");
                             personaje.setVida(personaje.getVida()+1);
                         }else{
-                            efectoTipoGrafia("Te estiras para relajarte un poco..");
+                            efectoTipoGrafia("Te estiras para relajarte un poco..\n");
                         }
                       break;
                   case 7:
@@ -542,7 +553,6 @@ public class Main {
 
                     break;
 
-                return contadorNoche;
 
 
             }
@@ -579,12 +589,6 @@ public class Main {
 
     public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
 
-        /*Azada azada = new Azada(10,20,25,"Azada Inicial");
-        CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania Inicial");
-        Escudo escudo = new Escudo(0,20,50,"Escudo Inical");
-        Espada espada = new Espada(25,25,15,"Esoada Inicial");
-        Hacha hacha = new Hacha(20,20,15,"Hacha Inicial");
-        Pico pico = new Pico(10,20,15,"Pico Inical");*/
 
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
 
