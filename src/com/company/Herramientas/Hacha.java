@@ -10,8 +10,9 @@ public class Hacha extends Instrumento implements  Armas{
     public void mejorarInstrumento() {
         if (Inventario.usarDelInventario("Piedra",2) == true){
             this.setDanio(this.getDanio()+10);
+            this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDanio());
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }

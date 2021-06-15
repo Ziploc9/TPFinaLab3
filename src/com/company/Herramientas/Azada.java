@@ -10,8 +10,9 @@ public class Azada extends Instrumento {
     public void mejorarInstrumento() {
         if (Inventario.usarDelInventario("Madera", 2) == true){
             this.setDanio(this.getDanio()+10);
+            this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDanio());
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
