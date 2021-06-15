@@ -6,11 +6,23 @@ public class Espada extends Instrumento implements Armas{
     }
 
     @Override
-    public void mejorarInstrumento(){
-        if (buscarEnInventario()>2){
-            soltarRecurso(madera,2);
-            this.setDaño(this.daño+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
+    public void mejorarInstrumento("Piedra", 5) {
+        if (Inventario.usarDelInventario() == true){
+            this.setDanio(this.getDanio()+10);
+            System.out.println("  ");
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDanio());
+        }else{
+            System.out.println("No tenes los objetos necesarios");
+        }
+    }
+
+
+    @Override
+    public void repararInstrumento() {
+        if(Inventario.usarDelInventario("Piedra",3)){
+            this,setDurabilidad(this.getDurabilidad()+5);
+            System.out.println("  ");
+            System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
@@ -18,6 +30,10 @@ public class Espada extends Instrumento implements Armas{
 
     @Override
     public void mostrarInstrumento(){
-        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDaño(), this.getDurabilidad(), this.getResistencia());
+        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
+
+    @Override
+            public void atacar{}
+
 }

@@ -1,5 +1,7 @@
 package com.company.Herramientas;
 
+import java.sql.SQLOutput;
+
 public class Instrumento {
     private int danio;
     private int durabilidad;
@@ -24,11 +26,11 @@ public class Instrumento {
 
 
 
-    public int getDaño() {
+    public int getDanio() {
         return danio;
     }
 
-    public void setDaño(int danio) {
+    public void setDanio(int danio) {
         this.danio = danio;
     }
 
@@ -57,29 +59,40 @@ public class Instrumento {
     }
 
     public void mostrarInstrumento(){
-        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDaño(), this.getDurabilidad(), this.getResistencia());
+        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
     public void mejorarInstrumento() {
-        if (buscarEnInventario()>2){
-            soltarRecurso(madera,2);
-            this.setDaño(this.danio+10);
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDaño());
+        if (Inventario.usarDelInventario() == true){
+            this.setDanio(this.getDanio()+10);
+            System.out.println("  ");
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño", this.getNombre(), this.getDanio());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
     }
 
-    public void romperInstrumento(){
-        int durabilidad = this.getDurabilidad();
-        if(durabilidad > 0)
-            this.setDurabilidad(durabilidad--);
+    public void repararInstrumento() {
+        if(Inventario.usarDelInventario()){
+            this.setDurabilidad(this.getDurabilidad()+5);
+            System.out.println("  ");
+            System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
+        }else{
+            System.out.println("No tenes los objetos necesarios");
+        }
     }
 
-    public Instrumento crearInstrumento(){
-        Instrumento aux = new Instrumento(5,5,5,Instrumentonombre.PICO.name());
-        return aux;
+    public void desgastarInstrumento(){
+        if(this.getDurabilidad() > 0) {
+            this.setDurabilidad(this.getDurabilidad()-2);
+            System.out.println("  ");
+            System.out.println("Se mejoro tu " + this.getNombre());
+        }else{
+            System.out.println(" Tu "+ this.getNombre() + "esta roto, no se puede usar");
+        }
     }
+
+
 
 
 

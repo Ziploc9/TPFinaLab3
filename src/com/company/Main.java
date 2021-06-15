@@ -217,6 +217,10 @@ public class Main {
 
                     menuMejorar(azada, cania, escudo, espada, hacha, pico);
 
+                case 4: //Reparar Instrumento
+
+                    menuReparar(azada, cania, escudo, espada, hacha, pico);
+
                     break;
 
 
@@ -234,8 +238,6 @@ public class Main {
         Espada espada = new Espada(25,25,15,"Esoada Inicial");
         Hacha hacha = new Hacha(20,20,15,"Hacha Inicial");
         Pico pico = new Pico(10,20,15,"Pico Inical");*/
-
-        Recurso peces = new Recurso("peces", 10,true,8,10,9);
 
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -307,6 +309,86 @@ public class Main {
                 pico.mostrarInstrumento();
                 pico.mejorarInstrumento();
                 System.out.println("Condicion despues de ser mejorada: ");
+                pico.mostrarInstrumento();
+
+                break;
+        }
+
+
+    }
+
+    public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+
+        int option = 0;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Elije la herramienta a reparar: ");
+        menuInstrumento();
+        System.out.println("Elijes: ");
+        option = scan.nextInt();
+        switch (option){
+
+            case 1://Azada
+
+                System.out.println("Vamos a reparar tu Azada");
+                System.out.println("Condicion actual: ");
+                azada.mostrarInstrumento();
+                azada.repararInstrumento();
+                System.out.println("Condicion despues de ser reparada: ");
+                azada.mostrarInstrumento();
+
+                break;
+
+            case 2://CaniaDePescar
+
+                System.out.println("Vamos a reparar tu Cania de Pescar...");
+                System.out.println("Condicion actual: ");
+                cania.mostrarInstrumento();
+                cania.repararInstrumento();
+                System.out.println("Condicion despues de ser reparada: ");
+                cania.mostrarInstrumento();
+
+                break;
+
+            case 3://Escudo
+
+                System.out.println("Vamos a reparar tu Escudo");
+                System.out.println("Condicion actual: ");
+                escudo.mostrarInstrumento();
+                escudo.repararInstrumento();
+                System.out.println("Condicion despues de ser reparada: ");
+                escudo.mostrarInstrumento();
+
+                break;
+
+            case 4://Espada
+
+                System.out.println("Vamos a reparar tu Espada");
+                System.out.println("Condicion actual: ");
+                espada.mostrarInstrumento();
+                espada.repararInstrumento();
+                System.out.println("Condicion despues de ser reparada: ");
+                espada.mostrarInstrumento();
+
+                break;
+            case 5://Hacha
+
+                System.out.println("Vamos a reparar tu Hacha");
+                System.out.println("Condicion actual: ");
+                hacha.mostrarInstrumento();
+                hacha.repararInstrumento();
+                System.out.println("Condicion despues de ser reparada: ");
+                hacha.mostrarInstrumento();
+
+                break;
+
+            case 6://Pico
+
+                System.out.println("Vamos a reparar tu Pico");
+                System.out.println("Condicion actual: ");
+                pico.mostrarInstrumento();
+                pico.repararInstrumento();
+                System.out.println("Condicion despues de ser reparada: ");
                 pico.mostrarInstrumento();
 
                 break;
