@@ -158,7 +158,7 @@ public class Main {
                         String seguir = scan.nextLine();
                     } catch (Exception ignored) {
                     }
-                    //subir bida y daño al enemigo
+                    //subir vida y daño al enemigo
                     break;
 
             }
