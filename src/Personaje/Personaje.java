@@ -7,15 +7,14 @@ public class Personaje {
     private int damage;
     private int resistencia;
     private float velocidad;
-    private boolean armaEnMano = false;
+    private Instr EnMano
 
-    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad, boolean armaEnMano){
+    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad){
         this.nombre = nombre;
         this.vida = vida;
         this.damage = damage;
         this.resistencia = resistencia;
         this.velocidad = velocidad;
-        this.armaEnMano = armaEnMano;
     }
 
     public Personaje(){
