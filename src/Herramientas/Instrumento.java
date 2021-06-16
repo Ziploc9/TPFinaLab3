@@ -1,6 +1,5 @@
 package Herramientas;
 import Inventario.Inventario;
-import RecursoNatural.Recurso;
 
 public class Instrumento {
     private int danio;
@@ -26,11 +25,11 @@ public class Instrumento {
 
 
 
-    public int getDaño() {
+    public int getDanio() {
         return danio;
     }
 
-    public void setDaño(int danio) {
+    public void setDanio(int danio) {
         this.danio = danio;
     }
 
@@ -59,27 +58,39 @@ public class Instrumento {
     }
 
     public void mostrarInstrumento(){
-        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDaño(), this.getDurabilidad(), this.getResistencia());
+        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
-    public void mejorarInstrumento() {
-
-
+    public void mejorarInstrumento(Inventario inventario) {
+        if (inventario.usarDelInventario("hola", 1)){
+            this.setDanio(this.getDanio()+10);
+            this.setResistencia(this.getResistencia()+10);
+            System.out.println("  ");
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia", this.getNombre(), this.getDanio(), this.getResistencia());
+        }else{
+            System.out.println("No tenes los objetos necesarios");
+        }
     }
 
-    public void romperInstrumento(){
+    public void repararInstrumento(Inventario inventario) {
+        if(inventario.usarDelInventario("hola", 1)){
+            this.setDurabilidad(this.getDurabilidad()+5);
+            System.out.println("  ");
+            System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
+        }else{
+            System.out.println("No tenes los objetos necesarios");
+        }
+    }
+
+    public void desgastarInstrumento(){
         if(this.getDurabilidad() > 0) {
-            this.setDurabilidad(this.getDurabilidad()-1);
-            System.out.println("se mejoro tu " + this.getNombre());
+            this.setDurabilidad(this.getDurabilidad()-2);
         }else{
             System.out.println(" Tu "+ this.getNombre() + "esta roto, no se puede usar");
         }
     }
 
-    public Instrumento crearInstrumento(){
-        Instrumento aux = new Instrumento(5,5,5,Instrumentonombre.PICO.name());
-        return aux;
-    }
+
 
 
 

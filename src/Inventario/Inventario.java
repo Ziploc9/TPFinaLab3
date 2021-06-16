@@ -1,6 +1,10 @@
+
 package Inventario;
 import RecursoNatural.*;
 
+
+import RecursoNatural.Recurso;
+import RecursoNatural.TipoRecurso;
 
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
@@ -16,7 +20,7 @@ public class Inventario {
 
     public void agregarAlInventario(Recurso x, int cantidadAgregar) {
         int i = 0;
-        for (TipoRecurso aux : this.recursos) {
+        for (TipoRecurso aux : recursos) {
             if (aux.getNombre().equals(x.getNombre())) {
                 checkearPeso(cantidadAgregar, i);
             }
@@ -68,10 +72,8 @@ public class Inventario {
                     return false;
                 }
             }
-            else{
-                return false;
-            }
         }
         return false;
     }
 }
+
