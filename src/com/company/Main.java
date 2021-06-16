@@ -24,7 +24,7 @@ public class Main {
         System.out.println("-> 2- Controles");
         System.out.println("-> 3- Guardar partida");
         System.out.println("-> 4- Creditos");
-        System.out.println("-> 5- Salir juego\n");
+        System.out.println("-> 5- Salir juego");
     }
 
     public static void controles() {
@@ -37,7 +37,7 @@ public class Main {
         System.out.println("-> 3- Ir a la huerta");
         System.out.println("-> 4- Ir a pescar");
         System.out.println("-> 5- Caminar por el lugar");
-        System.out.println("-> 6- Estirar\n");
+        System.out.println("-> 6- Estirar");
     }
 
 
@@ -113,7 +113,7 @@ public class Main {
         System.out.println("-> 2- Pescar");
         System.out.println("-> 3- Guardar Pescado");
         System.out.println("-> 4- Ver Inventario");
-        System.out.println("-> 5- Dejar la pesca\n");
+        System.out.println("-> 5- Dejar la pesca");
     }
 
     public static void menuFrutos(){
@@ -121,28 +121,30 @@ public class Main {
         System.out.println("-> 2- Recolectar frutos");
         System.out.println("-> 3- Guardar frutos");
         System.out.println("-> 4- Ver Inventario");
-        System.out.println("-> 5- Dejar la huerta\n");
+        System.out.println("-> 5- Dejar la huerta");
     }
 
     public static void menuJuegoNocheA(){
-        System.out.println("\n1- Entrar a la Casa");
-        System.out.println("\n1- Buscar Mounstro");
+        System.out.println("1- Entrar a la Casa");
+        System.out.println("2- Buscar Mounstro");
     }
 
     public static void menuJuegoNocheC(){
-        System.out.println("\n1- Salir de la Casa");
-        System.out.println("\n2- Dormir");
-        System.out.println("\n3- Mejorar Instrumento");
+        System.out.println("1- Salir de la Casa para pelear con el mounstro");
+        System.out.println("2- Dormir");
+        System.out.println("3- Mejorar Instrumento");
+        System.out.println("4- Reparar Instrumento");
+        System.out.println("5- Cerrar Puerta");
 
     }
 
     public static void menuInstrumento(){
-        System.out.println("\n1- Azada");
-        System.out.println("\n2- Cania de Pescar");
-        System.out.println("\n3- Escudo");
-        System.out.println("\n4- Espada");
-        System.out.println("\n5- Hacha");
-        System.out.println("\n6- Pico");
+        System.out.println("1- Azada");
+        System.out.println("2- Cania de Pescar");
+        System.out.println("3- Escudo");
+        System.out.println("4- Espada");
+        System.out.println("5- Hacha");
+        System.out.println("6- Pico");
 
     }
     //endregion
@@ -212,7 +214,8 @@ public class Main {
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
-
+        madera.setStack(20);
+        piedra.setStack(20);
 
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
 
@@ -555,41 +558,21 @@ public class Main {
 
 
     /**-----Modo juego noche------**/
-    public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario) {
+
+    public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
         int option = 0;
+        boolean puerta = true;
         Scanner scan = new Scanner(System.in);
 
-        while (option != 999) {
-            menuJuegoNocheA();
-            System.out.print("Elijes: ");
-            option = scan.nextInt();
-            switch (option) {
-                case 1://Entrar a la casa
-
-                    System.out.println("\n1- Entrar a la Casa");
-                    juegoCasa(personaje,fantasma,azada,cania,escudo,espada,hacha,pico,inventario);
-
-                    break;
-
-                case 2://Buscar Mounstro
-
-                    break;
-
-
-
-
-            }
-        }
-    }
-
-
-    public static void juegoCasa(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
-        int option = 0;
-        Scanner scan = new Scanner(System.in);
-
+        efectoTipoGrafia("");
         while (option != 999){
+            efectoTipoGrafia("¿Que quieres hacer ahora?");
+            menuJuegoNocheC();
+            System.out.println("Elijes: ");
+            option = scan.nextInt();
             switch (option){
                 case 1: //Salir de la casa
+                    puerta=true;
                     System.out.println("Usted esta saliendo de la casa");
                     break;
 
@@ -599,13 +582,31 @@ public class Main {
 
                 case 3: //Mejorar Instrumento
 
-                    menuMejorar(azada, cania, escudo, espada, hacha, pico,inventario);
+
+                        menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario);
+                        if(fantasma.destruir(inventario,puerta)){
+                            efectoTipoGrafia("Perdiste, por no usar python");
+                            efectoTipoGrafia("Vuelves al Menu Principal");
+                            correrjuego();
+                        }
+
+                        break;
+
 
                 case 4: //Reparar Instrumento
 
                     menuReparar(azada, cania, escudo, espada, hacha, pico,inventario);
 
                     break;
+
+                case 5: // Cerrar Puerta
+
+                    efectoTipoGrafia("Cierras la puerta con exito");
+                    puerta = false;
+
+                    break;
+
+
 
 
 

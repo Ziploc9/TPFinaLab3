@@ -60,21 +60,17 @@ public class Inventario {
 
     public boolean usarDelInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
         for (Recurso aux:this.recursos) {
-            System.out.println("0");
             if (aux.getNombre().equals(nombre)) {
-                System.out.println("1");
                 if((aux.getStack() - cantidad) > 0){
-                    System.out.println("2");
+
                     aux.setStack(aux.getStack() - cantidad);
                     return true;
                 }
                 else{
-                    System.out.println("3");
                     return false;
                 }
             }
             else{
-                System.out.println("4");
             }
         }
         return false;

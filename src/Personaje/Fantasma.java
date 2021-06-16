@@ -12,14 +12,14 @@ public class Fantasma extends Personaje {
 
 
 
-    public boolean casaAbierta() {
-        //verifica si la casa esta abierta o no
-        return true;
-    }
 
-    public void destruir(Inventario inv) {
-        if (casaAbierta() == true) {
+
+
+
+    public boolean destruir(Inventario inv, boolean puerta) {
+        if (puerta) {
             System.out.println("Olvidaste de cerrar la casa y fuiste asesinado!");
+            return true;
         }
         else {
             int numRand = (int)(Math.random()*5+1);
@@ -39,8 +39,10 @@ public class Fantasma extends Personaje {
                     }
                 }
             }
+            System.out.println("El fantasma no logro causar mas daños importante y se retiro, por ahora.");
+            return false;
         }
-        System.out.println("El fantasma no logro causar ningun daño importante y se retiro, por ahora.");
+
     }
 
 
