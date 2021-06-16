@@ -85,8 +85,6 @@ public class Instrumento {
     public void desgastarInstrumento(){
         if(this.getDurabilidad() > 0) {
             this.setDurabilidad(this.getDurabilidad()-2);
-            System.out.println("  ");
-            System.out.println("Se mejoro tu " + this.getNombre());
         }else{
             System.out.println(" Tu "+ this.getNombre() + "esta roto, no se puede usar");
         }

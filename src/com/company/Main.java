@@ -209,22 +209,9 @@ public class Main {
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
-        madera.setStack(20);
-        peces.setStack(20);
-        frutos.setStack(20);
-        piedra.setStack(20);
+
 
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
-
-        inventario.verInventario();
-
-        espada.mostrarInstrumento();
-
-        espada.mejorarInstrumento(inventario);
-
-        espada.mostrarInstrumento();
-
-        inventario.verInventario();
 
 
         while (option != 11199207){
@@ -237,13 +224,13 @@ public class Main {
 
                 case 1:
 
-                    LimpiarConsola();
+                   /* LimpiarConsola();
                     nombrePersonaje(personaje);
                     pausa();
                     LimpiarConsola();
                     intro(scan);
                     pausa();
-                    LimpiarConsola();
+                    LimpiarConsola();*/
 
                     juego_deDia(personaje, madera, piedra, frutos, peces, inventario);
 
@@ -307,6 +294,7 @@ public class Main {
                       efectoTipoGrafia("Estas caminando hacia los arboles..");
                       pausa();
                       while (optionRecurso != 9124) {
+
                           menuMadera();
                           optionRecurso = scan.nextInt();
                           LimpiarConsola();
@@ -325,7 +313,7 @@ public class Main {
                               case 2:
                                   if (madera.comprobarRecurso()) {
                                       /*Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = madera.recolectarRecurso(20);
+                                      acumuladorRecurso = acumuladorRecurso + madera.recolectarRecurso(20);
 
                                   } else {
                                       efectoTipoGrafia("Tomas el Hacha pero no encuentras ningun arbol para talar..");
@@ -334,9 +322,10 @@ public class Main {
                                   break;
 
                               case 3:
-                                        acumuladorRecurso =+ 1; //Sacar, se uso solo para testear
+
                                   if(acumuladorRecurso > 0){
                                         inventario.agregarAlInventario(madera,acumuladorRecurso);
+                                        acumuladorRecurso=0;
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -385,17 +374,18 @@ public class Main {
                               case 2:
                                   if (piedra.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = piedra.recolectarRecurso(20);
-                                      acumuladorRecurso = 2;
+                                      acumuladorRecurso = acumuladorRecurso + piedra.recolectarRecurso(20);
+
                                   } else {
                                       efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
                                   }
                                   break;
 
                               case 3:
-                                  acumuladorRecurso =+ 1; // borrar, se uso para testear
+
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(piedra,acumuladorRecurso);
+                                      acumuladorRecurso=0;
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -444,7 +434,7 @@ public class Main {
                                   break;
                               case 2:
                                   if (frutos.comprobarRecurso()) {
-                                      acumuladorRecurso = frutos.recolectarRecurso();
+                                      acumuladorRecurso = acumuladorRecurso + frutos.recolectarRecurso();
                                   } else {
                                       efectoTipoGrafia("Llegaste a la huerta pero no habia ningun fruto maduro..");
                                   }
@@ -453,6 +443,7 @@ public class Main {
                               case 3:
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(frutos,acumuladorRecurso);
+                                      acumuladorRecurso=0;
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
@@ -500,7 +491,7 @@ public class Main {
                               case 2:
                                   if (peces.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = peces.recolectarRecurso(20);
+                                      acumuladorRecurso = acumuladorRecurso + peces.recolectarRecurso(20);
                                   } else {
                                       efectoTipoGrafia("Tomas la cania de pescar pero no encuentras ningun pez..");
                                   }
@@ -509,6 +500,7 @@ public class Main {
                               case 3:
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(peces,acumuladorRecurso);
+                                      acumuladorRecurso=0;
                                   }else{
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
