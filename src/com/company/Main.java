@@ -194,6 +194,7 @@ public class Main {
     //region [Menu principal]
     public static void correrjuego(){
         int option = 0;
+
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\nBienvenido a la Comarca");
 
@@ -563,8 +564,7 @@ public class Main {
         int option = 0;
         boolean puerta = true;
         Scanner scan = new Scanner(System.in);
-
-        efectoTipoGrafia("");
+        efectoTipoGrafia("Se hace de noche y decides entrar a la casa");
         while (option != 999){
             efectoTipoGrafia("¿Que quieres hacer ahora?");
             menuJuegoNocheC();
@@ -577,14 +577,15 @@ public class Main {
                     break;
 
                 case 2: //Dormir
-                    // hacer transcurrir el tiempo hasta que se haga de dia
+                    // poner el contador en 0
                     break;
 
                 case 3: //Mejorar Instrumento
 
 
                         menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario);
-                        if(fantasma.destruir(inventario,puerta)){
+                        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
+                            efectoTipoGrafia("");
                             efectoTipoGrafia("Perdiste, por no usar python");
                             efectoTipoGrafia("Vuelves al Menu Principal");
                             correrjuego();
@@ -596,6 +597,11 @@ public class Main {
                 case 4: //Reparar Instrumento
 
                     menuReparar(azada, cania, escudo, espada, hacha, pico,inventario);
+                    if(fantasma.destruir(inventario,puerta)){
+                        efectoTipoGrafia("Perdiste, por no usar python");
+                        efectoTipoGrafia("Vuelves al Menu Principal");
+                        correrjuego();
+                    }
 
                     break;
 
