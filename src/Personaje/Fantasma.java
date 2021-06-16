@@ -1,5 +1,5 @@
 package Personaje;
-import Inventario.*;
+import Inventario.Inventario;
 
 
 public class Fantasma extends Personaje {

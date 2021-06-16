@@ -1,6 +1,5 @@
 package Herramientas;
-
-import java.sql.SQLOutput;
+import Inventario.Inventario;
 
 public class Instrumento {
     private int danio;
@@ -62,8 +61,8 @@ public class Instrumento {
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
-    public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario() == true){
+    public void mejorarInstrumento(Inventario inventario) {
+        if (inventario.usarDelInventario("hola", 1)){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -73,8 +72,8 @@ public class Instrumento {
         }
     }
 
-    public void repararInstrumento() {
-        if(Inventario.usarDelInventario()){
+    public void repararInstrumento(Inventario inventario) {
+        if(inventario.usarDelInventario("hola", 1)){
             this.setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());

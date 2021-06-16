@@ -1,4 +1,5 @@
 package Herramientas;
+import Inventario.Inventario;
 
 public class Espada extends Instrumento implements Armas{
     public Espada(int danio, int durabilidad, int resistencia, String nombre) {
@@ -6,8 +7,8 @@ public class Espada extends Instrumento implements Armas{
     }
 
     @Override
-    public void mejorarInstrumento("Piedra", 5) {
-        if (Inventario.usarDelInventario() == true){
+    public void mejorarInstrumento(Inventario inventario) {
+        if (inventario.usarDelInventario("piedra", 5)){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -19,9 +20,9 @@ public class Espada extends Instrumento implements Armas{
 
 
     @Override
-    public void repararInstrumento() {
-        if(Inventario.usarDelInventario("Piedra",3)){
-            this,setDurabilidad(this.getDurabilidad()+5);
+    public void repararInstrumento(Inventario inventario) {
+        if(inventario.usarDelInventario("piedra",3)){
+            this.setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
         }else{
@@ -35,6 +36,6 @@ public class Espada extends Instrumento implements Armas{
     }
 
     @Override
-            public void atacar{}
+    public void atacar(){}
 
 }

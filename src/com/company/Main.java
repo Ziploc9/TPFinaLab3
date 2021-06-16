@@ -209,7 +209,23 @@ public class Main {
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
+        madera.setStack(20);
+        peces.setStack(20);
+        frutos.setStack(20);
+        piedra.setStack(20);
+
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
+
+        inventario.verInventario();
+
+        espada.mostrarInstrumento();
+
+        espada.mejorarInstrumento(inventario);
+
+        espada.mostrarInstrumento();
+
+        inventario.verInventario();
+
 
         while (option != 11199207){
 
@@ -544,7 +560,7 @@ public class Main {
 
 
     /**-----Modo juego noche------**/
-    public static void juego_deNoche(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico) {
+    public static void juego_deNoche(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario) {
         int option = 0, contadorNoche = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -572,7 +588,7 @@ public class Main {
     }
 
 
-    public static void juegoCasa(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+    public static void juegoCasa(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
         int option = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -588,11 +604,11 @@ public class Main {
 
                 case 3: //Mejorar Instrumento
 
-                    menuMejorar(azada, cania, escudo, espada, hacha, pico);
+                    menuMejorar(azada, cania, escudo, espada, hacha, pico,inventario);
 
                 case 4: //Reparar Instrumento
 
-                    menuReparar(azada, cania, escudo, espada, hacha, pico);
+                    menuReparar(azada, cania, escudo, espada, hacha, pico,inventario);
 
                     break;
 
@@ -603,7 +619,7 @@ public class Main {
         }
     }
 
-    public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+    public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
 
         /*Azada azada = new Azada(10,20,25,"Azada Inicial");
         CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania Inicial");
@@ -626,7 +642,7 @@ public class Main {
                 System.out.println("Vamos a mejorar tu Azada");
                 System.out.println("Condicion actual: ");
                 azada.mostrarInstrumento();
-                azada.mejorarInstrumento();
+                azada.mejorarInstrumento(inventario);
                 System.out.println("Condicion despues de ser mejorada: ");
                 azada.mostrarInstrumento();
 
@@ -637,7 +653,7 @@ public class Main {
                 System.out.println("Vamos a mejorar tu Cania de Pescar...");
                 System.out.println("Condicion actual: ");
                 cania.mostrarInstrumento();
-                cania.mejorarInstrumento();
+                cania.mejorarInstrumento(inventario);
                 System.out.println("Condicion despues de ser mejorada: ");
                 cania.mostrarInstrumento();
 
@@ -648,7 +664,7 @@ public class Main {
                 System.out.println("Vamos a mejorar tu Escudo");
                 System.out.println("Condicion actual: ");
                 escudo.mostrarInstrumento();
-                escudo.mejorarInstrumento();
+                escudo.mejorarInstrumento(inventario);
                 System.out.println("Condicion despues de ser mejorada: ");
                 escudo.mostrarInstrumento();
 
@@ -659,7 +675,7 @@ public class Main {
                 System.out.println("Vamos a mejorar tu Espada");
                 System.out.println("Condicion actual: ");
                 espada.mostrarInstrumento();
-                espada.mejorarInstrumento();
+                espada.mejorarInstrumento(inventario);
                 System.out.println("Condicion despues de ser mejorada: ");
                 espada.mostrarInstrumento();
 
@@ -669,7 +685,7 @@ public class Main {
                 System.out.println("Vamos a mejorar tu Hacha");
                 System.out.println("Condicion actual: ");
                 hacha.mostrarInstrumento();
-                hacha.mejorarInstrumento();
+                hacha.mejorarInstrumento(inventario);
                 System.out.println("Condicion despues de ser mejorada: ");
                 hacha.mostrarInstrumento();
 
@@ -680,7 +696,7 @@ public class Main {
                 System.out.println("Vamos a mejorar tu Pico");
                 System.out.println("Condicion actual: ");
                 pico.mostrarInstrumento();
-                pico.mejorarInstrumento();
+                pico.mejorarInstrumento(inventario);
                 System.out.println("Condicion despues de ser mejorada: ");
                 pico.mostrarInstrumento();
 
@@ -690,7 +706,7 @@ public class Main {
 
     }
 
-    public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+    public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
 
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -706,7 +722,7 @@ public class Main {
                 System.out.println("Vamos a reparar tu Azada");
                 System.out.println("Condicion actual: ");
                 azada.mostrarInstrumento();
-                azada.repararInstrumento();
+                azada.repararInstrumento(inventario);
                 System.out.println("Condicion despues de ser reparada: ");
                 azada.mostrarInstrumento();
 
@@ -717,7 +733,7 @@ public class Main {
                 System.out.println("Vamos a reparar tu Cania de Pescar...");
                 System.out.println("Condicion actual: ");
                 cania.mostrarInstrumento();
-                cania.repararInstrumento();
+                cania.repararInstrumento(inventario);
                 System.out.println("Condicion despues de ser reparada: ");
                 cania.mostrarInstrumento();
 
@@ -728,7 +744,7 @@ public class Main {
                 System.out.println("Vamos a reparar tu Escudo");
                 System.out.println("Condicion actual: ");
                 escudo.mostrarInstrumento();
-                escudo.repararInstrumento();
+                escudo.repararInstrumento(inventario);
                 System.out.println("Condicion despues de ser reparada: ");
                 escudo.mostrarInstrumento();
 
@@ -739,7 +755,7 @@ public class Main {
                 System.out.println("Vamos a reparar tu Espada");
                 System.out.println("Condicion actual: ");
                 espada.mostrarInstrumento();
-                espada.repararInstrumento();
+                espada.repararInstrumento(inventario);
                 System.out.println("Condicion despues de ser reparada: ");
                 espada.mostrarInstrumento();
 
@@ -749,7 +765,7 @@ public class Main {
                 System.out.println("Vamos a reparar tu Hacha");
                 System.out.println("Condicion actual: ");
                 hacha.mostrarInstrumento();
-                hacha.repararInstrumento();
+                hacha.repararInstrumento(inventario);
                 System.out.println("Condicion despues de ser reparada: ");
                 hacha.mostrarInstrumento();
 
@@ -760,7 +776,7 @@ public class Main {
                 System.out.println("Vamos a reparar tu Pico");
                 System.out.println("Condicion actual: ");
                 pico.mostrarInstrumento();
-                pico.repararInstrumento();
+                pico.repararInstrumento(inventario);
                 System.out.println("Condicion despues de ser reparada: ");
                 pico.mostrarInstrumento();
 

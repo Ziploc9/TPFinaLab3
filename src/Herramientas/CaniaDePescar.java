@@ -1,12 +1,13 @@
 package Herramientas;
+import Inventario.Inventario;
 
 public class CaniaDePescar extends Instrumento {
     public CaniaDePescar(int danio, int durabilidad, int resistencia, String nombre) {
         super(danio, durabilidad, resistencia, nombre);
     }
 
-    public boolean ponerCarnada(){
-        if(Inventario.usarDelInventario("Frutos", 1)){
+    public boolean ponerCarnada(Inventario inventario){
+        if(inventario.usarDelInventario("frutos", 1)){
             return true;
         }else{
             return false;
@@ -14,24 +15,26 @@ public class CaniaDePescar extends Instrumento {
 
     }
 
+
+
     @Override
-    public void repararInstrumento() {
-        if(Inventario.usarDelInventario("Madera", 2)){
-            this,setDurabilidad(this.getDurabilidad()+5);
+    public void mejorarInstrumento(Inventario inventario) {
+        if (inventario.usarDelInventario("madera", 2) == true){
+            this.setDanio(this.getDanio()+10);
+            this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
-            System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
+            System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }
     }
 
     @Override
-    public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario("Madera", 2) == true){
-            this.setDanio(this.getDanio()+10);
-            this.setResistencia(this.getResistencia()+10);
+    public void repararInstrumento(Inventario inventario) {
+        if(inventario.usarDelInventario("madera", 2)){
+            this.setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
-            System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia", this.getNombre(), this.getDanio(), this.getResistencia());
+            System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
         }else{
             System.out.println("No tenes los objetos necesarios");
         }

@@ -1,4 +1,5 @@
 package Herramientas;
+import Inventario.Inventario;
 
 public class Azada extends Instrumento {
 
@@ -7,8 +8,8 @@ public class Azada extends Instrumento {
     }
 
     @Override
-    public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario("Madera", 2) == true){
+    public void mejorarInstrumento(Inventario inventario) {
+        if (inventario.usarDelInventario("madera", 2) == true){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -19,9 +20,9 @@ public class Azada extends Instrumento {
     }
 
     @Override
-    public void repararInstrumento() {
-        if(Inventario.usarDelInventario("Madera", 2)){
-            this,setDurabilidad(this.getDurabilidad()+5);
+    public void repararInstrumento(Inventario inventario) {
+        if(inventario.usarDelInventario("madera", 2)){
+            this.setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
         }else{
