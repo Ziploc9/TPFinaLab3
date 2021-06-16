@@ -5,6 +5,7 @@ public class Recurso extends TipoRecurso {
     private int resistencia;
     private int tiempoMadurez;
     private int cantidadRecurso;
+    private int stack;
     private TipoRecurso tipoRecurso;
 
     public Recurso(String nombre, int regeneracionHambre,boolean existe, int resistencia, int tiempoMadurez, int cantidadRecurso) {
@@ -12,6 +13,7 @@ public class Recurso extends TipoRecurso {
         this.resistencia = resistencia;
         this.cantidadRecurso = cantidadRecurso;
         this.tiempoMadurez = tiempoMadurez;
+        this.stack=0;
     }
 
     public Recurso(String nombre, boolean existe, int resistencia, int tiempoMadurez, int cantidadRecurso){
@@ -23,6 +25,14 @@ public class Recurso extends TipoRecurso {
 
 
     //region [getters setters]
+
+    public int getStack() {
+        return stack;
+    }
+
+    public void setStack(int stack) {
+        this.stack = stack;
+    }
 
     public int getResistencia() {
         return resistencia;
