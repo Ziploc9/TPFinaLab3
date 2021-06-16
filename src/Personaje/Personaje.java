@@ -71,6 +71,13 @@ public class Personaje {
         this.velocidad = velocidad;
     }
 
+    public Instrumento getEnMano() {
+        return enMano;
+    }
+
+    public void setEnMano(Instrumento enMano) {
+        this.enMano = enMano;
+    }
 
     //endregion
 
