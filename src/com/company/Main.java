@@ -1,11 +1,11 @@
 package com.company;
 
 
-import Inventario.Inventario;
-import Personaje.Personaje;
-import RecursoNatural.Recurso;
+import Inventario.*;
+import RecursoNatural.*;
 import Herramientas.*;
 import java.util.Random;
+import Personaje.*;
 
 import java.util.Scanner;
 
@@ -195,7 +195,10 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\nBienvenido a la Comarca");
 
-        Personaje personaje = new Personaje("Julian",200,10,10,10);
+        Personaje personaje = new Personaje("Julian",100,10,10,10);
+        Fantasma fantasma = new Fantasma("CHALM",120,20,50,5);
+
+
 
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
@@ -231,7 +234,7 @@ public class Main {
                     intro(scan);
                     pausa();
                     LimpiarConsola();*/
-
+                    juego_deNoche(personaje,fantasma,azada, cania, escudo, espada, hacha, pico,inventario);
                     juego_deDia(personaje, madera, piedra, frutos, peces, inventario);
 
 
@@ -552,8 +555,8 @@ public class Main {
 
 
     /**-----Modo juego noche------**/
-    public static void juego_deNoche(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario) {
-        int option = 0, contadorNoche = 0;
+    public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario) {
+        int option = 0;
         Scanner scan = new Scanner(System.in);
 
         while (option != 999) {
@@ -562,9 +565,9 @@ public class Main {
             option = scan.nextInt();
             switch (option) {
                 case 1://Entrar a la casa
-                    System.out.println("");
+
                     System.out.println("\n1- Entrar a la Casa");
-                    System.out.println("\n1- Entrar a la Casa");
+                    juegoCasa(personaje,fantasma,azada,cania,escudo,espada,hacha,pico,inventario);
 
                     break;
 
@@ -580,7 +583,7 @@ public class Main {
     }
 
 
-    public static void juegoCasa(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
+    public static void juegoCasa(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
         int option = 0;
         Scanner scan = new Scanner(System.in);
 
