@@ -1,5 +1,6 @@
 package Personaje;
 import Herramientas.Instrumento;
+import Inventario.Inventario;
 
 public class Personaje {
 
@@ -75,24 +76,21 @@ public class Personaje {
 
     //region [Metodos]
 
-
-
-    public static void caminar(String lugar){
-        System.out.println("Estas caminando hacia "+lugar);
-    }
-
-    public static void abrircasa(){
+    public void abrircasa(){
         System.out.println("Abriste la casa");
     }
 
-    public static void comer(){
+    public void comer(){
+
 
     }
 
-    public static void equipar(){
+    public void equipar(){
+
+
     }
 
-    public static void desequipar(){
+    public void desequipar(){
 
     }
     //endregion

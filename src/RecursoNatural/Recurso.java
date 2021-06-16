@@ -1,10 +1,10 @@
 package RecursoNatural;
-import RecursoNatural.Recurso;
 
 public class Recurso extends TipoRecurso {
     private int resistencia;
     private int tiempoMadurez;
     private int cantidadRecurso;
+    private int stack;
     private TipoRecurso tipoRecurso;
 
     public Recurso(String nombre, int regeneracionHambre,boolean existe, int resistencia, int tiempoMadurez, int cantidadRecurso) {
@@ -16,6 +16,13 @@ public class Recurso extends TipoRecurso {
 
 
     //region [getters setters]
+    public int getStack() {
+        return stack;
+    }
+
+    public void setStack(int stack) {
+        this.stack = stack;
+    }
 
     public int getResistencia() {
         return resistencia;
@@ -92,32 +99,32 @@ public class Recurso extends TipoRecurso {
     public int recolectarRecurso(double danio){
         int acumuladorRecurso=0;
         if(comprobarRecurso()){                                                 // compruebo que el recurso este disponible
-           // if(armaEnMano) {                                                     // compruebo que tenga el arma en mano
-                if(getResistencia() < danio) {                              // compruebo que el danio del arma sea mayor al de la resistencia del recurso
-                    if ("madera".equals(getNombre())) {
-                        System.out.println("Agarraste el Hacha con la mano derecha y llegaste hasta el arbol..");
-                        System.out.println("Comienzas a talar el arbol..");
-                        System.out.println("Felicidades obtuviste 1 de madera..");
-                        acumuladorRecurso++;
-                    } else if ("peces".equals(getNombre())) {
-                        System.out.println("Agarraste la cania y caminas hasta el lago..");
-                        System.out.println("Lanzas el ansuelo al lago..");
-                        System.out.println("Comienzas a luchar contra el pez");
-                        System.out.println("Felicidades obtuviste 1 pescado..");
-                        acumuladorRecurso++;
-                    } else if ("piedra".equals(getNombre())) {
-                        System.out.println("Agarraste el Pico con la mano derecha y llegas a donde hay piedras..");
-                        System.out.println("Comienzas a picar las piedras..");
-                        System.out.println("Felicidades obtuviste 1 de piedra..");
-                        acumuladorRecurso++;
-                    }
-                }else{
-                    System.out.println("El arma que tienes no es lo suficiente fuerte para utilizar en este recurso.");
+            // if(armaEnMano) {                                                     // compruebo que tenga el arma en mano
+            if(getResistencia() < danio) {                              // compruebo que el danio del arma sea mayor al de la resistencia del recurso
+                if ("madera".equals(getNombre())) {
+                    System.out.println("Agarraste el Hacha con la mano derecha y llegaste hasta el arbol..");
+                    System.out.println("Comienzas a talar el arbol..");
+                    System.out.println("Felicidades obtuviste 1 de madera..");
+                    acumuladorRecurso++;
+                } else if ("peces".equals(getNombre())) {
+                    System.out.println("Agarraste la cania y caminas hasta el lago..");
+                    System.out.println("Lanzas el ansuelo al lago..");
+                    System.out.println("Comienzas a luchar contra el pez");
+                    System.out.println("Felicidades obtuviste 1 pescado..");
+                    acumuladorRecurso++;
+                } else if ("piedra".equals(getNombre())) {
+                    System.out.println("Agarraste el Pico con la mano derecha y llegas a donde hay piedras..");
+                    System.out.println("Comienzas a picar las piedras..");
+                    System.out.println("Felicidades obtuviste 1 de piedra..");
+                    acumuladorRecurso++;
                 }
-          //  }else
-         //   {
-           //     System.out.println("No tienes nada en la mano como para explotar este recurso");
-          //  }
+            }else{
+                System.out.println("El arma que tienes no es lo suficiente fuerte para utilizar en este recurso.");
+            }
+            //  }else
+            //   {
+            //     System.out.println("No tienes nada en la mano como para explotar este recurso");
+            //  }
         }else{
             System.out.println("\n Recurso en regeneracion..");
         }
@@ -138,8 +145,6 @@ public class Recurso extends TipoRecurso {
     }
 
     public void reiniciarRecurso(){
-
-
         if(getCantidadRecurso()<=0) {
             if ("peces".equals(getNombre())) {
                 setCantidadRecurso(9);
