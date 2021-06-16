@@ -2,10 +2,14 @@ package com.company;
 import Inventario.Inventario;
 import Personaje.Personaje;
 import RecursoNatural.Recurso;
+<<<<<<< HEAD
 import Herramientas.*;
+=======
+
+import javax.management.timer.Timer;
+import java.util.*;
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
 import java.util.Random;
-import java.util.Random;
-import java.util.Scanner;
 
 
 public class Main {
@@ -179,10 +183,11 @@ public class Main {
 
         /**------- Switch inicia el menu principal del juego----*/
 
-    //region [Menu principal]
+    //region [Correr Juego principal]
     public static void correrjuego(){
         int option = 0;
         Scanner scan = new Scanner(System.in);
+        Timer tiempo = new Timer();
         System.out.println("\n\nBienvenido a la Comarca");
 
         Personaje personaje = new Personaje("Julian",200,10,10,10);
@@ -191,6 +196,7 @@ public class Main {
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
         Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
+<<<<<<< HEAD
 
         Azada azada = new Azada(10,20,25,"Azada");
         CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania");
@@ -201,6 +207,8 @@ public class Main {
 
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
 
+=======
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
         while (option != 11199207){
 
             menuStart();
@@ -218,12 +226,27 @@ public class Main {
                     intro(scan);
                     pausa();
                     LimpiarConsola();
+<<<<<<< HEAD
 
                     juego_deDia(personaje, madera, piedra, frutos, peces, inventario);
 
 
 
                     break;
+=======
+                    juego_deDia(personaje,madera,piedra,frutos,peces);
+
+                    /**
+                    TimerTask dia = new TimerTask() {
+                        @Override
+                        public void run() {
+                            juego_deDia(personaje,madera,piedra,frutos,peces);
+                        }
+                    };
+                    tiempo.
+                   */
+                   break;
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
 
                 case 2:
                     controles();
@@ -259,9 +282,15 @@ public class Main {
     //endregion
 
     /**---------Modo juego de dia--------------*/
+<<<<<<< HEAD
     //region [De Dia]
     public static int juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces,Inventario inventario) {
         int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
+=======
+
+    public static void juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces) {
+        int option =0,optionRecurso=0,acumuladorRecurso=0;
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
         Scanner scan = new Scanner(System.in);
         Random numeroRandom = new Random();
           while (option != 9212) {
@@ -273,7 +302,7 @@ public class Main {
 
                   case 1:// Buscar madera
                       //region [Madera]
-                      acumuladorRecurso=0;
+                      acumuladorRecurso = 0;
                       optionRecurso = 0;
                       LimpiarConsola();
                       madera.reiniciarRecurso();
@@ -298,7 +327,11 @@ public class Main {
                               case 2:
                                   if (madera.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
+<<<<<<< HEAD
                                       acumuladorRecurso = madera.recolectarRecurso(20);
+=======
+                                      acumuladorRecurso = madera.recolectarRecurso(personaje.getArmaenMano(), 20);
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
 
                                   } else {
                                       efectoTipoGrafia("Tomas el Hacha pero no encuentras ningun arbol para talar..");
@@ -307,21 +340,31 @@ public class Main {
                                   break;
 
                               case 3:
+<<<<<<< HEAD
                                         acumuladorRecurso =+ 1; //Sacar, se uso solo para testear
                                   if(acumuladorRecurso > 0){
                                         inventario.agregarAlInventario(madera,acumuladorRecurso);
                                   }else{
+=======
+
+                                  if (acumuladorRecurso > 0) {
+                                      //Agregar inventario
+                                  } else {
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
-
                                   break;
 
                               case 4:
+<<<<<<< HEAD
                                   inventario.verInventario();
                                   break;
 
                               case 5:
                                         optionRecurso = 9124;
+=======
+                                  optionRecurso = 9124;
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                   break;
                               default:
                                   System.out.println("Restringete a las opciones que te damos.");
@@ -333,7 +376,7 @@ public class Main {
 
                   case 2: // Minar
                       //region [Minar]
-                      acumuladorRecurso=0;
+                      acumuladorRecurso = 0;
                       optionRecurso = 0;
                       LimpiarConsola();
                       piedra.reiniciarRecurso();
@@ -358,7 +401,11 @@ public class Main {
                               case 2:
                                   if (piedra.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
+<<<<<<< HEAD
                                       acumuladorRecurso = piedra.recolectarRecurso(20);
+=======
+                                      acumuladorRecurso = piedra.recolectarRecurso(personaje.getArmaenMano(), 20);
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                       acumuladorRecurso = 2;
                                   } else {
                                       efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
@@ -366,10 +413,16 @@ public class Main {
                                   break;
 
                               case 3:
+<<<<<<< HEAD
                                   acumuladorRecurso =+ 1; // borrar, se uso para testear
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(piedra,acumuladorRecurso);
                                   }else{
+=======
+                                  if (acumuladorRecurso > 0) {
+                                      //**** guardar inventario ****
+                                  } else {
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
                                   break;
@@ -393,7 +446,7 @@ public class Main {
 
                   case 3: // Cultivar
                       //region [Cultivo]
-                      acumuladorRecurso=0;
+                      acumuladorRecurso = 0;
                       optionRecurso = 0;
                       LimpiarConsola();
                       frutos.reiniciarRecurso();
@@ -424,9 +477,15 @@ public class Main {
                                   break;
 
                               case 3:
+<<<<<<< HEAD
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(frutos,acumuladorRecurso);
                                   }else{
+=======
+                                  if (acumuladorRecurso > 0) {
+                                      //****guardar inventario*****
+                                  } else {
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
                                   break;
@@ -448,7 +507,7 @@ public class Main {
 
                   case 4: // Pescar
                       //region [Pesca]
-                      acumuladorRecurso=0;
+                      acumuladorRecurso = 0;
                       optionRecurso = 0;
                       LimpiarConsola();
                       peces.reiniciarRecurso();
@@ -473,16 +532,26 @@ public class Main {
                               case 2:
                                   if (peces.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
+<<<<<<< HEAD
                                       acumuladorRecurso = peces.recolectarRecurso(20);
+=======
+                                      acumuladorRecurso = peces.recolectarRecurso(personaje.getArmaenMano(), 20);
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                   } else {
                                       efectoTipoGrafia("Tomas la cania de pescar pero no encuentras ningun pez..");
                                   }
                                   break;
 
                               case 3:
+<<<<<<< HEAD
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(peces,acumuladorRecurso);
                                   }else{
+=======
+                                  if (acumuladorRecurso > 0) {
+                                      //****guardar inventario****
+                                  } else {
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                                       System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
                                   }
                                   break;
@@ -507,27 +576,35 @@ public class Main {
                       break;
 
                   case 6: //estirarse
+<<<<<<< HEAD
                         if(numeroRandom.nextInt() == 8){
                             efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..\n");
                             personaje.setVida(personaje.getVida()+1);
                         }else{
                             efectoTipoGrafia("Te estiras para relajarte un poco..\n");
                         }
+=======
+                      if (numeroRandom.nextInt() == 8) {
+                          efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..");
+                          personaje.setVida(personaje.getVida() + 1);
+                      } else {
+                          efectoTipoGrafia("Te estiras para relajarte un poco..");
+                      }
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
                       break;
                   case 7:
-                        option = 9212;
+                      option = 9212;
                       break;
                   default:
                       System.out.println("¿Por que haces esto? Ahora le voy a subir la vida y el daño al enemigo, segui nomas.");
                       pausa();
-                      //subir bida y daño al enemigo
+                      //subir vida y daño al enemigo
                       break;
 
               }
-              contadorDia++;
           }
-            return contadorDia;
     }
+<<<<<<< HEAD
 
     //endregion
 
@@ -726,3 +803,6 @@ public class Main {
     }*/
 }
 
+=======
+}
+>>>>>>> c85e2bb3f84967a5cc8c0503c3c20ab202ea9225
