@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 package Inventario;
 
 import RecursoNatural.Recurso;
 import RecursoNatural.TipoRecurso;
+=======
+package RecursoNatural;
+>>>>>>> 0074f5ae4cd4a4390fcd0fbdef6ccd5b64221b83
 
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
@@ -17,7 +21,11 @@ public class Inventario {
 
     public void agregarAlInventario(Recurso x, int cantidadAgregar) {
         int i = 0;
+<<<<<<< HEAD
         for (TipoRecurso aux : recursos) {
+=======
+        for (TipoRecurso aux : this.recursos) {
+>>>>>>> 0074f5ae4cd4a4390fcd0fbdef6ccd5b64221b83
             if (aux.getNombre().equals(x.getNombre())) {
                 checkearPeso(cantidadAgregar, i);
             }
@@ -62,9 +70,13 @@ public class Inventario {
         for (Recurso aux:this.recursos) {
             System.out.println("0");
             if (aux.getNombre().equals(nombre)) {
+<<<<<<< HEAD
                 System.out.println("1");
                 if((aux.getStack() - cantidad) > 0){
                     System.out.println("2");
+=======
+                if((aux.getStack() - cantidad) > 0){
+>>>>>>> 0074f5ae4cd4a4390fcd0fbdef6ccd5b64221b83
                     aux.setStack(aux.getStack() - cantidad);
                     return true;
                 }
