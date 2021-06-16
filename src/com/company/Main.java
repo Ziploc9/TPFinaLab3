@@ -1,5 +1,4 @@
 package com.company;
-import RecursoNatural.Inventario;
 import Personaje.Personaje;
 import RecursoNatural.Recurso;
 import Herramientas.*;
