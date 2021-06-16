@@ -1,4 +1,5 @@
 package Personaje;
+import Herramientas.Instrumento;
 
 public class Personaje {
 
@@ -7,7 +8,7 @@ public class Personaje {
     private int damage;
     private int resistencia;
     private float velocidad;
-    private Instr EnMano
+    private Instrumento EnMano;
 
     public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad){
         this.nombre = nombre;

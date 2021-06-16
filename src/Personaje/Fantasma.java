@@ -1,5 +1,6 @@
 package Personaje;
 
+
 import RecursoNatural.Inventario;
 
 public class Fantasma extends Personaje {
@@ -45,7 +46,7 @@ public class Fantasma extends Personaje {
             }
         }
     }
-    public void llegada(){
+    public void llegadaFantasma(){
         System.out.println("Sientes un escalofrio, algo esta observandote.");
     }
 
