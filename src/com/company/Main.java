@@ -1,5 +1,6 @@
 package com.company;
 import Personaje.Personaje;
+import RecursoNatural.Inventario;
 import RecursoNatural.Recurso;
 import Herramientas.*;
 import java.util.Random;
@@ -259,7 +260,7 @@ public class Main {
 
     /**---------Modo juego de dia--------------*/
     //region [De Dia]
-    public static int juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces,Inventario inventario) {
+    public static int juego_deDia(Personaje personaje, Recurso madera, Recurso piedra, Recurso frutos, Recurso peces, Inventario inventario) {
         int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
         Scanner scan = new Scanner(System.in);
         Random numeroRandom = new Random();
