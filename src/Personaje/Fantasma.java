@@ -14,7 +14,7 @@ public class Fantasma extends Personaje {
     }
 
     public boolean casaAbierta() {
-        //verifica si la casa esta abierta o no
+
         return true;
     }
 
@@ -44,6 +44,9 @@ public class Fantasma extends Personaje {
                 System.out.println("El fantasma no logro causar ningun daño importante y se retiro, por ahora.");
             }
         }
+    }
+    public void llegada(){
+        System.out.println("Sientes un escalofrio, algo esta observandote.");
     }
 
 }
