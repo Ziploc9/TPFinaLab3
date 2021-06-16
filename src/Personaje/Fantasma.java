@@ -1,5 +1,6 @@
 package Personaje;
 
+
 public class Fantasma extends Personaje {
 
     public Fantasma(String nombre, int vida, int danio, int resistencia, float velocidad) {
