@@ -193,7 +193,8 @@ public class Main {
 
     //region [Menu principal]
     public static void correrjuego(){
-        int option = 0;
+        int option = 0, contadorTiempos=0, contadorDias=0;
+
 
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\nBienvenido a la Comarca");
@@ -238,8 +239,14 @@ public class Main {
                     intro(scan);
                     pausa();
                     LimpiarConsola();*/
-                    juego_deNoche(personaje,fantasma,azada, cania, escudo, espada, hacha, pico,inventario);
-                    juego_deDia(personaje, madera, piedra, frutos, peces, inventario);
+
+                    while(contadorDias <= 5) {
+                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+                        contadorTiempos=0;
+                        juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
+                        contadorDias++;
+                        contadorTiempos=0;
+                    }
 
 
 
@@ -281,7 +288,7 @@ public class Main {
 
     /**---------Modo juego de dia--------------*/
     //region [De Dia]
-    public static int juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces,Inventario inventario) {
+    public static void juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces,Inventario inventario,int contadorTiempos) {
         int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
         Scanner scan = new Scanner(System.in);
         Random numeroRandom = new Random();
@@ -308,7 +315,7 @@ public class Main {
                           switch (optionRecurso) {
 
                               case 1:
-
+                                  contadorTiempos ++;
                                   if (madera.comprobarRecurso()) {
                                       efectoTipoGrafia("Caminas entre los arboles y compruebas que no esten humedos..");
                                       efectoTipoGrafia("Encuentras un arbol perfecto para talar..");
@@ -318,6 +325,7 @@ public class Main {
                                   pausa();
                                   break;
                               case 2:
+                                  contadorTiempos ++;
                                   if (madera.comprobarRecurso()) {
                                       /*Reemplazar el 20 por el getDanio del arma*/
                                       acumuladorRecurso = acumuladorRecurso + madera.recolectarRecurso(20);
@@ -329,7 +337,7 @@ public class Main {
                                   break;
 
                               case 3:
-
+                                  contadorTiempos ++;
                                   if(acumuladorRecurso > 0){
                                         inventario.agregarAlInventario(madera,acumuladorRecurso);
                                         acumuladorRecurso=0;
@@ -340,15 +348,20 @@ public class Main {
                                   break;
 
                               case 4:
+                                  contadorTiempos ++;
                                   inventario.verInventario();
                                   break;
 
                               case 5:
+                                  contadorTiempos ++;
                                         optionRecurso = 9124;
                                   break;
                               default:
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
                           }
                       }
                       //endregion
@@ -369,7 +382,7 @@ public class Main {
                           switch (optionRecurso) {
 
                               case 1:
-
+                                  contadorTiempos++;
                                   if (piedra.comprobarRecurso()) {
                                       efectoTipoGrafia("Caminas entre algunas piedras buscando la perfecta para picar..");
                                       efectoTipoGrafia("Encuentras una piedra perfecta para picar..");
@@ -379,6 +392,7 @@ public class Main {
                                   pausa();
                                   break;
                               case 2:
+                                  contadorTiempos++;
                                   if (piedra.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
                                       acumuladorRecurso = acumuladorRecurso + piedra.recolectarRecurso(20);
@@ -389,7 +403,7 @@ public class Main {
                                   break;
 
                               case 3:
-
+                                  contadorTiempos++;
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(piedra,acumuladorRecurso);
                                       acumuladorRecurso=0;
@@ -399,15 +413,20 @@ public class Main {
                                   break;
 
                               case 4:
+                                  contadorTiempos++;
                                   inventario.verInventario();
                                   break;
 
                               case 5:
+                                  contadorTiempos++;
                                   optionRecurso = 9124;
                                   break;
                               default:
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
                           }
                       }
 
@@ -430,7 +449,7 @@ public class Main {
                           switch (optionRecurso) {
 
                               case 1:
-
+                                  contadorTiempos++;
                                   if (frutos.comprobarRecurso()) {
                                       efectoTipoGrafia("Te acercas a la huerta y te pones en cuclillas para ver los frutos..");
                                       efectoTipoGrafia("Ves los frutos que estan maduros..");
@@ -440,6 +459,7 @@ public class Main {
                                   pausa();
                                   break;
                               case 2:
+                                  contadorTiempos++;
                                   if (frutos.comprobarRecurso()) {
                                       acumuladorRecurso = acumuladorRecurso + frutos.recolectarRecurso();
                                   } else {
@@ -448,6 +468,7 @@ public class Main {
                                   break;
 
                               case 3:
+                                  contadorTiempos++;
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(frutos,acumuladorRecurso);
                                       acumuladorRecurso=0;
@@ -457,14 +478,19 @@ public class Main {
                                   break;
 
                               case 4:
+                                  contadorTiempos++;
                                   inventario.verInventario();
                                   break;
                               case 5:
+                                  contadorTiempos++;
                                   optionRecurso = 9124;
                                   break;
                               default:
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
                           }
                       }
 
@@ -486,7 +512,7 @@ public class Main {
                           switch (optionRecurso) {
 
                               case 1:
-
+                                  contadorTiempos++;
                                   if (peces.comprobarRecurso()) {
                                       efectoTipoGrafia("Caminas hacia el lago para ver si hay peces..");
                                       efectoTipoGrafia("Encuentras algunos peces nadando en el lago..");
@@ -496,6 +522,7 @@ public class Main {
                                   pausa();
                                   break;
                               case 2:
+                                  contadorTiempos++;
                                   if (peces.comprobarRecurso()) {
                                       /**Reemplazar el 20 por el getDanio del arma*/
                                       acumuladorRecurso = acumuladorRecurso + peces.recolectarRecurso(20);
@@ -505,6 +532,7 @@ public class Main {
                                   break;
 
                               case 3:
+                                  contadorTiempos++;
                                   if(acumuladorRecurso > 0){
                                       inventario.agregarAlInventario(peces,acumuladorRecurso);
                                       acumuladorRecurso=0;
@@ -514,14 +542,19 @@ public class Main {
                                   break;
 
                               case 4:
+                                  contadorTiempos++;
                                   inventario.verInventario();
                                   break;
                               case 5:
+                                  contadorTiempos++;
                                   optionRecurso = 9124;
                                   break;
                               default:
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
                           }
                       }
 
@@ -529,10 +562,12 @@ public class Main {
                       break;
 
                   case 5: // caminar por el lugar
+                      contadorTiempos++;
                       efectoTipoGrafia("Caminas al rededor de tu casa y ves que todo esta bien\n");
                       break;
 
                   case 6: //estirarse
+                      contadorTiempos++;
                         if(numeroRandom.nextInt() == 8){
                             efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..\n");
                             personaje.setVida(personaje.getVida()+1);
@@ -540,19 +575,22 @@ public class Main {
                             efectoTipoGrafia("Te estiras para relajarte un poco..\n");
                         }
                       break;
-                  case 7:
+                  case 7://pasar a la noche
                         option = 9212;
                       break;
                   default:
                       System.out.println("¿Por que haces esto? Ahora le voy a subir la vida y el daño al enemigo, segui nomas.");
                       pausa();
-                      //subir bida y daño al enemigo
+                      //subir vida y daño al enemigo
                       break;
 
               }
-              contadorDia++;
+              if(contadorTiempos==20){
+                  option=9212;
+              }
+
           }
-            return contadorDia;
+
     }
 
     //endregion
@@ -560,10 +598,11 @@ public class Main {
 
     /**-----Modo juego noche------**/
 
-    public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
+    public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
         int option = 0;
         boolean puerta = true;
         Scanner scan = new Scanner(System.in);
+        LimpiarConsola();
         efectoTipoGrafia("Se hace de noche y decides entrar a la casa");
         while (option != 999){
             efectoTipoGrafia("¿Que quieres hacer ahora?");
@@ -572,18 +611,19 @@ public class Main {
             option = scan.nextInt();
             switch (option){
                 case 1: //Salir de la casa
+                    contadorTiempo++;
                     puerta=true;
                     System.out.println("Usted esta saliendo de la casa");
                     break;
 
                 case 2: //Dormir
-                    // poner el contador en 0
+                    contadorTiempo = 8;
                     break;
 
                 case 3: //Mejorar Instrumento
+                    contadorTiempo += 2;
 
-
-                        menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario);
+                        menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempo);
                         if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
                             efectoTipoGrafia("");
                             efectoTipoGrafia("Perdiste, por no usar python");
@@ -595,8 +635,8 @@ public class Main {
 
 
                 case 4: //Reparar Instrumento
-
-                    menuReparar(azada, cania, escudo, espada, hacha, pico,inventario);
+                    contadorTiempo += 2;
+                    menuReparar(azada, cania, escudo, espada, hacha, pico,inventario,contadorTiempo);
                     if(fantasma.destruir(inventario,puerta)){
                         efectoTipoGrafia("Perdiste, por no usar python");
                         efectoTipoGrafia("Vuelves al Menu Principal");
@@ -618,10 +658,13 @@ public class Main {
 
 
             }
+            if(contadorTiempo >= 8){
+                option = 999;
+            }
         }
     }
 
-    public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
+    public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
 
         /*Azada azada = new Azada(10,20,25,"Azada Inicial");
         CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania Inicial");
@@ -708,7 +751,7 @@ public class Main {
 
     }
 
-    public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario){
+    public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
 
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -788,116 +831,5 @@ public class Main {
 
     }
 
-    /*public static void menuCrear(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
-        int option = 0;
-        Scanner scan = new Scanner(System.in);
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/maintest
-        System.out.println("Elije la herramienta a Crear: ");
-        menuInstrumento();
-        System.out.println("Elijes: ");
-        option = scan.nextInt();
-        switch (option){
-<<<<<<< HEAD
-
-            case 1://Azada
-
-                System.out.println("Vamos a crear tu Azada");
-                System.out.println("Condicion actual: ");
-
-
-                break;
-
-            case 2://CaniaDePescar
-
-=======
-            case 1://Azada
-                System.out.println("Vamos a crear tu Azada");
-                System.out.println("Condicion actual: ");
-                break;
-            case 2://CaniaDePescar
->>>>>>> origin/maintest
-                System.out.println("Vamos a mejorar tu Cania de Pescar...");
-                System.out.println("Condicion actual: ");
-                cania.mostrarInstrumento();
-                cania.mejorarInstrumento();
-                System.out.println("Condicion despues de ser mejorada: ");
-                cania.mostrarInstrumento();
-<<<<<<< HEAD
-
-                break;
-
-            case 3://Escudo
-
-=======
-                break;
-            case 3://Escudo
->>>>>>> origin/maintest
-                System.out.println("Vamos a mejorar tu Escudo");
-                System.out.println("Condicion actual: ");
-                escudo.mostrarInstrumento();
-                escudo.mejorarInstrumento();
-                System.out.println("Condicion despues de ser mejorada: ");
-                escudo.mostrarInstrumento();
-<<<<<<< HEAD
-
-                break;
-
-            case 4://Espada
-
-=======
-                break;
-            case 4://Espada
->>>>>>> origin/maintest
-                System.out.println("Vamos a mejorar tu Espada");
-                System.out.println("Condicion actual: ");
-                espada.mostrarInstrumento();
-                espada.mejorarInstrumento();
-                System.out.println("Condicion despues de ser mejorada: ");
-                espada.mostrarInstrumento();
-<<<<<<< HEAD
-
-                break;
-            case 5://Hacha
-
-=======
-                break;
-            case 5://Hacha
->>>>>>> origin/maintest
-                System.out.println("Vamos a mejorar tu Hacha");
-                System.out.println("Condicion actual: ");
-                hacha.mostrarInstrumento();
-                hacha.mejorarInstrumento();
-                System.out.println("Condicion despues de ser mejorada: ");
-                hacha.mostrarInstrumento();
-<<<<<<< HEAD
-
-                break;
-
-            case 6://Pico
-
-=======
-                break;
-            case 6://Pico
->>>>>>> origin/maintest
-                System.out.println("Vamos a mejorar tu Pico");
-                System.out.println("Condicion actual: ");
-                pico.mostrarInstrumento();
-                pico.mejorarInstrumento();
-                System.out.println("Condicion despues de ser mejorada: ");
-                pico.mostrarInstrumento();
-<<<<<<< HEAD
-
-                break;
-        }
-
-
-=======
-                break;
-        }
->>>>>>> origin/maintest
-    }*/
 }
 
