@@ -1,9 +1,13 @@
 package com.company;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2770fd15c153485158a62f2ddb537a6f70dcaf74
 import Inventario.*;
+import Personaje.*;
 import RecursoNatural.*;
 import Herramientas.*;
 import java.util.Random;
-import Personaje.*;
 
 import java.util.Scanner;
 

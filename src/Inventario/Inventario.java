@@ -1,8 +1,18 @@
+<<<<<<< HEAD
+=======
+
+package Inventario;
+import RecursoNatural.*;
+
+>>>>>>> 2770fd15c153485158a62f2ddb537a6f70dcaf74
 
 package Inventario;
 import RecursoNatural.Recurso;
 import RecursoNatural.TipoRecurso;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2770fd15c153485158a62f2ddb537a6f70dcaf74
 
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
@@ -60,19 +70,19 @@ public class Inventario {
     }
 
     public boolean usarDelInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
+<<<<<<< HEAD
         for (Recurso aux : recursos) {
+=======
+        for (Recurso aux:this.recursos) {
+>>>>>>> 2770fd15c153485158a62f2ddb537a6f70dcaf74
             if (aux.getNombre().equals(nombre)) {
                 if((aux.getStack() - cantidad) > 0){
                     aux.setStack(aux.getStack() - cantidad);
                     return true;
                 }
                 else{
-                    System.out.println("3");
                     return false;
                 }
-            }
-            else{
-                System.out.println("4");
             }
         }
         return false;
