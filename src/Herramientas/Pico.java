@@ -1,13 +1,13 @@
-package com.company.Herramientas;
+package Herramientas;
 
-public class Escudo extends Instrumento {
-    public Escudo(int danio, int durabilidad, int resistencia, String nombre) {
+public class Pico extends Instrumento {
+    public Pico(int danio, int durabilidad, int resistencia, String nombre) {
         super(danio, durabilidad, resistencia, nombre);
     }
 
     @Override
     public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario("Piedra", 3) == true){
+        if (Inventario.usarDelInventario("Piedra",2) == true){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -27,7 +27,6 @@ public class Escudo extends Instrumento {
             System.out.println("No tenes los objetos necesarios");
         }
     }
-
 
     @Override
     public void mostrarInstrumento(){

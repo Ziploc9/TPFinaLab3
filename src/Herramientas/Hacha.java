@@ -1,14 +1,14 @@
-package com.company.Herramientas;
+package Herramientas;
 
-public class Azada extends Instrumento {
-
-    public Azada(int danio, int durabilidad, int resistencia, String nombre) {
+public class Hacha extends Instrumento implements  Armas{
+    public Hacha(int danio, int durabilidad, int resistencia, String nombre) {
         super(danio, durabilidad, resistencia, nombre);
     }
 
+
     @Override
     public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario("Madera", 2) == true){
+        if (Inventario.usarDelInventario("Piedra",2) == true){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -20,7 +20,7 @@ public class Azada extends Instrumento {
 
     @Override
     public void repararInstrumento() {
-        if(Inventario.usarDelInventario("Madera", 2)){
+        if(Inventario.usarDelInventario("Piedra", 2)){
             this,setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
@@ -33,4 +33,8 @@ public class Azada extends Instrumento {
     public void mostrarInstrumento(){
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
+
+
+
+
 }

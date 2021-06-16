@@ -1,13 +1,14 @@
-package com.company.Herramientas;
+package Herramientas;
 
-public class Pico extends Instrumento {
-    public Pico(int danio, int durabilidad, int resistencia, String nombre) {
+public class Azada extends Instrumento {
+
+    public Azada(int danio, int durabilidad, int resistencia, String nombre) {
         super(danio, durabilidad, resistencia, nombre);
     }
 
     @Override
     public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario("Piedra",2) == true){
+        if (Inventario.usarDelInventario("Madera", 2) == true){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -19,7 +20,7 @@ public class Pico extends Instrumento {
 
     @Override
     public void repararInstrumento() {
-        if(Inventario.usarDelInventario("Piedra", 2)){
+        if(Inventario.usarDelInventario("Madera", 2)){
             this,setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());

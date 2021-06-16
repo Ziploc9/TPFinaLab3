@@ -1,4 +1,4 @@
-package com.company.Herramientas;
+package Herramientas;
 
 public class CaniaDePescar extends Instrumento {
     public CaniaDePescar(int danio, int durabilidad, int resistencia, String nombre) {

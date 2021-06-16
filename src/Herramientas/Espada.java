@@ -1,14 +1,13 @@
-package com.company.Herramientas;
+package Herramientas;
 
-public class Hacha extends Instrumento implements  Armas{
-    public Hacha(int danio, int durabilidad, int resistencia, String nombre) {
+public class Espada extends Instrumento implements Armas{
+    public Espada(int danio, int durabilidad, int resistencia, String nombre) {
         super(danio, durabilidad, resistencia, nombre);
     }
 
-
     @Override
-    public void mejorarInstrumento() {
-        if (Inventario.usarDelInventario("Piedra",2) == true){
+    public void mejorarInstrumento("Piedra", 5) {
+        if (Inventario.usarDelInventario() == true){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.println("  ");
@@ -18,9 +17,10 @@ public class Hacha extends Instrumento implements  Armas{
         }
     }
 
+
     @Override
     public void repararInstrumento() {
-        if(Inventario.usarDelInventario("Piedra", 2)){
+        if(Inventario.usarDelInventario("Piedra",3)){
             this,setDurabilidad(this.getDurabilidad()+5);
             System.out.println("  ");
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad", this.getNombre(), getDurabilidad());
@@ -34,7 +34,7 @@ public class Hacha extends Instrumento implements  Armas{
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
-
-
+    @Override
+            public void atacar{}
 
 }

@@ -1,4 +1,4 @@
-package com.company.Herramientas;
+package Herramientas;
 
 import java.sql.SQLOutput;
 
