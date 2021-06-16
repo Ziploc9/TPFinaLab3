@@ -1,7 +1,8 @@
 package com.company;
-import Inventario.Inventario;
-import Personaje.Personaje;
-import RecursoNatural.Recurso;
+
+import Inventario.*;
+import Personaje.*;
+import RecursoNatural.*;
 import Herramientas.*;
 import java.util.Random;
 import java.util.Scanner;

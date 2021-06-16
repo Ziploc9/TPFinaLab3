@@ -1,4 +1,6 @@
-package RecursoNatural;
+package Inventario;
+import RecursoNatural.*;
+
 
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
