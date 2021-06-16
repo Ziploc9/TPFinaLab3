@@ -1,6 +1,4 @@
 package com.company;
-
-
 import Inventario.*;
 import RecursoNatural.*;
 import Herramientas.*;
