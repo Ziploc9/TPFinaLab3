@@ -1,4 +1,5 @@
 package Personaje;
+import RecursoNatural.Inventario;
 
 public class Fantasma extends Personaje{
 
