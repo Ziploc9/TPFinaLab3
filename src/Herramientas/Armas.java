@@ -2,7 +2,7 @@ package Herramientas;
 
 interface Armas {
 
-    public  void atacar();
+    public  int atacar();
 
 
 }

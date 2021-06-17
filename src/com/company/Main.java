@@ -147,6 +147,20 @@ public class Main {
         System.out.println("6- Pico");
 
     }
+
+    public static void menuPeleaA(){
+
+        System.out.println("1- Correr hacia la derecha.\n");
+        System.out.println("2- Correr hacia la izquierda.\n");
+        System.out.println("3- Correr directo a el.\n");
+        System.out.println("4- Esperar a que se acerque a ti.\n");
+    }
+
+    public static void elegirArma(){
+        System.out.println("1- Agarrar la espada.\n");
+        System.out.println("2- Agarrar el hacha.\n");
+        System.out.println("3- Agarrar el escudo.\n");
+    }
     //endregion
 
     /**------- Crear personaje ---------*/
@@ -200,7 +214,7 @@ public class Main {
         System.out.println("\n\nBienvenido a la Comarca");
 
         Personaje personaje = new Personaje("Julian",100,10,10,10);
-        Fantasma fantasma = new Fantasma("CHALM",120,20,50,5);
+        Fantasma fantasma = new Fantasma("CHALM",120,20,10,5);
 
 
 
@@ -241,7 +255,7 @@ public class Main {
                     LimpiarConsola();*/
 
                     while(contadorDias <= 5) {
-                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+                       // juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
                         contadorDias++;
@@ -590,7 +604,10 @@ public class Main {
               }
 
           }
-
+          madera.reiniciarRecurso();
+          peces.reiniciarRecurso();
+          frutos.reiniciarRecurso();
+          piedra.reiniciarRecurso();
     }
 
     //endregion
@@ -601,6 +618,7 @@ public class Main {
     public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
         int option = 0;
         boolean puerta = true;
+
         Scanner scan = new Scanner(System.in);
         LimpiarConsola();
         efectoTipoGrafia("Se hace de noche y decides entrar a la casa");
@@ -613,7 +631,10 @@ public class Main {
                 case 1: //Salir de la casa
                     contadorTiempo++;
                     puerta=true;
-                    System.out.println("Usted esta saliendo de la casa");
+                    efectoTipoGrafia("Usted esta saliendo de la casa");
+                    efectoTipoGrafia("Ves al fantasma de linux acercarse");
+                    efectoTipoGrafia("Es momento de enseñarle al Fantasma de Linux quien manda..\n");
+                    menuPelea(personaje,fantasma,espada,hacha,escudo);
                     break;
 
                 case 2: //Dormir
@@ -831,5 +852,133 @@ public class Main {
 
     }
 
+
+    public static void menuPelea(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
+        int num = 0;
+        int numRand = 0;
+        int opcion = 0;
+        Scanner scan = new Scanner(System.in);
+        while (opcion != 999){
+
+            menuPeleaA();
+            num = scan.nextInt();
+            switch (num){
+
+                case 1: // Correr Derecha
+
+                    numRand = (int)(Math.random()*1+1);
+                    if(numRand == 1){
+                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                        atacaFantasma(personaje,fantasma);
+                    }else{
+                        atacaFantasma(personaje,fantasma);
+                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                    }
+                    break;
+
+                case 2:// Correr Izquierda
+
+                    numRand = (int)(Math.random()*1+1);
+                    if(numRand == 1){
+                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                        atacaFantasma(personaje,fantasma);
+                    }else{
+                        atacaFantasma(personaje,fantasma);
+                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                    }
+                    break;
+
+                case 3: // Correr Directo a el
+                    atacaFantasma(personaje,fantasma);
+                    atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                    break;
+
+                case 4: // Esperar a que se acerque
+                    atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                    atacaFantasma(personaje,fantasma);
+                    break;
+            }
+            if(fantasma.getVida()<=0){
+
+                opcion = 999;
+            }else{
+                if (personaje.getVida() <= 0){
+                    opcion = 999;
+                }
+            }
+        }
+        if(personaje.getVida()<=0){
+
+            System.out.println("El fantasma se acerca a tu cuerpo y te mira riendose y colocando un pinguino en tu cabeza.\n");
+            correrjuego();
+        }else if(fantasma.getVida()<=0){
+            System.out.println("Te levantas del suelo cansado y con sangre en la ropa..ves al fantasma de linux tirado y gritas ¡¡¡WINDOWS!!!..");
+            correrjuego();
+        }
+    }
+
+    public static void atacaFantasma(Personaje personaje, Fantasma fantasma){
+        int danio = 0;
+        efectoTipoGrafia("El fantasma se acerca y realiza un ataque");
+        danio = fantasma.atacar();
+        if( danio >= personaje.getResistencia()){
+            danio -= personaje.getResistencia();
+            System.out.println("Tu vida bajo de "+personaje.getVida()+" a "+(personaje.getVida()-danio));
+            personaje.setVida(personaje.getVida()-danio);
+        }else{
+            efectoTipoGrafia("Tu resistencia es mayor al daño del fantasma, resistes el golpe");
+        }
+    }
+
+    public static void atacaPersonaje(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
+        int danio = 0;
+        int option = 0;
+        Scanner scan = new Scanner(System.in);
+        efectoTipoGrafia("Te acercas a el fantasma y realizas un ataque");
+        efectoTipoGrafia("Que arma deseas usar?");
+        elegirArma();
+        System.out.println("Elijes: ");
+        option = scan.nextInt();
+        switch (option){
+            case 1: // Espada
+                danio = espada.atacar();
+                if( danio >= fantasma.getResistencia()){
+                    danio -= fantasma.getResistencia();
+                    System.out.println("La vida del fantasma bajo de "+fantasma.getVida()+" a "+(fantasma.getVida()-danio));
+                    fantasma.setVida(fantasma.getVida()-danio);
+                }else{
+                    efectoTipoGrafia("La resistencia del fantasma es mayor que el poder de tu ataque");
+                    efectoTipoGrafia("El fantasma no sufre ningun danio");
+                }
+                break;
+
+            case 2: // Hacha
+                danio = hacha.atacar();
+                if( danio >= fantasma.getResistencia()){
+                    danio -= fantasma.getResistencia();
+                    System.out.println("La vida del fantasma bajo de "+fantasma.getVida()+" a "+(fantasma.getVida()-danio));
+                    fantasma.setVida(fantasma.getVida()-danio);
+                }else{
+                    efectoTipoGrafia("La resistencia del fantasma es mayor que el poder de tu ataque");
+                    efectoTipoGrafia("El fantasma no sufre ningun danio");
+                }
+                break;
+
+            case 3:
+                if(personaje.getResistencia() <= escudo.getResistencia()){
+                    efectoTipoGrafia("Te equipas el escudo");
+                    personaje.setResistencia(personaje.getResistencia()+ escudo.getResistencia());
+                    efectoTipoGrafia("De esta manera aumentas tu resistencia a los ataques");
+                }else{
+                    efectoTipoGrafia("acaso eres tonto ??");
+                    efectoTipoGrafia("ya tienes el escudo equipado");
+                }
+
+                break;
+        }
+
+    }
 }
+
+
 

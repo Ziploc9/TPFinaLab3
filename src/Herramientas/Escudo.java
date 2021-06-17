@@ -31,4 +31,6 @@ public class Escudo extends Instrumento {
     public void mostrarInstrumento(){
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d\n", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
+
+
 }
