@@ -240,12 +240,12 @@ public class Main {
         }
     }
 
-    public static void guardarMadera(Recurso recurso){
+    public static void guardarAzada(Azada azada){
         Gson gson = new Gson();
-        String json = gson.toJson(recurso);
+        String json = gson.toJson(azada);
 
         try {
-            FileWriter fw = new FileWriter("Madera.json");
+            FileWriter fw = new FileWriter("Azada.json");
             fw.write(json);
             fw.close();
         } catch (IOException e) {
@@ -253,12 +253,12 @@ public class Main {
         }
     }
 
-    public static void guardarPiedra(Recurso recurso){
+    public static void guardarCania(CaniaDePescar cania){
         Gson gson = new Gson();
-        String json = gson.toJson(recurso);
+        String json = gson.toJson(cania);
 
         try {
-            FileWriter fw = new FileWriter("Piedra.json");
+            FileWriter fw = new FileWriter("Cania.json");
             fw.write(json);
             fw.close();
         } catch (IOException e) {
@@ -266,12 +266,12 @@ public class Main {
         }
     }
 
-    public static void guardarFrutos(Recurso recurso){
+    public static void guardarEscudo(Escudo escudo){
         Gson gson = new Gson();
-        String json = gson.toJson(recurso);
+        String json = gson.toJson(escudo);
 
         try {
-            FileWriter fw = new FileWriter("Frutos.json");
+            FileWriter fw = new FileWriter("Escudo.json");
             fw.write(json);
             fw.close();
         } catch (IOException e) {
@@ -279,12 +279,38 @@ public class Main {
         }
     }
 
-    public static void guardarPeces(Recurso recurso){
+    public static void guardarEspada(Espada espada){
         Gson gson = new Gson();
-        String json = gson.toJson(recurso);
+        String json = gson.toJson(espada);
 
         try {
-            FileWriter fw = new FileWriter("Peces.json");
+            FileWriter fw = new FileWriter("Espada.json");
+            fw.write(json);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void guardarHacha(Hacha hacha){
+        Gson gson = new Gson();
+        String json = gson.toJson(hacha);
+
+        try {
+            FileWriter fw = new FileWriter("Hacha.json");
+            fw.write(json);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void guardarPico(Pico pico){
+        Gson gson = new Gson();
+        String json = gson.toJson(pico);
+
+        try {
+            FileWriter fw = new FileWriter("Pico.json");
             fw.write(json);
             fw.close();
         } catch (IOException e) {
@@ -349,6 +375,21 @@ public class Main {
         }
     }
 
+    public static void cargarEscudo(Escudo escudo){
+        try {
+            File file = new File("Escudo.json");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            Gson gson1 = new Gson();
+            escudo = gson1.fromJson(br, Escudo.class);
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
         /**------- Switch inicia el menu principal del juego----*/
@@ -369,7 +410,7 @@ public class Main {
         Personaje personaje = new Personaje("ENZO",1850,10,10,10);
         Fantasma fantasma = new Fantasma("CHALM",120,20,10,5);
 
-       Recurso peces = new Recurso("peces", 10,true,8,10,9);
+        Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
         Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
@@ -379,25 +420,51 @@ public class Main {
         Recurso piedra = new Recurso();
         Recurso madera = new Recurso();*/
 
-        System.out.println(madera.getStack());
-
-        cargarMadera(madera);
-        System.out.println(madera.getStack());
-        cargarPiedra(piedra);
-        cargarFrutos(frutos);
-        cargarPeces(peces);
-
-
-        System.out.println(madera.getStack());
 
         Azada azada = new Azada(10,20,25,"Azada");
         CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania");
-        Escudo escudo = new Escudo(0,20,50,"Escudo");
+        //Escudo escudo = new Escudo(0,20,50,"Escudo");
+        Escudo escudo = new Escudo();
         Espada espada = new Espada(25,25,15,"Espada");
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
-        Inventario inventario = new Inventario(madera,piedra,frutos,peces);
+
+
+        Inventario inventario = new Inventario();
+
+        // CARGAR INVENTARIO
+        try {
+            File file = new File("Inventario.json");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            Gson gson1 = new Gson();
+            inventario = gson1.fromJson(br, Inventario.class);
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        guardarAzada(azada);
+        guardarCania(cania);
+
+        guardarEspada(espada);
+        guardarHacha(hacha);
+        guardarPico(pico);
+
+        // CARGAR ESCUDO
+        try {
+            File file = new File("Escudo.json");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            Gson gson1 = new Gson();
+            escudo = gson1.fromJson(br, Escudo.class);
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         switch (option1){
 
