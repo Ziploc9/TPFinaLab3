@@ -2,7 +2,7 @@ package com.company;
 
 import Inventario.*;
 import Personaje.*;
-import RecursoNatural.*;
+import RecursoNatural.Recurso;
 import Herramientas.*;
 import java.util.Random;
 
