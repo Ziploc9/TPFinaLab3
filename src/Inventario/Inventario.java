@@ -18,7 +18,6 @@ public class Inventario {
 
     public void agregarAlInventario(Recurso x, int cantidadAgregar) {
         int i = 0;
-        for (TipoRecurso aux : recursos) {
         for (TipoRecurso aux : this.recursos) {
             if (aux.getNombre().equals(x.getNombre())) {
                 checkearPeso(cantidadAgregar, i);
@@ -61,25 +60,16 @@ public class Inventario {
     }
 
     public boolean usarDelInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
+
         for (Recurso aux:this.recursos) {
             if (aux.getNombre().equals(nombre)) {
-
-                System.out.println("1");
                 if((aux.getStack() - cantidad) > 0){
-                    System.out.println("2");
-
-                if((aux.getStack() - cantidad) > 0){
-
-                if((aux.getStack() - cantidad) > 0){
-
                     aux.setStack(aux.getStack() - cantidad);
                     return true;
                 }
                 else{
                     return false;
                 }
-            }
-            else{
             }
         }
         return false;

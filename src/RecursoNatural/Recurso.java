@@ -25,14 +25,6 @@ public class Recurso extends TipoRecurso {
         this.stack = stack;
     }
 
-    public int getStack() {
-        return stack;
-    }
-
-    public void setStack(int stack) {
-        this.stack = stack;
-    }
-
     public int getResistencia() {
         return resistencia;
     }
