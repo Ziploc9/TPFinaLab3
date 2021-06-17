@@ -6,6 +6,9 @@ public class Pico extends Instrumento {
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public Pico() {
+    }
+
     @Override
     public void mejorarInstrumento(Inventario inventario) {
         if (inventario.usarDelInventario("piedra",2) == true){

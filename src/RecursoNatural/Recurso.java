@@ -15,6 +15,8 @@ public class Recurso extends TipoRecurso {
         this.tiempoMadurez = tiempoMadurez;
     }
 
+    public Recurso() {
+    }
 
     //region [getters setters]
     public int getStack() {

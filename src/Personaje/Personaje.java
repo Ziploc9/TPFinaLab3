@@ -19,6 +19,9 @@ public class Personaje {
         this.enMano = enMano;
     }
 
+    public Personaje() {
+    }
+
     public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad){
 
         this.nombre = nombre;

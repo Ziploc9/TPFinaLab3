@@ -15,6 +15,8 @@ public class Inventario {
         this.recursos[3] = peces;
     }
 
+
+
     public void agregarAlInventario(Recurso x, int cantidadAgregar) {
         int i = 0;
         for (TipoRecurso aux : recursos) {

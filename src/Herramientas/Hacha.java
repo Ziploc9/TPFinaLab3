@@ -7,6 +7,8 @@ public class Hacha extends Instrumento implements  Armas{
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public Hacha() {
+    }
 
     @Override
     public void mejorarInstrumento(Inventario inventario) {

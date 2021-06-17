@@ -14,6 +14,9 @@ public class Instrumento {
         this.nombre = nombre;
     }
 
+    public Instrumento() {
+    }
+
     public enum Instrumentonombre {
         AZADA,
         CANIADEPESCAR,

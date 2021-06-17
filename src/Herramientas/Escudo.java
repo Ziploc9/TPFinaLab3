@@ -6,6 +6,9 @@ public class Escudo extends Instrumento {
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public Escudo() {
+    }
+
     @Override
     public void mejorarInstrumento(Inventario inventario) {
         if (inventario.usarDelInventario("piedra", 3) == true){

@@ -8,6 +8,9 @@ public class TipoRecurso {
 
     //region [Getters & Setters]
 
+    public TipoRecurso() {
+    }
+
     public String getNombre() {
         return nombre;
     }

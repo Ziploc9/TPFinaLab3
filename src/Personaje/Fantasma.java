@@ -8,6 +8,9 @@ public class Fantasma extends Personaje {
         super(nombre, vida, danio, resistencia, velocidad);
     }
 
+    public Fantasma() {
+    }
+
     public boolean destruir(Inventario inv, boolean puerta) {
         if (puerta) {
             System.out.println("Olvidaste de cerrar la casa y fuiste asesinado!");
