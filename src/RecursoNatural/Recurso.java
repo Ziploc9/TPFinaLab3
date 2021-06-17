@@ -160,13 +160,13 @@ public class Recurso extends TipoRecurso {
     public void reiniciarRecurso(){
         if(getCantidadRecurso()<=0) {
             if ("peces".equals(getNombre())) {
-                setCantidadRecurso(9);
+                setCantidadRecurso(10);
             } else if ("madera".equals(getNombre())) {
-                setCantidadRecurso(25);
+                setCantidadRecurso(10);
             } else if ("frutos".equals(getNombre())) {
-                setCantidadRecurso(20);
+                setCantidadRecurso(10);
             } else if ("piedra".equals(getNombre())) {
-                setCantidadRecurso(30);
+                setCantidadRecurso(10);
             }
         }
     }
