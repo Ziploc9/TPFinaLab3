@@ -6,6 +6,9 @@ public class Espada extends Instrumento implements Armas{
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public Espada() {
+    }
+
     @Override
     public void mejorarInstrumento(Inventario inventario) {
         if (inventario.usarDelInventario("piedra", 5)){

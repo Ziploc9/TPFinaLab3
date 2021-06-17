@@ -7,6 +7,9 @@ public class Azada extends Instrumento {
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public Azada() {
+    }
+
     @Override
     public void mejorarInstrumento(Inventario inventario) {
         if (inventario.usarDelInventario("madera", 2) == true){

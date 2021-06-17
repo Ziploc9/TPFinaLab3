@@ -14,15 +14,8 @@ public class Instrumento {
         this.nombre = nombre;
     }
 
-    public enum Instrumentonombre {
-        AZADA,
-        CANIADEPESCAR,
-        ESCUDO,
-        ESPADA,
-        HACHA,
-        PICO;
+    public Instrumento() {
     }
-
 
 
     public int getDanio() {

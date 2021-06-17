@@ -1,4 +1,5 @@
 package com.company;
+<<<<<<< HEAD
 import Personaje.Personaje;
 import RecursoNatural.Recurso;
 import Inventario.;
@@ -7,15 +8,35 @@ import Herramientas.;
 import com.google.gson.;
 
 import java.io.*;
+=======
+
+
+import Inventario.*;
+
+import RecursoNatural.Recurso;
+import Herramientas.*;
+
+>>>>>>> origin/Enzo
 import java.util.Random;
 import java.io.FileWriter;
 import com.google.gson.Gson;
 
+<<<<<<< HEAD
 import javax.swing.text.html.parser.Parser;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.FileReader;
+=======
+
+import java.io.*;
+import java.io.FileWriter;
+import com.google.gson.Gson;
+
+import java.util.Scanner;
+import java.io.FileReader;
+
+>>>>>>> origin/Enzo
 
 public class Main {
 
@@ -28,10 +49,16 @@ public class Main {
 
     public static void menuStart() {
         System.out.println("-> 1- Iniciar juego");
+<<<<<<< HEAD
         System.out.println("-> 2- Controles");
         System.out.println("-> 3- Historial de partidas");
         System.out.println("-> 4- Creditos");
         System.out.println("-> 5- Salir juego");
+=======
+        System.out.println("-> 2- Cargar Partida");
+        System.out.println("-> 3- Creditos");
+        System.out.println("-> 4- Salir juego");
+>>>>>>> origin/Enzo
     }
 
     public static void controles() {
@@ -48,10 +75,19 @@ public class Main {
     }
 
 
+    /**------- Switch inicia el menu principal del juego----*/
 
+    public static void intro(Scanner scan) {
+            efectoTipoGrafia("9 am.. suena tu telefono");
+            efectoTipoGrafia("Te levantas de la cama y vas a buscar el telefono\n");
 
+            efectoTipoGrafia("-¿Hola?..");
+            efectoTipoGrafia("Anonimo: No salgas de tu casa en la noche.\n");
 
+            efectoTipoGrafia("-¿Cristian?..¿Sos vos?.. Ya te dije que no me interesa tener Linux.");
+            efectoTipoGrafia("El anonimo colgo\n");
 
+<<<<<<< HEAD
     /**------- Switch inicia el menu principal del juego----*/
 
     public static void intro(Scanner scan) {
@@ -63,8 +99,11 @@ public class Main {
         efectoTipoGrafia("*El anonimo colgo*\n");
         efectoTipoGrafia("-Buuu..eno ¿Ahora que hago despierto a esta hora?..Me siento raro..como si alguien me observara o me controlara..Meh..debe ser la manaos y los memes de linux.");
         efectoTipoGrafia("*Sales de la casa, el sol te da plenamente*\n");
+=======
+            efectoTipoGrafia("-Dios..me hacen despertar temprano.. mejor voy afuera, de lo que se pierden estos de no estar en Necochea papa..");
+            efectoTipoGrafia("Sales de la casa, el sol te da plenamente\n");
+>>>>>>> origin/Enzo
     }
-
 
     public static void pausa(){
         String seguir;
@@ -94,6 +133,11 @@ public class Main {
             espaciado.append('\b');
         }
         System.out.println();
+    }
+
+    public static void menuSeleccion(){
+        System.out.println("-> 1- Nueva Partida");
+        System.out.println("-> 2- Cargar Partida");
     }
 
     public static void menuMadera(){
@@ -211,25 +255,49 @@ public class Main {
 
     //endregion
 
+<<<<<<< HEAD
+    /**------- Switch inicia el menu principal del juego----*/
+=======
+    //region [Json]
+>>>>>>> origin/Enzo
+
+    public static void guardarCajita(Box cajita){
+        Gson gson = new Gson();
+        String json = gson.toJson(cajita);
+
+        try {
+            FileWriter fw = new FileWriter("Cajita.json");
+            fw.write(json);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static  void guardarPartida(Inventario inventario,Personaje personaje, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, int contadorDias){
+        Box caja = new Box(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
+        guardarCajita(caja);
+        efectoTipoGrafia("Se ha guardo la partida automaticamente. . .");
+        pausa();
+        LimpiarConsola();
+    }
+
     /**------- Switch inicia el menu principal del juego----*/
 
     //region [Menu principal]
     public static void correrjuego(){
         int option = 0, contadorTiempos=0, contadorDias=0;
-
-
+        int option1 = 0;
         Scanner scan = new Scanner(System.in);
-        System.out.println("\n\nBienvenido a la Comarca");
-
-        Personaje personaje = new Personaje("Julian",100,10,10,10);
-        Fantasma fantasma = new Fantasma("CHALM",120,20,10,5);
-
 
 
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
         Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
+
+        Personaje personaje = new Personaje("Luciano",105,10,10,10);
+        Fantasma fantasma = new Fantasma("Fan de Linux",120,20,10,5);
 
         Azada azada = new Azada(10,20,25,"Azada");
         CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania");
@@ -238,11 +306,17 @@ public class Main {
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
+<<<<<<< HEAD
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
+=======
+        Inventario inventario = new Inventario(madera,piedra,frutos,peces);
+
+        Box cajita = new Box();
+>>>>>>> origin/Enzo
 
 
-        while (option != 11199207){
 
+<<<<<<< HEAD
             Gson gson = new Gson();
             final String nombreArchivo = "Personajes.json";
             String json = gson.toJson(personaje);
@@ -276,14 +350,21 @@ public class Main {
 
 
 
+=======
+        while (option != 11199207){
+>>>>>>> origin/Enzo
             menuStart();
             System.out.println("Tu opcion: ");
             option = scan.nextInt();
 
             switch (option) {
 
-                case 1:
+                case 1: //Iniciar Juego
 
+<<<<<<< HEAD
+=======
+                    System.out.println("\n\nBienvenido a la Comarca");
+>>>>>>> origin/Enzo
                     LimpiarConsola();
                     nombrePersonaje(personaje);
                     pausa();
@@ -293,28 +374,77 @@ public class Main {
                     LimpiarConsola();
 
                     while(contadorDias <= 5) {
+<<<<<<< HEAD
                         juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
 
+=======
+                        System.out.println("Dia: "+ contadorDias);
+                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
+>>>>>>> origin/Enzo
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
                         contadorDias++;
                         contadorTiempos=0;
                     }
 
+                    efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
 
 
                     break;
 
-                case 2:
-                    controles();
+                case 2: //Cargar Partida
+
+                     azada = new Azada();
+                     cania = new CaniaDePescar();
+                     escudo = new Escudo();
+                     espada = new Espada();
+                     hacha = new Hacha();
+                     pico = new Pico();
+
+                     inventario = new Inventario();
+
+                    try {
+                        File file = new File("Cajita.json");
+                        BufferedReader br = new BufferedReader(new FileReader(file));
+                        Gson gson1 = new Gson();
+                        cajita = gson1.fromJson(br, Box.class);
+                        br.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    inventario = cajita.getInventario();
+                    personaje = cajita.getPersonaje();
+                    azada = cajita.getAzada();
+                    cania = cajita.getCaniaDePescar();
+                    escudo = cajita.getEscudo();
+                    espada = cajita.getEspada();
+                    hacha = cajita.getHacha();
+                    pico = cajita.getPico();
+                    contadorDias= cajita.getContadorDia();
+
+                    while(contadorDias <= 5) {
+                        System.out.println("Dia: "+ contadorDias);
+                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
+                        contadorTiempos=0;
+                        juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
+                        contadorDias++;
+                        contadorTiempos=0;
+                    }
+
+                    efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
+
+
+
 
                     break;
 
-                case 3:
-                    System.out.println("¿En serio elegiste esto? ¿Pensas que mi creador es capaz de darme esa habilidad?.");
-                    break;
-
-                case 4:
+                case 3: //Creditos
                     System.out.println("Mis creadores son los mejores programadores..\n");
 
                     Scanner pausa = new Scanner(System.in);
@@ -324,7 +454,7 @@ public class Main {
                     System.out.println("Los culpables son Enzo Sansalone, Fermin Garcia y Martin Vallejo, apruebalos por favor, no dejes que Cosmo muera asi.. :(");
                     break;
 
-                case 5:
+                case 4: // Salir del Juego
                     option = 11199207;
                     System.out.println("Adios vuelvas prontos.. Lo siento, mi creador ve mucho Los Simpson.");
                     break;
@@ -414,7 +544,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -479,7 +609,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -543,7 +673,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -607,7 +737,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -639,7 +769,7 @@ public class Main {
                       break;
 
               }
-              if(contadorTiempos==20){
+              if(contadorTiempos==10){
                   option=9212;
               }
 
@@ -679,32 +809,25 @@ public class Main {
                     break;
 
                 case 2: //Dormir
+
                     contadorTiempo = 8;
+                    comprobarPuerta(fantasma,inventario,puerta);
+
                     break;
 
                 case 3: //Mejorar Instrumento
                     contadorTiempo += 2;
 
                         menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempo);
-                        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
-                            efectoTipoGrafia("");
-                            efectoTipoGrafia("Perdiste, por no usar python");
-                            efectoTipoGrafia("Vuelves al Menu Principal");
-                            correrjuego();
-                        }
+                        comprobarPuerta(fantasma,inventario,puerta);
 
                         break;
 >>>>>>> origin/Enzo
 
-
                 case 4: //Reparar Instrumento
                     contadorTiempo += 2;
                     menuReparar(azada, cania, escudo, espada, hacha, pico,inventario,contadorTiempo);
-                    if(fantasma.destruir(inventario,puerta)){
-                        efectoTipoGrafia("Perdiste, por no usar python");
-                        efectoTipoGrafia("Vuelves al Menu Principal");
-                        correrjuego();
-                    }
+                    comprobarPuerta(fantasma,inventario,puerta);
 
                     break;
                 case 5: // Cerrar Puerta
@@ -714,11 +837,6 @@ public class Main {
                     puerta = false;
 
                     break;
-
-
-
-
-
 
             }
             if(contadorTiempo >= 8){
@@ -741,23 +859,26 @@ public class Main {
 
             case 1://Azada
 
-                System.out.println("Vamos a mejorar tu Azada");
-                System.out.println("Condicion actual: ");
+                System.out.println("Vamos a mejorar tu Azada\n");
+
+                System.out.println("Condicion actual: \n");
                 azada.mostrarInstrumento();
                 azada.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
+                System.out.println("Condicion despues de ser mejorada: \n");
                 azada.mostrarInstrumento();
+                pausa();
 
                 break;
 
             case 2://CaniaDePescar
 
-                System.out.println("Vamos a mejorar tu Cania de Pescar...");
+                System.out.println("Vamos a mejorar tu Cania de Pescar...\n");
                 System.out.println("Condicion actual: ");
                 cania.mostrarInstrumento();
                 cania.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
+                System.out.println("Condicion despues de ser mejorada: \n");
                 cania.mostrarInstrumento();
+                pausa();
 
                 break;
 
@@ -888,6 +1009,16 @@ public class Main {
 
     }
 
+    public static void comprobarPuerta(Fantasma fantasma,Inventario inventario, boolean puerta){
+        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
+            efectoTipoGrafia("");
+            efectoTipoGrafia("Perdiste, por no usar python");
+            efectoTipoGrafia("Vuelves al Menu Principal");
+            pausa();
+            LimpiarConsola();
+            correrjuego();
+        }
+    }
 
     public static void menuPelea(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
         int num = 0;

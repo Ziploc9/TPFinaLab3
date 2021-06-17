@@ -10,12 +10,18 @@ public class Fantasma extends Personaje{
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
     public boolean destruir(Inventario inv, boolean puerta) {
         if (puerta) {
 
 =======
+=======
+    public Fantasma() {
+    }
+
+>>>>>>> origin/Enzo
     public boolean destruir(Inventario inv, boolean puerta) {
         if (puerta) {
 >>>>>>> origin/Enzo

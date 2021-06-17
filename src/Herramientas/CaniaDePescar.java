@@ -6,6 +6,9 @@ public class CaniaDePescar extends Instrumento {
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public CaniaDePescar() {
+    }
+
     public boolean ponerCarnada(Inventario inventario){
         if(inventario.usarDelInventario("frutos", 1)){
             return true;

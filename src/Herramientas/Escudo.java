@@ -6,6 +6,9 @@ public class Escudo extends Instrumento {
         super(danio, durabilidad, resistencia, nombre);
     }
 
+    public Escudo() {
+    }
+
     @Override
     public void mejorarInstrumento(Inventario inventario) {
         if (inventario.usarDelInventario("piedra", 3) == true){
@@ -29,7 +32,7 @@ public class Escudo extends Instrumento {
 
     @Override
     public void mostrarInstrumento(){
-        System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d\n", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
+        System.out.format("\n\nNombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d\n", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
 
