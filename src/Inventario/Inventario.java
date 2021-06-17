@@ -64,6 +64,10 @@ public class Inventario {
         for (Recurso aux:this.recursos) {
             if (aux.getNombre().equals(nombre)) {
                 if((aux.getStack() - cantidad) > 0){
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Enzo
                     aux.setStack(aux.getStack() - cantidad);
                     return true;
                 }
@@ -71,6 +75,11 @@ public class Inventario {
                     return false;
                 }
             }
+<<<<<<< HEAD
+=======
+            else{
+            }
+>>>>>>> origin/Enzo
         }
         return false;
     }

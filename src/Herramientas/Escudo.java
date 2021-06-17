@@ -33,4 +33,8 @@ public class Escudo extends Instrumento {
     }
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/Enzo

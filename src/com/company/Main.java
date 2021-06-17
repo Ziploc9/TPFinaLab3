@@ -149,7 +149,24 @@ public class Main {
         System.out.println("4- Espada");
         System.out.println("5- Hacha");
         System.out.println("6- Pico");
+<<<<<<< HEAD
 
+    }
+
+    public static void menuPeleaA(){
+
+        System.out.println("1- Correr hacia la derecha.\n");
+        System.out.println("2- Correr hacia la izquierda.\n");
+        System.out.println("3- Correr directo a el.\n");
+        System.out.println("4- Esperar a que se acerque a ti.\n");
+    }
+=======
+>>>>>>> origin/Enzo
+
+    public static void elegirArma(){
+        System.out.println("1- Agarrar la espada.\n");
+        System.out.println("2- Agarrar el hacha.\n");
+        System.out.println("3- Agarrar el escudo.\n");
     }
 
     public static void menuPeleaA(){
@@ -234,6 +251,12 @@ public class Main {
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
+<<<<<<< HEAD
+=======
+        madera.setStack(20);
+        piedra.setStack(20);
+
+>>>>>>> origin/Enzo
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
 
 
@@ -286,10 +309,17 @@ public class Main {
                     LimpiarConsola();
                     intro(scan);
                     pausa();
+<<<<<<< HEAD
                     LimpiarConsola();
 
                     while(contadorDias <= 5) {
                         juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+=======
+                    LimpiarConsola();*/
+
+                    while(contadorDias <= 5) {
+                       // juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+>>>>>>> origin/Enzo
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
                         contadorDias++;
@@ -340,6 +370,7 @@ public class Main {
         int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
         Scanner scan = new Scanner(System.in);
         Random numeroRandom = new Random();
+<<<<<<< HEAD
         while (option != 9212) {
             efectoTipoGrafia("¿Que quieres hacer ahora?");
             menuJuego();
@@ -649,6 +680,317 @@ public class Main {
 
     /**-----Modo juego noche------**/
 
+=======
+          while (option != 9212) {
+              efectoTipoGrafia("¿Que quieres hacer ahora?");
+              menuJuego();
+              System.out.print("Elijes: ");
+              option = scan.nextInt();
+              switch (option) {
+
+                  case 1:// Buscar madera
+                      //region [Madera]
+                      acumuladorRecurso=0;
+                      optionRecurso = 0;
+                      LimpiarConsola();
+                      madera.reiniciarRecurso();
+                      efectoTipoGrafia("Estas caminando hacia los arboles..");
+                      pausa();
+                      while (optionRecurso != 9124) {
+
+                          menuMadera();
+                          optionRecurso = scan.nextInt();
+                          LimpiarConsola();
+                          switch (optionRecurso) {
+
+                              case 1:
+                                  contadorTiempos ++;
+                                  if (madera.comprobarRecurso()) {
+                                      efectoTipoGrafia("Caminas entre los arboles y compruebas que no esten humedos..");
+                                      efectoTipoGrafia("Encuentras un arbol perfecto para talar..");
+                                  } else {
+                                      efectoTipoGrafia("No encontraste ningun arbol listo para talar..");
+                                  }
+                                  pausa();
+                                  break;
+                              case 2:
+                                  contadorTiempos ++;
+                                  if (madera.comprobarRecurso()) {
+                                      /*Reemplazar el 20 por el getDanio del arma*/
+                                      acumuladorRecurso = acumuladorRecurso + madera.recolectarRecurso(20);
+
+                                  } else {
+                                      efectoTipoGrafia("Tomas el Hacha pero no encuentras ningun arbol para talar..");
+                                  }
+
+                                  break;
+
+                              case 3:
+                                  contadorTiempos ++;
+                                  if(acumuladorRecurso > 0){
+                                        inventario.agregarAlInventario(madera,acumuladorRecurso);
+                                        acumuladorRecurso=0;
+                                  }else{
+                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                  }
+
+                                  break;
+
+                              case 4:
+                                  contadorTiempos ++;
+                                  inventario.verInventario();
+                                  break;
+
+                              case 5:
+                                  contadorTiempos ++;
+                                        optionRecurso = 9124;
+                                  break;
+                              default:
+                                  System.out.println("Restringete a las opciones que te damos.");
+                                  break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
+                          }
+                      }
+                      //endregion
+                      break;
+
+                  case 2: // Minar
+                      //region [Minar]
+                      acumuladorRecurso=0;
+                      optionRecurso = 0;
+                      LimpiarConsola();
+                      piedra.reiniciarRecurso();
+                      efectoTipoGrafia("Estas caminando hacia las piedras..");
+                      pausa();
+                      while (optionRecurso != 9124) {
+                          menuPiedra();
+                          optionRecurso = scan.nextInt();
+                          LimpiarConsola();
+                          switch (optionRecurso) {
+
+                              case 1:
+                                  contadorTiempos++;
+                                  if (piedra.comprobarRecurso()) {
+                                      efectoTipoGrafia("Caminas entre algunas piedras buscando la perfecta para picar..");
+                                      efectoTipoGrafia("Encuentras una piedra perfecta para picar..");
+                                  } else {
+                                      efectoTipoGrafia("No encontraste ninguna piedra de para picar..");
+                                  }
+                                  pausa();
+                                  break;
+                              case 2:
+                                  contadorTiempos++;
+                                  if (piedra.comprobarRecurso()) {
+                                      /**Reemplazar el 20 por el getDanio del arma*/
+                                      acumuladorRecurso = acumuladorRecurso + piedra.recolectarRecurso(20);
+
+                                  } else {
+                                      efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
+                                  }
+                                  break;
+
+                              case 3:
+                                  contadorTiempos++;
+                                  if(acumuladorRecurso > 0){
+                                      inventario.agregarAlInventario(piedra,acumuladorRecurso);
+                                      acumuladorRecurso=0;
+                                  }else{
+                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                  }
+                                  break;
+
+                              case 4:
+                                  contadorTiempos++;
+                                  inventario.verInventario();
+                                  break;
+
+                              case 5:
+                                  contadorTiempos++;
+                                  optionRecurso = 9124;
+                                  break;
+                              default:
+                                  System.out.println("Restringete a las opciones que te damos.");
+                                  break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
+                          }
+                      }
+
+                      //endregion
+
+                      break;
+
+                  case 3: // Cultivar
+                      //region [Cultivo]
+                      acumuladorRecurso=0;
+                      optionRecurso = 0;
+                      LimpiarConsola();
+                      frutos.reiniciarRecurso();
+                      efectoTipoGrafia("Estas caminando hacia la huerta..");
+                      pausa();
+                      while (optionRecurso != 9124) {
+                          menuFrutos();
+                          optionRecurso = scan.nextInt();
+                          LimpiarConsola();
+                          switch (optionRecurso) {
+
+                              case 1:
+                                  contadorTiempos++;
+                                  if (frutos.comprobarRecurso()) {
+                                      efectoTipoGrafia("Te acercas a la huerta y te pones en cuclillas para ver los frutos..");
+                                      efectoTipoGrafia("Ves los frutos que estan maduros..");
+                                  } else {
+                                      efectoTipoGrafia("Los frutos que viste no estaban listos..");
+                                  }
+                                  pausa();
+                                  break;
+                              case 2:
+                                  contadorTiempos++;
+                                  if (frutos.comprobarRecurso()) {
+                                      acumuladorRecurso = acumuladorRecurso + frutos.recolectarRecurso();
+                                  } else {
+                                      efectoTipoGrafia("Llegaste a la huerta pero no habia ningun fruto maduro..");
+                                  }
+                                  break;
+
+                              case 3:
+                                  contadorTiempos++;
+                                  if(acumuladorRecurso > 0){
+                                      inventario.agregarAlInventario(frutos,acumuladorRecurso);
+                                      acumuladorRecurso=0;
+                                  }else{
+                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                  }
+                                  break;
+
+                              case 4:
+                                  contadorTiempos++;
+                                  inventario.verInventario();
+                                  break;
+                              case 5:
+                                  contadorTiempos++;
+                                  optionRecurso = 9124;
+                                  break;
+                              default:
+                                  System.out.println("Restringete a las opciones que te damos.");
+                                  break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
+                          }
+                      }
+
+                      //endregion
+                      break;
+
+                  case 4: // Pescar
+                      //region [Pesca]
+                      acumuladorRecurso=0;
+                      optionRecurso = 0;
+                      LimpiarConsola();
+                      peces.reiniciarRecurso();
+                      efectoTipoGrafia("Estas caminando hacia al lago..");
+                      pausa();
+                      while (optionRecurso != 9124) {
+                          menuPeces();
+                          optionRecurso = scan.nextInt();
+                          LimpiarConsola();
+                          switch (optionRecurso) {
+
+                              case 1:
+                                  contadorTiempos++;
+                                  if (peces.comprobarRecurso()) {
+                                      efectoTipoGrafia("Caminas hacia el lago para ver si hay peces..");
+                                      efectoTipoGrafia("Encuentras algunos peces nadando en el lago..");
+                                  } else {
+                                      efectoTipoGrafia("No encontraste ningun pez en el lago..");
+                                  }
+                                  pausa();
+                                  break;
+                              case 2:
+                                  contadorTiempos++;
+                                  if (peces.comprobarRecurso()) {
+                                      /**Reemplazar el 20 por el getDanio del arma*/
+                                      acumuladorRecurso = acumuladorRecurso + peces.recolectarRecurso(20);
+                                  } else {
+                                      efectoTipoGrafia("Tomas la cania de pescar pero no encuentras ningun pez..");
+                                  }
+                                  break;
+
+                              case 3:
+                                  contadorTiempos++;
+                                  if(acumuladorRecurso > 0){
+                                      inventario.agregarAlInventario(peces,acumuladorRecurso);
+                                      acumuladorRecurso=0;
+                                  }else{
+                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                  }
+                                  break;
+
+                              case 4:
+                                  contadorTiempos++;
+                                  inventario.verInventario();
+                                  break;
+                              case 5:
+                                  contadorTiempos++;
+                                  optionRecurso = 9124;
+                                  break;
+                              default:
+                                  System.out.println("Restringete a las opciones que te damos.");
+                                  break;
+                          }
+                          if(contadorTiempos==20){
+                              optionRecurso=9124;
+                          }
+                      }
+
+                      //endregion
+                      break;
+
+                  case 5: // caminar por el lugar
+                      contadorTiempos++;
+                      efectoTipoGrafia("Caminas al rededor de tu casa y ves que todo esta bien\n");
+                      break;
+
+                  case 6: //estirarse
+                      contadorTiempos++;
+                        if(numeroRandom.nextInt() == 8){
+                            efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..\n");
+                            personaje.setVida(personaje.getVida()+1);
+                        }else{
+                            efectoTipoGrafia("Te estiras para relajarte un poco..\n");
+                        }
+                      break;
+                  case 7://pasar a la noche
+                        option = 9212;
+                      break;
+                  default:
+                      System.out.println("¿Por que haces esto? Ahora le voy a subir la vida y el daño al enemigo, segui nomas.");
+                      pausa();
+                      //subir vida y daño al enemigo
+                      break;
+
+              }
+              if(contadorTiempos==20){
+                  option=9212;
+              }
+
+          }
+          madera.reiniciarRecurso();
+          peces.reiniciarRecurso();
+          frutos.reiniciarRecurso();
+          piedra.reiniciarRecurso();
+    }
+
+    //endregion
+
+
+    /**-----Modo juego noche------**/
+
+>>>>>>> origin/Enzo
     public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
         int option = 0;
         boolean puerta = true;
@@ -678,6 +1020,7 @@ public class Main {
                 case 3: //Mejorar Instrumento
                     contadorTiempo += 2;
 
+<<<<<<< HEAD
                     menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempo);
                     if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
                         efectoTipoGrafia("");
@@ -687,6 +1030,17 @@ public class Main {
                     }
 
                     break;
+=======
+                        menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempo);
+                        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
+                            efectoTipoGrafia("");
+                            efectoTipoGrafia("Perdiste, por no usar python");
+                            efectoTipoGrafia("Vuelves al Menu Principal");
+                            correrjuego();
+                        }
+
+                        break;
+>>>>>>> origin/Enzo
 
 
                 case 4: //Reparar Instrumento
@@ -699,9 +1053,15 @@ public class Main {
                     }
 
                     break;
+<<<<<<< HEAD
 
                 case 5: // Cerrar Puerta
 
+=======
+
+                case 5: // Cerrar Puerta
+
+>>>>>>> origin/Enzo
                     efectoTipoGrafia("Cierras la puerta con exito");
                     puerta = false;
 
@@ -720,6 +1080,16 @@ public class Main {
     }
 
     public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
+<<<<<<< HEAD
+=======
+
+        /*Azada azada = new Azada(10,20,25,"Azada Inicial");
+        CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania Inicial");
+        Escudo escudo = new Escudo(0,20,50,"Escudo Inical");
+        Espada espada = new Espada(25,25,15,"Esoada Inicial");
+        Hacha hacha = new Hacha(20,20,15,"Hacha Inicial");
+        Pico pico = new Pico(10,20,15,"Pico Inical");*/
+>>>>>>> origin/Enzo
 
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -1006,3 +1376,9 @@ public class Main {
 
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/Enzo

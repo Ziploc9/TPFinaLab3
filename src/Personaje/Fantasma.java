@@ -9,11 +9,16 @@ public class Fantasma extends Personaje{
         super(nombre, vida, danio, resistencia, velocidad);
     }
 
+<<<<<<< HEAD
 
 
     public boolean destruir(Inventario inv, boolean puerta) {
         if (puerta) {
 
+=======
+    public boolean destruir(Inventario inv, boolean puerta) {
+        if (puerta) {
+>>>>>>> origin/Enzo
             System.out.println("Olvidaste de cerrar la casa y fuiste asesinado!");
             return true;
         }

@@ -43,6 +43,53 @@ public class Espada extends Instrumento implements Armas{
                 System.out.println("Y le pegas en la cabeza");
                 System.out.println("PUM!! GOLPE CRITICO EN NOMBRE DE WINDOWS");
                 danio=this.getDanio()*3;
+<<<<<<< HEAD
+=======
+
+                break;
+
+            case 2:
+
+                System.out.println("Tomas la espada con una mano");
+                System.out.println("Es muy pesada y el golpe muy lento");
+                System.out.println("El fantasma lo esquiva al grito de LINUX");
+
+                danio = 0;
+
+                break;
+
+            case 3:
+
+                System.out.println("Tomas la espada con las dos manos");
+                System.out.println("y le pegas..");
+                System.out.println("Inflijes el doble de danio");
+                danio = this.getDanio() * 2;
+
+                break;
+
+            case 4:
+
+                System.out.println("Lanzas la espada apuntando a la cabeza del fantasma");
+                System.out.println("Pero el fantasma grita !PYTHON¡");
+                System.out.println("y desvia el arma");
+                System.out.println("No inflijes daño");
+
+                danio = 0;
+
+                break;
+
+            case 5:
+
+                System.out.println("Le pegas al fantasma con el hacha");
+                System.out.println("le aciertas");
+
+                danio = this.getDanio();
+                break;
+
+        }
+        return danio;
+    }
+>>>>>>> origin/Enzo
 
                 break;
 
