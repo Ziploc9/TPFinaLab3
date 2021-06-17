@@ -5,6 +5,8 @@ import Inventario.*;
 import RecursoNatural.*;
 import RecursoNatural.Recurso;
 import Herramientas.*;
+
+import java.util.Properties;
 import java.util.Random;
 import Personaje.*;
 
@@ -32,10 +34,9 @@ public class Main {
 
     public static void menuStart() {
         System.out.println("-> 1- Iniciar juego");
-        System.out.println("-> 2- Controles");
-        System.out.println("-> 3- Guardar partida");
-        System.out.println("-> 4- Creditos");
-        System.out.println("-> 5- Salir juego");
+        System.out.println("-> 2- Cargar Partida");
+        System.out.println("-> 3- Creditos");
+        System.out.println("-> 4- Salir juego");
     }
 
     public static void controles() {
@@ -214,12 +215,14 @@ public class Main {
 
     //endregion
 
-    public static void guardarPersonaje(Personaje personaje){
+    //region [Json]
+
+    public static void guardarCajita(Box cajita){
         Gson gson = new Gson();
-        String json = gson.toJson(personaje);
+        String json = gson.toJson(cajita);
 
         try {
-            FileWriter fw = new FileWriter("Personajes.Json");
+            FileWriter fw = new FileWriter("Cajita.json");
             fw.write(json);
             fw.close();
         } catch (IOException e) {
@@ -227,172 +230,15 @@ public class Main {
         }
     }
 
-    public static void guardarInventario(Inventario inventario){
-        Gson gson = new Gson();
-        String json = gson.toJson(inventario);
-
-        try {
-            FileWriter fw = new FileWriter("Inventario.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static  void guardarPartida(Inventario inventario,Personaje personaje, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
+        Box caja = new Box(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+        guardarCajita(caja);
+        efectoTipoGrafia("Se ha guardo la partida automaticamente. . .");
+        pausa();
+        LimpiarConsola();
     }
 
-    public static void guardarAzada(Azada azada){
-        Gson gson = new Gson();
-        String json = gson.toJson(azada);
-
-        try {
-            FileWriter fw = new FileWriter("Azada.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void guardarCania(CaniaDePescar cania){
-        Gson gson = new Gson();
-        String json = gson.toJson(cania);
-
-        try {
-            FileWriter fw = new FileWriter("Cania.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void guardarEscudo(Escudo escudo){
-        Gson gson = new Gson();
-        String json = gson.toJson(escudo);
-
-        try {
-            FileWriter fw = new FileWriter("Escudo.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void guardarEspada(Espada espada){
-        Gson gson = new Gson();
-        String json = gson.toJson(espada);
-
-        try {
-            FileWriter fw = new FileWriter("Espada.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void guardarHacha(Hacha hacha){
-        Gson gson = new Gson();
-        String json = gson.toJson(hacha);
-
-        try {
-            FileWriter fw = new FileWriter("Hacha.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void guardarPico(Pico pico){
-        Gson gson = new Gson();
-        String json = gson.toJson(pico);
-
-        try {
-            FileWriter fw = new FileWriter("Pico.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void cargarMadera(Recurso recurso){
-        try {
-            File file = new File("Madera.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            recurso = gson1.fromJson(br, Recurso.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public static void cargarPiedra(Recurso recurso){
-        try {
-            File file = new File("Piedra.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            recurso = gson1.fromJson(br, Recurso.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void cargarFrutos(Recurso recurso){
-        try {
-            File file = new File("Frutos.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            recurso = gson1.fromJson(br, Recurso.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void cargarPeces(Recurso recurso){
-        try {
-            File file = new File("Peces.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            recurso = gson1.fromJson(br, Recurso.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void cargarEscudo(Escudo escudo){
-        try {
-            File file = new File("Escudo.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            escudo = gson1.fromJson(br, Escudo.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-
-        /**------- Switch inicia el menu principal del juego----*/
+    /**------- Switch inicia el menu principal del juego----*/
 
     //region [Menu principal]
     public static void correrjuego(){
@@ -400,101 +246,27 @@ public class Main {
         int option1 = 0;
         Scanner scan = new Scanner(System.in);
 
-        efectoTipoGrafia("¿Que quieres?");
-        menuSeleccion();
-        System.out.print("Elijes: ");
-        option = scan.nextInt();
-
-        System.out.println("\n\nBienvenido a la Comarca");
-
-        Personaje personaje = new Personaje("ENZO",1850,10,10,10);
-        Fantasma fantasma = new Fantasma("CHALM",120,20,10,5);
 
         Recurso peces = new Recurso("peces", 10,true,8,10,9);
         Recurso frutos = new Recurso("frutos",5, true,5,7,20);
         Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
         Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
 
-        /*Recurso peces = new Recurso();
-        Recurso frutos = new Recurso();
-        Recurso piedra = new Recurso();
-        Recurso madera = new Recurso();*/
-
+        Personaje personaje = new Personaje("Luciano",105,10,10,10);
+        Fantasma fantasma = new Fantasma("Fan de Linux",120,20,10,5);
 
         Azada azada = new Azada(10,20,25,"Azada");
         CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania");
-        //Escudo escudo = new Escudo(0,20,50,"Escudo");
-        Escudo escudo = new Escudo();
+        Escudo escudo = new Escudo(0,20,50,"Escudo");
         Espada espada = new Espada(25,25,15,"Espada");
         Hacha hacha = new Hacha(20,20,15,"Hacha");
         Pico pico = new Pico(10,20,15,"Pico");
 
+        Inventario inventario = new Inventario(madera,piedra,frutos,peces);
+
+        Box cajita = new Box();
 
 
-        Inventario inventario = new Inventario();
-
-        // CARGAR INVENTARIO
-        try {
-            File file = new File("Inventario.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            inventario = gson1.fromJson(br, Inventario.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        guardarAzada(azada);
-        guardarCania(cania);
-
-        guardarEspada(espada);
-        guardarHacha(hacha);
-        guardarPico(pico);
-
-        // CARGAR ESCUDO
-        try {
-            File file = new File("Escudo.json");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            escudo = gson1.fromJson(br, Escudo.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        switch (option1){
-
-            case 1://Nueva Partida
-
-                break;
-
-            case 2://Cargar Partida
-
-
-                break;
-        }
-
-
-
-
-
-
-
-       /* try {
-            File file = new File(nombreArchivo);
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            Gson gson1 = new Gson();
-            personaje = gson1.fromJson(br, Personaje.class);
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
         while (option != 11199207){
             menuStart();
@@ -503,40 +275,77 @@ public class Main {
 
             switch (option) {
 
-                case 1:
+                case 1: //Iniciar Juego
 
-                    /*LimpiarConsola();
+                    System.out.println("\n\nBienvenido a la Comarca");
+                    LimpiarConsola();
                     nombrePersonaje(personaje);
                     pausa();
                     LimpiarConsola();
                     intro(scan);
                     pausa();
-                    LimpiarConsola();*/
-
+                    LimpiarConsola();
 
                     while(contadorDias <= 5) {
                         juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
-
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+                        contadorDias++;
+                        contadorTiempos=0;
+                    }
+
+
+                    break;
+
+                case 2: //Cargar Partida
+
+                     azada = new Azada();
+                     cania = new CaniaDePescar();
+                     escudo = new Escudo();
+                     espada = new Espada();
+                     hacha = new Hacha();
+                     pico = new Pico();
+
+                     inventario = new Inventario();
+
+                    try {
+                        File file = new File("Cajita.json");
+                        BufferedReader br = new BufferedReader(new FileReader(file));
+                        Gson gson1 = new Gson();
+                        cajita = gson1.fromJson(br, Box.class);
+                        br.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    inventario = cajita.getInventario();
+                    personaje = cajita.getPersonaje();
+                    azada = cajita.getAzada();
+                    cania = cajita.getCaniaDePescar();
+                    escudo = cajita.getEscudo();
+                    espada = cajita.getEspada();
+                    hacha = cajita.getHacha();
+                    pico = cajita.getPico();
+
+                    while(contadorDias <= 5) {
+                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+                        contadorTiempos=0;
+                        juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
                         contadorDias++;
                         contadorTiempos=0;
                     }
 
 
 
-                    break;
-
-                case 2:
-                    controles();
 
                     break;
 
-                case 3:
-                    System.out.println("¿En serio elegiste esto? ¿Pensas que mi creador es capaz de darme esa habilidad?.");
-                    break;
-
-                case 4:
+                case 3: //Creditos
                     System.out.println("Mis creadores son los mejores programadores..\n");
 
                     Scanner pausa = new Scanner(System.in);
@@ -546,7 +355,7 @@ public class Main {
                     System.out.println("Los culpables son Enzo Sansalone, Fermin Garcia y Martin Vallejo, apruebalos por favor, no dejes que Cosmo muera asi.. :(");
                     break;
 
-                case 5:
+                case 4: // Salir del Juego
                     option = 11199207;
                     System.out.println("Adios vuelvas prontos.. Lo siento, mi creador ve mucho Los Simpson.");
                     break;
@@ -899,31 +708,24 @@ public class Main {
                     break;
 
                 case 2: //Dormir
+
                     contadorTiempo = 8;
+                    comprobarPuerta(fantasma,inventario,puerta);
+
                     break;
 
                 case 3: //Mejorar Instrumento
                     contadorTiempo += 2;
 
                         menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempo);
-                        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
-                            efectoTipoGrafia("");
-                            efectoTipoGrafia("Perdiste, por no usar python");
-                            efectoTipoGrafia("Vuelves al Menu Principal");
-                            correrjuego();
-                        }
+                        comprobarPuerta(fantasma,inventario,puerta);
 
                         break;
-
 
                 case 4: //Reparar Instrumento
                     contadorTiempo += 2;
                     menuReparar(azada, cania, escudo, espada, hacha, pico,inventario,contadorTiempo);
-                    if(fantasma.destruir(inventario,puerta)){
-                        efectoTipoGrafia("Perdiste, por no usar python");
-                        efectoTipoGrafia("Vuelves al Menu Principal");
-                        correrjuego();
-                    }
+                    comprobarPuerta(fantasma,inventario,puerta);
 
                     break;
 
@@ -933,11 +735,6 @@ public class Main {
                     puerta = false;
 
                     break;
-
-
-
-
-
 
             }
             if(contadorTiempo >= 8){
@@ -966,23 +763,26 @@ public class Main {
 
             case 1://Azada
 
-                System.out.println("Vamos a mejorar tu Azada");
-                System.out.println("Condicion actual: ");
+                System.out.println("Vamos a mejorar tu Azada\n");
+
+                System.out.println("Condicion actual: \n");
                 azada.mostrarInstrumento();
                 azada.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
+                System.out.println("Condicion despues de ser mejorada: \n");
                 azada.mostrarInstrumento();
+                pausa();
 
                 break;
 
             case 2://CaniaDePescar
 
-                System.out.println("Vamos a mejorar tu Cania de Pescar...");
+                System.out.println("Vamos a mejorar tu Cania de Pescar...\n");
                 System.out.println("Condicion actual: ");
                 cania.mostrarInstrumento();
                 cania.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
+                System.out.println("Condicion despues de ser mejorada: \n");
                 cania.mostrarInstrumento();
+                pausa();
 
                 break;
 
@@ -1113,6 +913,16 @@ public class Main {
 
     }
 
+    public static void comprobarPuerta(Fantasma fantasma,Inventario inventario, boolean puerta){
+        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
+            efectoTipoGrafia("");
+            efectoTipoGrafia("Perdiste, por no usar python");
+            efectoTipoGrafia("Vuelves al Menu Principal");
+            pausa();
+            LimpiarConsola();
+            correrjuego();
+        }
+    }
 
     public static void menuPelea(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
         int num = 0;

@@ -17,16 +17,6 @@ public class Instrumento {
     public Instrumento() {
     }
 
-    public enum Instrumentonombre {
-        AZADA,
-        CANIADEPESCAR,
-        ESCUDO,
-        ESPADA,
-        HACHA,
-        PICO;
-    }
-
-
 
     public int getDanio() {
         return danio;
