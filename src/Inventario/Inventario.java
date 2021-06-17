@@ -1,4 +1,5 @@
-package RecursoNatural;
+package Inventario;
+import RecursoNatural.*;
 
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
@@ -66,10 +67,8 @@ public class Inventario {
                     return false;
                 }
             }
-            else{
-                return false;
-            }
         }
         return false;
     }
 }
+

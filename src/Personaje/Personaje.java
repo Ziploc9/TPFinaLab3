@@ -10,23 +10,13 @@ public class Personaje {
     private float velocidad;
     private Instrumento EnMano;
 
-    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad, Instrumento enMano) {
+    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad) {
         this.nombre = nombre;
         this.vida = vida;
         this.damage = damage;
         this.resistencia = resistencia;
         this.velocidad = velocidad;
     }
-
-    public Personaje(String nombre, int vida, int damage, int resistencia, float velocidad){
-
-        this.nombre = nombre;
-        this.vida = vida;
-        this.damage = damage;
-        this.resistencia = resistencia;
-        this.velocidad = velocidad;
-    }
-
     //region [Getters y Setters]
 
     public String getNombre() {

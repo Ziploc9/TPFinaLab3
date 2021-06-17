@@ -1,4 +1,6 @@
 package Personaje;
+import Inventario.*;
+
 
 
 public class Fantasma extends Personaje {
@@ -31,25 +33,14 @@ public class Fantasma extends Personaje {
                         System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos frutos por madera.");
                     } else {
                         if (inv.usarDelInventario("peces", 2)) {
-                            if (inv.usarDelInventario("madera", 4)) {
-                                System.out.println("Usaste 4 de madera para las reparaciones!");
-                            } else {
-                                if (inv.usarDelInventario("frutos", 2)) {
-                                    System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos frutos por madera.");
-                                } else {
-                                    if (inv.usarDelInventario("peces", 2)) {
-                                        System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos pescados por madera.");
-                                    } else {
-                                        System.out.println("No tienes suficiente madera para las reparaciones, pasaras frio esta noche!");
-                                    }
-                                }
-                            }
+                            System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos pescados por madera.");
                         } else {
-                            System.out.println("El fantasma no logro causar ningun daño importante y se retiro, por ahora.");
+                            System.out.println("No tienes suficiente madera para las reparaciones, pasaras frio esta noche!");
                         }
                     }
-                    System.out.println("El fantasma no logro causar ningun daño importante y se retiro, por ahora.");
                 }
+            } else {
+                System.out.println("El fantasma no logro causar ningun daño importante y se retiro, por ahora.");
             }
         }
     }
