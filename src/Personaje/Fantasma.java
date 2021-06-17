@@ -1,6 +1,10 @@
 package Personaje;
 
+<<<<<<< HEAD
 import Inventario.*;
+=======
+import Inventario.Inventario;
+>>>>>>> 71c024f397a1547106ed1ebdd393ce306d54fb2a
 
 
 public class Fantasma extends Personaje{
@@ -112,4 +116,10 @@ public class Fantasma extends Personaje{
     }
 
 
+<<<<<<< HEAD
 }
+=======
+
+
+}
+>>>>>>> 71c024f397a1547106ed1ebdd393ce306d54fb2a

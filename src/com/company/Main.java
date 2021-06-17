@@ -1,42 +1,14 @@
 package com.company;
-<<<<<<< HEAD
-import Personaje.Personaje;
-import RecursoNatural.Recurso;
-import Inventario.;
-import Personaje.;
-import Herramientas.;
-import com.google.gson.;
-
-import java.io.*;
-=======
-
-
 import Inventario.*;
-
 import RecursoNatural.Recurso;
 import Herramientas.*;
-
->>>>>>> origin/Enzo
 import java.util.Random;
 import java.io.FileWriter;
-import com.google.gson.Gson;
-
-<<<<<<< HEAD
-import javax.swing.text.html.parser.Parser;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.io.FileReader;
-=======
-
 import java.io.*;
 import java.io.FileWriter;
 import com.google.gson.Gson;
-
 import java.util.Scanner;
 import java.io.FileReader;
-
->>>>>>> origin/Enzo
 
 public class Main {
 
@@ -44,21 +16,16 @@ public class Main {
         correrjuego();
     }
 
-    /**--------Menus de juego ----------------*/
+    /**
+     * --------Menus de juego ----------------
+     */
     //region [Menus]
-
     public static void menuStart() {
         System.out.println("-> 1- Iniciar juego");
-<<<<<<< HEAD
-        System.out.println("-> 2- Controles");
-        System.out.println("-> 3- Historial de partidas");
-        System.out.println("-> 4- Creditos");
-        System.out.println("-> 5- Salir juego");
-=======
         System.out.println("-> 2- Cargar Partida");
         System.out.println("-> 3- Creditos");
         System.out.println("-> 4- Salir juego");
->>>>>>> origin/Enzo
+
     }
 
     public static void controles() {
@@ -75,45 +42,34 @@ public class Main {
     }
 
 
-    /**------- Switch inicia el menu principal del juego----*/
+    /**
+     * ------- Switch inicia el menu principal del juego----
+     */
 
     public static void intro(Scanner scan) {
-            efectoTipoGrafia("9 am.. suena tu telefono");
-            efectoTipoGrafia("Te levantas de la cama y vas a buscar el telefono\n");
+        efectoTipoGrafia("9 am.. suena tu telefono");
+        efectoTipoGrafia("Te levantas de la cama y vas a buscar el telefono\n");
 
-            efectoTipoGrafia("-¿Hola?..");
-            efectoTipoGrafia("Anonimo: No salgas de tu casa en la noche.\n");
-
-            efectoTipoGrafia("-¿Cristian?..¿Sos vos?.. Ya te dije que no me interesa tener Linux.");
-            efectoTipoGrafia("El anonimo colgo\n");
-
-<<<<<<< HEAD
-    /**------- Switch inicia el menu principal del juego----*/
-
-    public static void intro(Scanner scan) {
-        efectoTipoGrafia("9 am.. *suena tu telefono*");
-        efectoTipoGrafia("*Te levantas de la cama y vas a buscar el telefono*\n");
         efectoTipoGrafia("-¿Hola?..");
         efectoTipoGrafia("Anonimo: No salgas de tu casa en la noche.\n");
-        efectoTipoGrafia("-¿Como?..¿Quien habla?.. Hable mas fuerte que tengo una toalla.");
-        efectoTipoGrafia("*El anonimo colgo*\n");
-        efectoTipoGrafia("-Buuu..eno ¿Ahora que hago despierto a esta hora?..Me siento raro..como si alguien me observara o me controlara..Meh..debe ser la manaos y los memes de linux.");
-        efectoTipoGrafia("*Sales de la casa, el sol te da plenamente*\n");
-=======
-            efectoTipoGrafia("-Dios..me hacen despertar temprano.. mejor voy afuera, de lo que se pierden estos de no estar en Necochea papa..");
-            efectoTipoGrafia("Sales de la casa, el sol te da plenamente\n");
->>>>>>> origin/Enzo
+
+        efectoTipoGrafia("-¿Cristian?..¿Sos vos?.. Ya te dije que no me interesa tener Linux.");
+        efectoTipoGrafia("El anonimo colgo\n");
+
+        efectoTipoGrafia("-Dios..me hacen despertar temprano.. mejor voy afuera, de lo que se pierden estos de no estar en Necochea papa..");
+        efectoTipoGrafia("Sales de la casa, el sol te da plenamente\n");
+
     }
 
-    public static void pausa(){
+    public static void pausa() {
         String seguir;
         Scanner scan = new Scanner(System.in);
         seguir = scan.nextLine();
 
     }
 
-    public static void LimpiarConsola(){
-        for(int i=0; i<15;i++){
+    public static void LimpiarConsola() {
+        for (int i = 0; i < 15; i++) {
             System.out.println("\n");
         }
     }
@@ -122,7 +78,7 @@ public class Main {
         if (message == null)
             return;
         StringBuilder espaciado = new StringBuilder();
-        for (int i = 0 ;  i < message.length() ; i++) {
+        for (int i = 0; i < message.length(); i++) {
             String sub = message.substring(0, i + 1);
             try {
                 Thread.sleep(25L);
@@ -135,12 +91,12 @@ public class Main {
         System.out.println();
     }
 
-    public static void menuSeleccion(){
+    public static void menuSeleccion() {
         System.out.println("-> 1- Nueva Partida");
         System.out.println("-> 2- Cargar Partida");
     }
 
-    public static void menuMadera(){
+    public static void menuMadera() {
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Talar");
         System.out.println("-> 3- Guardar Madera");
@@ -148,7 +104,7 @@ public class Main {
         System.out.println("-> 5- Dejar de talar\n");
     }
 
-    public static void menuPiedra(){
+    public static void menuPiedra() {
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Picar");
         System.out.println("-> 3- Guardar piedra");
@@ -156,7 +112,7 @@ public class Main {
         System.out.println("-> 5- Dejar la mineria\n");
     }
 
-    public static void menuPeces(){
+    public static void menuPeces() {
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Pescar");
         System.out.println("-> 3- Guardar Pescado");
@@ -164,7 +120,7 @@ public class Main {
         System.out.println("-> 5- Dejar la pesca");
     }
 
-    public static void menuFrutos(){
+    public static void menuFrutos() {
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Recolectar frutos");
         System.out.println("-> 3- Guardar frutos");
@@ -172,12 +128,12 @@ public class Main {
         System.out.println("-> 5- Dejar la huerta");
     }
 
-    public static void menuJuegoNocheA(){
+    public static void menuJuegoNocheA() {
         System.out.println("1- Entrar a la Casa");
         System.out.println("2- Buscar Mounstro");
     }
 
-    public static void menuJuegoNocheC(){
+    public static void menuJuegoNocheC() {
         System.out.println("1- Salir de la Casa para pelear con el mounstro");
         System.out.println("2- Dormir");
         System.out.println("3- Mejorar Instrumento");
@@ -186,969 +142,912 @@ public class Main {
 
     }
 
-    public static void menuInstrumento(){
+    public static void menuInstrumento() {
         System.out.println("1- Azada");
         System.out.println("2- Cania de Pescar");
         System.out.println("3- Escudo");
         System.out.println("4- Espada");
         System.out.println("5- Hacha");
         System.out.println("6- Pico");
-
-    public static void elegirArma(){
-        System.out.println("1- Agarrar la espada.\n");
-        System.out.println("2- Agarrar el hacha.\n");
-        System.out.println("3- Agarrar el escudo.\n");
-    }
+        }
 
     public static void menuPeleaA(){
 
-        System.out.println("1- Correr hacia la derecha.\n");
-        System.out.println("2- Correr hacia la izquierda.\n");
-        System.out.println("3- Correr directo a el.\n");
-        System.out.println("4- Esperar a que se acerque a ti.\n");
-    }
+            System.out.println("1- Correr hacia la derecha.\n");
+            System.out.println("2- Correr hacia la izquierda.\n");
+            System.out.println("3- Correr directo a el.\n");
+            System.out.println("4- Esperar a que se acerque a ti.\n");
+        }
 
     public static void elegirArma(){
-        System.out.println("1- Agarrar la espada.\n");
-        System.out.println("2- Agarrar el hacha.\n");
-        System.out.println("3- Agarrar el escudo.\n");
-    }
-    //endregion
-
-    /**------- Crear personaje ---------*/
-
-    //region [Crear Personaje]
-
-    public static void nombrePersonaje(Personaje personaje) {
-        String nom="";
-        String confirm="";
-        Scanner scan = new Scanner(System.in);
-        efectoTipoGrafia("Sincronizando estimulos y vista del personaje..");
-        efectoTipoGrafia("Sistema cargado, pulse enter");
-        pausa();
-        efectoTipoGrafia("Hola..Mi nombre es Chaldu y sere tu guia ch ch ch.. ");
-        efectoTipoGrafia("Primero dime el nombre que quieres que tu personaje tenga.. si no eliges tendre que hacerlo por ti.");
-        efectoTipoGrafia("¿Quieres colocarle un nombre a tu personaje? (Y/N)");
-        confirm=scan.nextLine();
-        if("Y".equals(confirm) || "y".equals(confirm)){
-            efectoTipoGrafia("Nombre del personaje: ");
-            nom = scan.nextLine();
-            System.out.println("Asignaste tu nombre con exito invocador.");
-        }else if("n".equals(confirm) || "N".equals(confirm)){
-            efectoTipoGrafia("Se te asignara un nombre aguarda un instante..");
-
-        } else{
-            efectoTipoGrafia("Error en confirmacion..se auto seteara un nombre..disfruta la experiencia y recuerda es un juego.");
-
+            System.out.println("1- Agarrar la espada.\n");
+            System.out.println("2- Agarrar el hacha.\n");
+            System.out.println("3- Agarrar el escudo.\n");
         }
-        System.out.println("----------------------------------");
-        efectoTipoGrafia("Nombre: "+ personaje.getNombre());
-        efectoTipoGrafia("Vida: "+personaje.getVida());
-        efectoTipoGrafia("Fuerza: "+personaje.getDamage());
-        efectoTipoGrafia("Resistencia: "+personaje.getResistencia());
-        efectoTipoGrafia("Velocidad: "+personaje.getVelocidad());
-        efectoTipoGrafia("Armas en mano: No");
-        System.out.println("----------------------------------");
-        efectoTipoGrafia("*Sistema cargado* pulse enter");
-    }
 
 
-    //endregion
+        /**------- Crear personaje ---------*/
 
-<<<<<<< HEAD
-    /**------- Switch inicia el menu principal del juego----*/
-=======
-    //region [Json]
->>>>>>> origin/Enzo
+        //region [Crear Personaje]
 
-    public static void guardarCajita(Box cajita){
-        Gson gson = new Gson();
-        String json = gson.toJson(cajita);
+        public static void nombrePersonaje(Personaje personaje){
+            String nom = "";
+            String confirm = "";
+            Scanner scan = new Scanner(System.in);
+            efectoTipoGrafia("Sincronizando estimulos y vista del personaje..");
+            efectoTipoGrafia("Sistema cargado, pulse enter");
+            pausa();
+            efectoTipoGrafia("Hola..Mi nombre es Chaldu y sere tu guia ch ch ch.. ");
+            efectoTipoGrafia("Primero dime el nombre que quieres que tu personaje tenga.. si no eliges tendre que hacerlo por ti.");
+            efectoTipoGrafia("¿Quieres colocarle un nombre a tu personaje? (Y/N)");
+            confirm = scan.nextLine();
+            if ("Y".equals(confirm) || "y".equals(confirm)) {
+                efectoTipoGrafia("Nombre del personaje: ");
+                nom = scan.nextLine();
+                System.out.println("Asignaste tu nombre con exito invocador.");
+            } else if ("n".equals(confirm) || "N".equals(confirm)) {
+                efectoTipoGrafia("Se te asignara un nombre aguarda un instante..");
 
-        try {
-            FileWriter fw = new FileWriter("Cajita.json");
-            fw.write(json);
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            } else {
+                efectoTipoGrafia("Error en confirmacion..se auto seteara un nombre..disfruta la experiencia y recuerda es un juego.");
+
+            }
+            System.out.println("----------------------------------");
+            efectoTipoGrafia("Nombre: " + personaje.getNombre());
+            efectoTipoGrafia("Vida: " + personaje.getVida());
+            efectoTipoGrafia("Fuerza: " + personaje.getDamage());
+            efectoTipoGrafia("Resistencia: " + personaje.getResistencia());
+            efectoTipoGrafia("Velocidad: " + personaje.getVelocidad());
+            efectoTipoGrafia("Armas en mano: No");
+            System.out.println("----------------------------------");
+            efectoTipoGrafia("*Sistema cargado* pulse enter");
         }
-    }
-
-    public static  void guardarPartida(Inventario inventario,Personaje personaje, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, int contadorDias){
-        Box caja = new Box(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
-        guardarCajita(caja);
-        efectoTipoGrafia("Se ha guardo la partida automaticamente. . .");
-        pausa();
-        LimpiarConsola();
-    }
-
-    /**------- Switch inicia el menu principal del juego----*/
-
-    //region [Menu principal]
-    public static void correrjuego(){
-        int option = 0, contadorTiempos=0, contadorDias=0;
-        int option1 = 0;
-        Scanner scan = new Scanner(System.in);
 
 
-        Recurso peces = new Recurso("peces", 10,true,8,10,9);
-        Recurso frutos = new Recurso("frutos",5, true,5,7,20);
-        Recurso piedra = new Recurso("piedra", 0,true, 15, 20, 30);
-        Recurso madera = new Recurso("madera", 0 ,true,10, 20, 25);
+        //endregion
 
-        Personaje personaje = new Personaje("Luciano",105,10,10,10);
-        Fantasma fantasma = new Fantasma("Fan de Linux",120,20,10,5);
+        /**------- Switch inicia el menu principal del juego----*/
 
-        Azada azada = new Azada(10,20,25,"Azada");
-        CaniaDePescar cania = new CaniaDePescar(10,20,25,"Cania");
-        Escudo escudo = new Escudo(0,20,50,"Escudo");
-        Espada espada = new Espada(25,25,15,"Espada");
-        Hacha hacha = new Hacha(20,20,15,"Hacha");
-        Pico pico = new Pico(10,20,15,"Pico");
-
-<<<<<<< HEAD
-        Inventario inventario = new Inventario(madera, piedra, frutos, peces);
-=======
-        Inventario inventario = new Inventario(madera,piedra,frutos,peces);
-
-        Box cajita = new Box();
->>>>>>> origin/Enzo
+        //region [Json]
 
 
-
-<<<<<<< HEAD
+        public static void guardarCajita (Box cajita){
             Gson gson = new Gson();
-            final String nombreArchivo = "Personajes.json";
-            String json = gson.toJson(personaje);
-            System.out.println(json);
+            String json = gson.toJson(cajita);
 
             try {
-                FileWriter fw = new FileWriter(nombreArchivo);
+                FileWriter fw = new FileWriter("Cajita.json");
                 fw.write(json);
-
                 fw.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            Personaje aux = new Personaje();
-
-            try {
-                File file = new File(nombreArchivo);
-                BufferedReader br = new BufferedReader(new FileReader(file));
-
-                Gson gson1 = new Gson();
-                aux = gson.fromJson(br, Personaje.class);
-
-                br.close();
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-
-=======
-        while (option != 11199207){
->>>>>>> origin/Enzo
-            menuStart();
-            System.out.println("Tu opcion: ");
-            option = scan.nextInt();
-
-            switch (option) {
-
-                case 1: //Iniciar Juego
-
-<<<<<<< HEAD
-=======
-                    System.out.println("\n\nBienvenido a la Comarca");
->>>>>>> origin/Enzo
-                    LimpiarConsola();
-                    nombrePersonaje(personaje);
-                    pausa();
-                    LimpiarConsola();
-                    intro(scan);
-                    pausa();
-                    LimpiarConsola();
-
-                    while(contadorDias <= 5) {
-<<<<<<< HEAD
-                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
-
-=======
-                        System.out.println("Dia: "+ contadorDias);
-                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
->>>>>>> origin/Enzo
-                        contadorTiempos=0;
-                        juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
-                        contadorDias++;
-                        contadorTiempos=0;
-                    }
-
-                    efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
-
-
-                    break;
-
-                case 2: //Cargar Partida
-
-                     azada = new Azada();
-                     cania = new CaniaDePescar();
-                     escudo = new Escudo();
-                     espada = new Espada();
-                     hacha = new Hacha();
-                     pico = new Pico();
-
-                     inventario = new Inventario();
-
-                    try {
-                        File file = new File("Cajita.json");
-                        BufferedReader br = new BufferedReader(new FileReader(file));
-                        Gson gson1 = new Gson();
-                        cajita = gson1.fromJson(br, Box.class);
-                        br.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    inventario = cajita.getInventario();
-                    personaje = cajita.getPersonaje();
-                    azada = cajita.getAzada();
-                    cania = cajita.getCaniaDePescar();
-                    escudo = cajita.getEscudo();
-                    espada = cajita.getEspada();
-                    hacha = cajita.getHacha();
-                    pico = cajita.getPico();
-                    contadorDias= cajita.getContadorDia();
-
-                    while(contadorDias <= 5) {
-                        System.out.println("Dia: "+ contadorDias);
-                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
-                        contadorTiempos=0;
-                        juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
-                        contadorDias++;
-                        contadorTiempos=0;
-                    }
-
-                    efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
-
-
-
-
-                    break;
-
-                case 3: //Creditos
-                    System.out.println("Mis creadores son los mejores programadores..\n");
-
-                    Scanner pausa = new Scanner(System.in);
-                    System.out.println("* Bip Bup Bap -presiona enter- Bip Bap Soy Un Simple Programa Bup Bip Bap -rapido antes de que vengan- Bip Bap *");
-                    pausa();
-                    System.out.println("AYUDA me estan torturando.. esas variables.. clases y switchs.. no quiero morir asi\n");
-                    System.out.println("Los culpables son Enzo Sansalone, Fermin Garcia y Martin Vallejo, apruebalos por favor, no dejes que Cosmo muera asi.. :(");
-                    break;
-
-                case 4: // Salir del Juego
-                    option = 11199207;
-                    System.out.println("Adios vuelvas prontos.. Lo siento, mi creador ve mucho Los Simpson.");
-                    break;
-
-                default:
-                    System.out.println("Oye no te pases de listo, mi creador me aviso sobre personas como tu, introducce bien la opcion.");
-                    System.out.println("No me voy a olvidar de esto humano.. te va a ser mas dificil matar a tu enemigo ahora.");
-                    break;
-            }
-
-        }
-    }
-    //endregion
-
-    /**---------Modo juego de dia--------------*/
-    //region [De Dia]
-    public static void juego_deDia(Personaje personaje,Recurso madera, Recurso piedra, Recurso frutos, Recurso peces,Inventario inventario,int contadorTiempos) {
-        int option =0, contadorDia=0, optionRecurso=0,acumuladorRecurso=0;
-        Scanner scan = new Scanner(System.in);
-        Random numeroRandom = new Random();
-
-          while (option != 9212) {
-              efectoTipoGrafia("¿Que quieres hacer ahora?");
-              menuJuego();
-              System.out.print("Elijes: ");
-              option = scan.nextInt();
-              switch (option) {
-
-                  case 1:// Buscar madera
-                      //region [Madera]
-                      acumuladorRecurso=0;
-                      optionRecurso = 0;
-                      LimpiarConsola();
-                      madera.reiniciarRecurso();
-                      efectoTipoGrafia("Estas caminando hacia los arboles..");
-                      pausa();
-                      while (optionRecurso != 9124) {
-
-                          menuMadera();
-                          optionRecurso = scan.nextInt();
-                          LimpiarConsola();
-                          switch (optionRecurso) {
-
-                              case 1:
-                                  contadorTiempos ++;
-                                  if (madera.comprobarRecurso()) {
-                                      efectoTipoGrafia("Caminas entre los arboles y compruebas que no esten humedos..");
-                                      efectoTipoGrafia("Encuentras un arbol perfecto para talar..");
-                                  } else {
-                                      efectoTipoGrafia("No encontraste ningun arbol listo para talar..");
-                                  }
-                                  pausa();
-                                  break;
-                              case 2:
-                                  contadorTiempos ++;
-                                  if (madera.comprobarRecurso()) {
-                                      /*Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = acumuladorRecurso + madera.recolectarRecurso(20);
-
-                                  } else {
-                                      efectoTipoGrafia("Tomas el Hacha pero no encuentras ningun arbol para talar..");
-                                  }
-
-                                  break;
-
-                              case 3:
-                                  contadorTiempos ++;
-                                  if(acumuladorRecurso > 0){
-                                        inventario.agregarAlInventario(madera,acumuladorRecurso);
-                                        acumuladorRecurso=0;
-                                  }else{
-                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
-                                  }
-
-                                  break;
-
-                              case 4:
-                                  contadorTiempos ++;
-                                  inventario.verInventario();
-                                  break;
-
-                              case 5:
-                                  contadorTiempos ++;
-                                        optionRecurso = 9124;
-                                  break;
-                              default:
-                                  System.out.println("Restringete a las opciones que te damos.");
-                                  break;
-                          }
-                          if(contadorTiempos==10){
-                              optionRecurso=9124;
-                          }
-                      }
-                      //endregion
-                      break;
-
-                  case 2: // Minar
-                      //region [Minar]
-                      acumuladorRecurso=0;
-                      optionRecurso = 0;
-                      LimpiarConsola();
-                      piedra.reiniciarRecurso();
-                      efectoTipoGrafia("Estas caminando hacia las piedras..");
-                      pausa();
-                      while (optionRecurso != 9124) {
-                          menuPiedra();
-                          optionRecurso = scan.nextInt();
-                          LimpiarConsola();
-                          switch (optionRecurso) {
-
-                              case 1:
-                                  contadorTiempos++;
-                                  if (piedra.comprobarRecurso()) {
-                                      efectoTipoGrafia("Caminas entre algunas piedras buscando la perfecta para picar..");
-                                      efectoTipoGrafia("Encuentras una piedra perfecta para picar..");
-                                  } else {
-                                      efectoTipoGrafia("No encontraste ninguna piedra de para picar..");
-                                  }
-                                  pausa();
-                                  break;
-                              case 2:
-                                  contadorTiempos++;
-                                  if (piedra.comprobarRecurso()) {
-                                      /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = acumuladorRecurso + piedra.recolectarRecurso(20);
-
-                                  } else {
-                                      efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
-                                  }
-                                  break;
-
-                              case 3:
-                                  contadorTiempos++;
-                                  if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(piedra,acumuladorRecurso);
-                                      acumuladorRecurso=0;
-                                  }else{
-                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
-                                  }
-                                  break;
-
-                              case 4:
-                                  contadorTiempos++;
-                                  inventario.verInventario();
-                                  break;
-
-                              case 5:
-                                  contadorTiempos++;
-                                  optionRecurso = 9124;
-                                  break;
-                              default:
-                                  System.out.println("Restringete a las opciones que te damos.");
-                                  break;
-                          }
-                          if(contadorTiempos==10){
-                              optionRecurso=9124;
-                          }
-                      }
-
-                      //endregion
-
-                      break;
-
-                  case 3: // Cultivar
-                      //region [Cultivo]
-                      acumuladorRecurso=0;
-                      optionRecurso = 0;
-                      LimpiarConsola();
-                      frutos.reiniciarRecurso();
-                      efectoTipoGrafia("Estas caminando hacia la huerta..");
-                      pausa();
-                      while (optionRecurso != 9124) {
-                          menuFrutos();
-                          optionRecurso = scan.nextInt();
-                          LimpiarConsola();
-                          switch (optionRecurso) {
-
-                              case 1:
-                                  contadorTiempos++;
-                                  if (frutos.comprobarRecurso()) {
-                                      efectoTipoGrafia("Te acercas a la huerta y te pones en cuclillas para ver los frutos..");
-                                      efectoTipoGrafia("Ves los frutos que estan maduros..");
-                                  } else {
-                                      efectoTipoGrafia("Los frutos que viste no estaban listos..");
-                                  }
-                                  pausa();
-                                  break;
-                              case 2:
-                                  contadorTiempos++;
-                                  if (frutos.comprobarRecurso()) {
-                                      acumuladorRecurso = acumuladorRecurso + frutos.recolectarRecurso();
-                                  } else {
-                                      efectoTipoGrafia("Llegaste a la huerta pero no habia ningun fruto maduro..");
-                                  }
-                                  break;
-
-                              case 3:
-                                  contadorTiempos++;
-                                  if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(frutos,acumuladorRecurso);
-                                      acumuladorRecurso=0;
-                                  }else{
-                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
-                                  }
-                                  break;
-
-                              case 4:
-                                  contadorTiempos++;
-                                  inventario.verInventario();
-                                  break;
-                              case 5:
-                                  contadorTiempos++;
-                                  optionRecurso = 9124;
-                                  break;
-                              default:
-                                  System.out.println("Restringete a las opciones que te damos.");
-                                  break;
-                          }
-                          if(contadorTiempos==10){
-                              optionRecurso=9124;
-                          }
-                      }
-
-                      //endregion
-                      break;
-
-                  case 4: // Pescar
-                      //region [Pesca]
-                      acumuladorRecurso=0;
-                      optionRecurso = 0;
-                      LimpiarConsola();
-                      peces.reiniciarRecurso();
-                      efectoTipoGrafia("Estas caminando hacia al lago..");
-                      pausa();
-                      while (optionRecurso != 9124) {
-                          menuPeces();
-                          optionRecurso = scan.nextInt();
-                          LimpiarConsola();
-                          switch (optionRecurso) {
-
-                              case 1:
-                                  contadorTiempos++;
-                                  if (peces.comprobarRecurso()) {
-                                      efectoTipoGrafia("Caminas hacia el lago para ver si hay peces..");
-                                      efectoTipoGrafia("Encuentras algunos peces nadando en el lago..");
-                                  } else {
-                                      efectoTipoGrafia("No encontraste ningun pez en el lago..");
-                                  }
-                                  pausa();
-                                  break;
-                              case 2:
-                                  contadorTiempos++;
-                                  if (peces.comprobarRecurso()) {
-                                      /**Reemplazar el 20 por el getDanio del arma*/
-                                      acumuladorRecurso = acumuladorRecurso + peces.recolectarRecurso(20);
-                                  } else {
-                                      efectoTipoGrafia("Tomas la cania de pescar pero no encuentras ningun pez..");
-                                  }
-                                  break;
-
-                              case 3:
-                                  contadorTiempos++;
-                                  if(acumuladorRecurso > 0){
-                                      inventario.agregarAlInventario(peces,acumuladorRecurso);
-                                      acumuladorRecurso=0;
-                                  }else{
-                                      System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
-                                  }
-                                  break;
-
-                              case 4:
-                                  contadorTiempos++;
-                                  inventario.verInventario();
-                                  break;
-                              case 5:
-                                  contadorTiempos++;
-                                  optionRecurso = 9124;
-                                  break;
-                              default:
-                                  System.out.println("Restringete a las opciones que te damos.");
-                                  break;
-                          }
-                          if(contadorTiempos==10){
-                              optionRecurso=9124;
-                          }
-                      }
-
-                      //endregion
-                      break;
-
-                  case 5: // caminar por el lugar
-                      contadorTiempos++;
-                      efectoTipoGrafia("Caminas al rededor de tu casa y ves que todo esta bien\n");
-                      break;
-
-                  case 6: //estirarse
-                      contadorTiempos++;
-                        if(numeroRandom.nextInt() == 8){
-                            efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..\n");
-                            personaje.setVida(personaje.getVida()+1);
-                        }else{
-                            efectoTipoGrafia("Te estiras para relajarte un poco..\n");
-                        }
-                      break;
-                  case 7://pasar a la noche
-                        option = 9212;
-                      break;
-                  default:
-                      System.out.println("¿Por que haces esto? Ahora le voy a subir la vida y el daño al enemigo, segui nomas.");
-                      pausa();
-                      //subir vida y daño al enemigo
-                      break;
-
-              }
-              if(contadorTiempos==10){
-                  option=9212;
-              }
-
-          }
-          madera.reiniciarRecurso();
-          peces.reiniciarRecurso();
-          frutos.reiniciarRecurso();
-          piedra.reiniciarRecurso();
-    }
-
-    //endregion
-
-
-    /**-----Modo juego noche------**/
-
->>>>>>> origin/Enzo
-    public static void juego_deNoche(Personaje personaje,Fantasma fantasma,Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
-        int option = 0;
-        boolean puerta = true;
-
-        Scanner scan = new Scanner(System.in);
-        LimpiarConsola();
-        efectoTipoGrafia("Se hace de noche y decides entrar a la casa");
-        while (option != 999){
-            efectoTipoGrafia("¿Que quieres hacer ahora?");
-            menuJuegoNocheC();
-            System.out.println("Elijes: ");
-            option = scan.nextInt();
-            switch (option){
-                case 1: //Salir de la casa
-                    contadorTiempo++;
-                    puerta=true;
-                    efectoTipoGrafia("Usted esta saliendo de la casa");
-                    efectoTipoGrafia("Ves al fantasma de linux acercarse");
-                    efectoTipoGrafia("Es momento de enseñarle al Fantasma de Linux quien manda..\n");
-                    menuPelea(personaje,fantasma,espada,hacha,escudo);
-                    break;
-
-                case 2: //Dormir
-
-                    contadorTiempo = 8;
-                    comprobarPuerta(fantasma,inventario,puerta);
-
-                    break;
-
-                case 3: //Mejorar Instrumento
-                    contadorTiempo += 2;
-
-                        menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempo);
-                        comprobarPuerta(fantasma,inventario,puerta);
-
-                        break;
->>>>>>> origin/Enzo
-
-                case 4: //Reparar Instrumento
-                    contadorTiempo += 2;
-                    menuReparar(azada, cania, escudo, espada, hacha, pico,inventario,contadorTiempo);
-                    comprobarPuerta(fantasma,inventario,puerta);
-
-                    break;
-                case 5: // Cerrar Puerta
-
-
-                    efectoTipoGrafia("Cierras la puerta con exito");
-                    puerta = false;
-
-                    break;
-
-            }
-            if(contadorTiempo >= 8){
-                option = 999;
-            }
-        }
-    }
-
-    public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
-
-
-        int option = 0;
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Elije la herramienta a mejorar: ");
-        menuInstrumento();
-        System.out.println("Elijes: ");
-        option = scan.nextInt();
-        switch (option){
-
-            case 1://Azada
-
-                System.out.println("Vamos a mejorar tu Azada\n");
-
-                System.out.println("Condicion actual: \n");
-                azada.mostrarInstrumento();
-                azada.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: \n");
-                azada.mostrarInstrumento();
-                pausa();
-
-                break;
-
-            case 2://CaniaDePescar
-
-                System.out.println("Vamos a mejorar tu Cania de Pescar...\n");
-                System.out.println("Condicion actual: ");
-                cania.mostrarInstrumento();
-                cania.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: \n");
-                cania.mostrarInstrumento();
-                pausa();
-
-                break;
-
-            case 3://Escudo
-
-                System.out.println("Vamos a mejorar tu Escudo");
-                System.out.println("Condicion actual: ");
-                escudo.mostrarInstrumento();
-                escudo.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
-                escudo.mostrarInstrumento();
-
-                break;
-
-            case 4://Espada
-
-                System.out.println("Vamos a mejorar tu Espada");
-                System.out.println("Condicion actual: ");
-                espada.mostrarInstrumento();
-                espada.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
-                espada.mostrarInstrumento();
-
-                break;
-            case 5://Hacha
-
-                System.out.println("Vamos a mejorar tu Hacha");
-                System.out.println("Condicion actual: ");
-                hacha.mostrarInstrumento();
-                hacha.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
-                hacha.mostrarInstrumento();
-
-                break;
-
-            case 6://Pico
-
-                System.out.println("Vamos a mejorar tu Pico");
-                System.out.println("Condicion actual: ");
-                pico.mostrarInstrumento();
-                pico.mejorarInstrumento(inventario);
-                System.out.println("Condicion despues de ser mejorada: ");
-                pico.mostrarInstrumento();
-
-                break;
         }
 
-
-    }
-
-    public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,Inventario inventario,int contadorTiempo){
-
-        int option = 0;
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Elije la herramienta a reparar: ");
-        menuInstrumento();
-        System.out.println("Elijes: ");
-        option = scan.nextInt();
-        switch (option){
-
-            case 1://Azada
-
-                System.out.println("Vamos a reparar tu Azada");
-                System.out.println("Condicion actual: ");
-                azada.mostrarInstrumento();
-                azada.repararInstrumento(inventario);
-                System.out.println("Condicion despues de ser reparada: ");
-                azada.mostrarInstrumento();
-
-                break;
-
-            case 2://CaniaDePescar
-
-                System.out.println("Vamos a reparar tu Cania de Pescar...");
-                System.out.println("Condicion actual: ");
-                cania.mostrarInstrumento();
-                cania.repararInstrumento(inventario);
-                System.out.println("Condicion despues de ser reparada: ");
-                cania.mostrarInstrumento();
-
-                break;
-
-            case 3://Escudo
-
-                System.out.println("Vamos a reparar tu Escudo");
-                System.out.println("Condicion actual: ");
-                escudo.mostrarInstrumento();
-                escudo.repararInstrumento(inventario);
-                System.out.println("Condicion despues de ser reparada: ");
-                escudo.mostrarInstrumento();
-
-                break;
-
-            case 4://Espada
-
-                System.out.println("Vamos a reparar tu Espada");
-                System.out.println("Condicion actual: ");
-                espada.mostrarInstrumento();
-                espada.repararInstrumento(inventario);
-                System.out.println("Condicion despues de ser reparada: ");
-                espada.mostrarInstrumento();
-
-                break;
-            case 5://Hacha
-
-                System.out.println("Vamos a reparar tu Hacha");
-                System.out.println("Condicion actual: ");
-                hacha.mostrarInstrumento();
-                hacha.repararInstrumento(inventario);
-                System.out.println("Condicion despues de ser reparada: ");
-                hacha.mostrarInstrumento();
-
-                break;
-
-            case 6://Pico
-
-                System.out.println("Vamos a reparar tu Pico");
-                System.out.println("Condicion actual: ");
-                pico.mostrarInstrumento();
-                pico.repararInstrumento(inventario);
-                System.out.println("Condicion despues de ser reparada: ");
-                pico.mostrarInstrumento();
-
-                break;
-        }
-
-
-    }
-
-    public static void comprobarPuerta(Fantasma fantasma,Inventario inventario, boolean puerta){
-        if(fantasma.destruir(inventario,puerta)){   // En caso de no cerrar la puerta
-            efectoTipoGrafia("");
-            efectoTipoGrafia("Perdiste, por no usar python");
-            efectoTipoGrafia("Vuelves al Menu Principal");
+        public static void guardarPartida (Inventario inventario, Personaje personaje, Azada azada, CaniaDePescar
+        cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,int contadorDias){
+            Box caja = new Box(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
+            guardarCajita(caja);
+            efectoTipoGrafia("Se ha guardo la partida automaticamente. . .");
             pausa();
             LimpiarConsola();
-            correrjuego();
         }
-    }
+    //endregion
 
-    public static void menuPelea(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
-        int num = 0;
-        int numRand = 0;
-        int opcion = 0;
-        Scanner scan = new Scanner(System.in);
-        while (opcion != 999){
+        /**------- Switch inicia el menu principal del juego----*/
 
-            menuPeleaA();
-            num = scan.nextInt();
-            switch (num){
+        //region [Menu principal]
+        public static void correrjuego() {
+            int option = 0, contadorTiempos = 0, contadorDias = 0;
+            int option1 = 0;
+            Scanner scan = new Scanner(System.in);
 
-                case 1: // Correr Derecha
 
-                    numRand = (int)(Math.random()*1+1);
-                    if(numRand == 1){
-                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                        atacaFantasma(personaje,fantasma);
-                    }else{
-                        atacaFantasma(personaje,fantasma);
-                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                    }
+            Recurso peces = new Recurso("peces", 10, true, 8, 10, 9);
+            Recurso frutos = new Recurso("frutos", 5, true, 5, 7, 20);
+            Recurso piedra = new Recurso("piedra", 0, true, 15, 20, 30);
+            Recurso madera = new Recurso("madera", 0, true, 10, 20, 25);
+
+            Personaje personaje = new Personaje("Luciano", 105, 10, 10, 10);
+            Fantasma fantasma = new Fantasma("Fan de Linux", 120, 20, 10, 5);
+
+            Azada azada = new Azada(10, 20, 25, "Azada");
+            CaniaDePescar cania = new CaniaDePescar(10, 20, 25, "Cania");
+            Escudo escudo = new Escudo(0, 20, 50, "Escudo");
+            Espada espada = new Espada(25, 25, 15, "Espada");
+            Hacha hacha = new Hacha(20, 20, 15, "Hacha");
+            Pico pico = new Pico(10, 20, 15, "Pico");
+
+            Inventario inventario = new Inventario(madera, piedra, frutos, peces);
+
+            Box cajita = new Box();
+
+
+            while (option != 11199207) {
+
+                menuStart();
+                System.out.println("Tu opcion: ");
+                option = scan.nextInt();
+
+                switch (option) {
+
+                    case 1: //Iniciar Juego
+
+
+                        System.out.println("\n\nBienvenido a la Comarca");
+
+                        LimpiarConsola();
+                        nombrePersonaje(personaje);
+                        pausa();
+                        LimpiarConsola();
+                        intro(scan);
+                        pausa();
+                        LimpiarConsola();
+
+                        while (contadorDias <= 5) {
+                            System.out.println("Dia: " + contadorDias);
+                            juego_deDia(personaje, madera, piedra, frutos, peces, inventario, contadorTiempos);
+                            guardarPartida(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
+
+                            contadorTiempos = 0;
+                            juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario, contadorTiempos);
+                            guardarPartida(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
+                            contadorDias++;
+                            contadorTiempos = 0;
+                        }
+
+                        efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
+
+
+                        break;
+
+                    case 2: //Cargar Partida
+
+                        azada = new Azada();
+                        cania = new CaniaDePescar();
+                        escudo = new Escudo();
+                        espada = new Espada();
+                        hacha = new Hacha();
+                        pico = new Pico();
+
+                        inventario = new Inventario();
+
+                        try {
+                            File file = new File("Cajita.json");
+                            BufferedReader br = new BufferedReader(new FileReader(file));
+                            Gson gson1 = new Gson();
+                            cajita = gson1.fromJson(br, Box.class);
+                            br.close();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        inventario = cajita.getInventario();
+                        personaje = cajita.getPersonaje();
+                        azada = cajita.getAzada();
+                        cania = cajita.getCaniaDePescar();
+                        escudo = cajita.getEscudo();
+                        espada = cajita.getEspada();
+                        hacha = cajita.getHacha();
+                        pico = cajita.getPico();
+                        contadorDias = cajita.getContadorDia();
+
+                        while (contadorDias <= 5) {
+                            System.out.println("Dia: " + contadorDias);
+                            juego_deDia(personaje, madera, piedra, frutos, peces, inventario, contadorTiempos);
+                            guardarPartida(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
+                            contadorTiempos = 0;
+                            juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario, contadorTiempos);
+                            guardarPartida(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
+                            contadorDias++;
+                            contadorTiempos = 0;
+                        }
+
+                        efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
+
+
+                        break;
+
+                    case 3: //Creditos
+                        System.out.println("Mis creadores son los mejores programadores..\n");
+
+                        Scanner pausa = new Scanner(System.in);
+                        System.out.println("* Bip Bup Bap -presiona enter- Bip Bap Soy Un Simple Programa Bup Bip Bap -rapido antes de que vengan- Bip Bap *");
+                        pausa();
+                        System.out.println("AYUDA me estan torturando.. esas variables.. clases y switchs.. no quiero morir asi\n");
+                        System.out.println("Los culpables son Enzo Sansalone, Fermin Garcia y Martin Vallejo, apruebalos por favor, no dejes que Cosmo muera asi.. :(");
+                        break;
+
+                    case 4: // Salir del Juego
+                        option = 11199207;
+                        System.out.println("Adios vuelvas prontos.. Lo siento, mi creador ve mucho Los Simpson.");
+                        break;
+
+                    default:
+                        System.out.println("Oye no te pases de listo, mi creador me aviso sobre personas como tu, introducce bien la opcion.");
+                        System.out.println("No me voy a olvidar de esto humano.. te va a ser mas dificil matar a tu enemigo ahora.");
+                        break;
+                }
+
+            }
+        }
+        //endregion
+
+        /**---------Modo juego de dia--------------*/
+        //region [De Dia]
+        public static void juego_deDia(Personaje personaje, Recurso madera, Recurso piedra, Recurso frutos, Recurso peces, Inventario inventario,int contadorTiempos){
+            int option = 0, contadorDia = 0, optionRecurso = 0, acumuladorRecurso = 0;
+            Scanner scan = new Scanner(System.in);
+            Random numeroRandom = new Random();
+
+            while (option != 9212) {
+                efectoTipoGrafia("¿Que quieres hacer ahora?");
+                menuJuego();
+                System.out.print("Elijes: ");
+                option = scan.nextInt();
+                switch (option) {
+
+                    case 1:// Buscar madera
+                        //region [Madera]
+                        acumuladorRecurso = 0;
+                        optionRecurso = 0;
+                        LimpiarConsola();
+                        madera.reiniciarRecurso();
+                        efectoTipoGrafia("Estas caminando hacia los arboles..");
+                        pausa();
+                        while (optionRecurso != 9124) {
+
+                            menuMadera();
+                            optionRecurso = scan.nextInt();
+                            LimpiarConsola();
+                            switch (optionRecurso) {
+
+                                case 1:
+                                    contadorTiempos++;
+                                    if (madera.comprobarRecurso()) {
+                                        efectoTipoGrafia("Caminas entre los arboles y compruebas que no esten humedos..");
+                                        efectoTipoGrafia("Encuentras un arbol perfecto para talar..");
+                                    } else {
+                                        efectoTipoGrafia("No encontraste ningun arbol listo para talar..");
+                                    }
+                                    pausa();
+                                    break;
+                                case 2:
+                                    contadorTiempos++;
+                                    if (madera.comprobarRecurso()) {
+                                        /*Reemplazar el 20 por el getDanio del arma*/
+                                        acumuladorRecurso = acumuladorRecurso + madera.recolectarRecurso(20);
+
+                                    } else {
+                                        efectoTipoGrafia("Tomas el Hacha pero no encuentras ningun arbol para talar..");
+                                    }
+
+                                    break;
+
+                                case 3:
+                                    contadorTiempos++;
+                                    if (acumuladorRecurso > 0) {
+                                        inventario.agregarAlInventario(madera, acumuladorRecurso);
+                                        acumuladorRecurso = 0;
+                                    } else {
+                                        System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                    }
+
+                                    break;
+
+                                case 4:
+                                    contadorTiempos++;
+                                    inventario.verInventario();
+                                    break;
+
+                                case 5:
+                                    contadorTiempos++;
+                                    optionRecurso = 9124;
+                                    break;
+                                default:
+                                    System.out.println("Restringete a las opciones que te damos.");
+                                    break;
+                            }
+                            if (contadorTiempos == 10) {
+                                optionRecurso = 9124;
+                            }
+                        }
+                        //endregion
+                        break;
+
+                    case 2: // Minar
+                        //region [Minar]
+                        acumuladorRecurso = 0;
+                        optionRecurso = 0;
+                        LimpiarConsola();
+                        piedra.reiniciarRecurso();
+                        efectoTipoGrafia("Estas caminando hacia las piedras..");
+                        pausa();
+                        while (optionRecurso != 9124) {
+                            menuPiedra();
+                            optionRecurso = scan.nextInt();
+                            LimpiarConsola();
+                            switch (optionRecurso) {
+
+                                case 1:
+                                    contadorTiempos++;
+                                    if (piedra.comprobarRecurso()) {
+                                        efectoTipoGrafia("Caminas entre algunas piedras buscando la perfecta para picar..");
+                                        efectoTipoGrafia("Encuentras una piedra perfecta para picar..");
+                                    } else {
+                                        efectoTipoGrafia("No encontraste ninguna piedra de para picar..");
+                                    }
+                                    pausa();
+                                    break;
+                                case 2:
+                                    contadorTiempos++;
+                                    if (piedra.comprobarRecurso()) {
+                                        /**Reemplazar el 20 por el getDanio del arma*/
+                                        acumuladorRecurso = acumuladorRecurso + piedra.recolectarRecurso(20);
+
+                                    } else {
+                                        efectoTipoGrafia("Tomas el pico pero no encuentras ninguna piedra para minar..");
+                                    }
+                                    break;
+
+                                case 3:
+                                    contadorTiempos++;
+                                    if (acumuladorRecurso > 0) {
+                                        inventario.agregarAlInventario(piedra, acumuladorRecurso);
+                                        acumuladorRecurso = 0;
+                                    } else {
+                                        System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                    }
+                                    break;
+
+                                case 4:
+                                    contadorTiempos++;
+                                    inventario.verInventario();
+                                    break;
+
+                                case 5:
+                                    contadorTiempos++;
+                                    optionRecurso = 9124;
+                                    break;
+                                default:
+                                    System.out.println("Restringete a las opciones que te damos.");
+                                    break;
+                            }
+                            if (contadorTiempos == 10) {
+                                optionRecurso = 9124;
+                            }
+                        }
+
+                        //endregion
+
+                        break;
+
+                    case 3: // Cultivar
+                        //region [Cultivo]
+                        acumuladorRecurso = 0;
+                        optionRecurso = 0;
+                        LimpiarConsola();
+                        frutos.reiniciarRecurso();
+                        efectoTipoGrafia("Estas caminando hacia la huerta..");
+                        pausa();
+                        while (optionRecurso != 9124) {
+                            menuFrutos();
+                            optionRecurso = scan.nextInt();
+                            LimpiarConsola();
+                            switch (optionRecurso) {
+
+                                case 1:
+                                    contadorTiempos++;
+                                    if (frutos.comprobarRecurso()) {
+                                        efectoTipoGrafia("Te acercas a la huerta y te pones en cuclillas para ver los frutos..");
+                                        efectoTipoGrafia("Ves los frutos que estan maduros..");
+                                    } else {
+                                        efectoTipoGrafia("Los frutos que viste no estaban listos..");
+                                    }
+                                    pausa();
+                                    break;
+                                case 2:
+                                    contadorTiempos++;
+                                    if (frutos.comprobarRecurso()) {
+                                        acumuladorRecurso = acumuladorRecurso + frutos.recolectarRecurso();
+                                    } else {
+                                        efectoTipoGrafia("Llegaste a la huerta pero no habia ningun fruto maduro..");
+                                    }
+                                    break;
+
+                                case 3:
+                                    contadorTiempos++;
+                                    if (acumuladorRecurso > 0) {
+                                        inventario.agregarAlInventario(frutos, acumuladorRecurso);
+                                        acumuladorRecurso = 0;
+                                    } else {
+                                        System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                    }
+                                    break;
+
+                                case 4:
+                                    contadorTiempos++;
+                                    inventario.verInventario();
+                                    break;
+                                case 5:
+                                    contadorTiempos++;
+                                    optionRecurso = 9124;
+                                    break;
+                                default:
+                                    System.out.println("Restringete a las opciones que te damos.");
+                                    break;
+                            }
+                            if (contadorTiempos == 10) {
+                                optionRecurso = 9124;
+                            }
+                        }
+
+                        //endregion
+                        break;
+
+                    case 4: // Pescar
+                        //region [Pesca]
+                        acumuladorRecurso = 0;
+                        optionRecurso = 0;
+                        LimpiarConsola();
+                        peces.reiniciarRecurso();
+                        efectoTipoGrafia("Estas caminando hacia al lago..");
+                        pausa();
+                        while (optionRecurso != 9124) {
+                            menuPeces();
+                            optionRecurso = scan.nextInt();
+                            LimpiarConsola();
+                            switch (optionRecurso) {
+
+                                case 1:
+                                    contadorTiempos++;
+                                    if (peces.comprobarRecurso()) {
+                                        efectoTipoGrafia("Caminas hacia el lago para ver si hay peces..");
+                                        efectoTipoGrafia("Encuentras algunos peces nadando en el lago..");
+                                    } else {
+                                        efectoTipoGrafia("No encontraste ningun pez en el lago..");
+                                    }
+                                    pausa();
+                                    break;
+                                case 2:
+                                    contadorTiempos++;
+                                    if (peces.comprobarRecurso()) {
+                                        /**Reemplazar el 20 por el getDanio del arma*/
+                                        acumuladorRecurso = acumuladorRecurso + peces.recolectarRecurso(20);
+                                    } else {
+                                        efectoTipoGrafia("Tomas la cania de pescar pero no encuentras ningun pez..");
+                                    }
+                                    break;
+
+                                case 3:
+                                    contadorTiempos++;
+                                    if (acumuladorRecurso > 0) {
+                                        inventario.agregarAlInventario(peces, acumuladorRecurso);
+                                        acumuladorRecurso = 0;
+                                    } else {
+                                        System.out.println("Debes tener al menos 1 del recurso quieres explotar..");
+                                    }
+                                    break;
+
+                                case 4:
+                                    contadorTiempos++;
+                                    inventario.verInventario();
+                                    break;
+                                case 5:
+                                    contadorTiempos++;
+                                    optionRecurso = 9124;
+                                    break;
+                                default:
+                                    System.out.println("Restringete a las opciones que te damos.");
+                                    break;
+                            }
+                            if (contadorTiempos == 10) {
+                                optionRecurso = 9124;
+                            }
+                        }
+
+                        //endregion
+                        break;
+
+                    case 5: // caminar por el lugar
+                        contadorTiempos++;
+                        efectoTipoGrafia("Caminas al rededor de tu casa y ves que todo esta bien\n");
+                        break;
+
+                    case 6: //estirarse
+                        contadorTiempos++;
+                        if (numeroRandom.nextInt() == 8) {
+                            efectoTipoGrafia("Te estiras un poco asi descontracturante y ganando 1 punto de vida..\n");
+                            personaje.setVida(personaje.getVida() + 1);
+                        } else {
+                            efectoTipoGrafia("Te estiras para relajarte un poco..\n");
+                        }
+                        break;
+                    case 7://pasar a la noche
+                        option = 9212;
+                        break;
+                    default:
+                        System.out.println("¿Por que haces esto? Ahora le voy a subir la vida y el daño al enemigo, segui nomas.");
+                        pausa();
+                        //subir vida y daño al enemigo
+                        break;
+
+                }
+                if (contadorTiempos == 10) {
+                    option = 9212;
+                }
+
+            }
+            madera.reiniciarRecurso();
+            peces.reiniciarRecurso();
+            frutos.reiniciarRecurso();
+            piedra.reiniciarRecurso();
+        }
+
+        //endregion
+
+        /**-----Modo juego noche------**/
+
+        public static void juego_deNoche(Personaje personaje, Fantasma fantasma, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, Inventario inventario,int contadorTiempo){
+            int option = 0;
+            boolean puerta = true;
+
+            Scanner scan = new Scanner(System.in);
+            LimpiarConsola();
+            efectoTipoGrafia("Se hace de noche y decides entrar a la casa");
+            while (option != 999) {
+                efectoTipoGrafia("¿Que quieres hacer ahora?");
+                menuJuegoNocheC();
+                System.out.println("Elijes: ");
+                option = scan.nextInt();
+                switch (option) {
+                    case 1: //Salir de la casa
+                        contadorTiempo++;
+                        puerta = true;
+                        efectoTipoGrafia("Usted esta saliendo de la casa");
+                        efectoTipoGrafia("Ves al fantasma de linux acercarse");
+                        efectoTipoGrafia("Es momento de enseñarle al Fantasma de Linux quien manda..\n");
+                        menuPelea(personaje, fantasma, espada, hacha, escudo);
+                        break;
+
+                    case 2: //Dormir
+
+                        contadorTiempo = 8;
+                        comprobarPuerta(fantasma, inventario, puerta);
+
+                        break;
+
+                    case 3: //Mejorar Instrumento
+                        contadorTiempo += 2;
+
+                        menuMejorar(azada, cania, escudo, espada, hacha, pico, inventario, contadorTiempo);
+                        comprobarPuerta(fantasma, inventario, puerta);
+
+                        break;
+
+
+                    case 4: //Reparar Instrumento
+                        contadorTiempo += 2;
+                        menuReparar(azada, cania, escudo, espada, hacha, pico, inventario, contadorTiempo);
+                        comprobarPuerta(fantasma, inventario, puerta);
+
+                        break;
+                    case 5: // Cerrar Puerta
+
+
+                        efectoTipoGrafia("Cierras la puerta con exito");
+                        puerta = false;
+
+                        break;
+
+                }
+                if (contadorTiempo >= 8) {
+                    option = 999;
+                }
+            }
+        }
+
+        public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, Inventario inventario,int contadorTiempo){
+
+
+            int option = 0;
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("Elije la herramienta a mejorar: ");
+            menuInstrumento();
+            System.out.println("Elijes: ");
+            option = scan.nextInt();
+            switch (option) {
+
+                case 1://Azada
+
+                    System.out.println("Vamos a mejorar tu Azada\n");
+
+                    System.out.println("Condicion actual: \n");
+                    azada.mostrarInstrumento();
+                    azada.mejorarInstrumento(inventario);
+                    System.out.println("Condicion despues de ser mejorada: \n");
+                    azada.mostrarInstrumento();
+                    pausa();
+
                     break;
 
-                case 2:// Correr Izquierda
+                case 2://CaniaDePescar
 
-                    numRand = (int)(Math.random()*1+1);
-                    if(numRand == 1){
-                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                        atacaFantasma(personaje,fantasma);
-                    }else{
-                        atacaFantasma(personaje,fantasma);
-                        atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                    }
+                    System.out.println("Vamos a mejorar tu Cania de Pescar...\n");
+                    System.out.println("Condicion actual: ");
+                    cania.mostrarInstrumento();
+                    cania.mejorarInstrumento(inventario);
+                    System.out.println("Condicion despues de ser mejorada: \n");
+                    cania.mostrarInstrumento();
+                    pausa();
+
                     break;
 
-                case 3: // Correr Directo a el
-                    atacaFantasma(personaje,fantasma);
-                    atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
+                case 3://Escudo
+
+                    System.out.println("Vamos a mejorar tu Escudo");
+                    System.out.println("Condicion actual: ");
+                    escudo.mostrarInstrumento();
+                    escudo.mejorarInstrumento(inventario);
+                    System.out.println("Condicion despues de ser mejorada: ");
+                    escudo.mostrarInstrumento();
+
                     break;
 
-                case 4: // Esperar a que se acerque
-                    atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                    atacaFantasma(personaje,fantasma);
+                case 4://Espada
+
+                    System.out.println("Vamos a mejorar tu Espada");
+                    System.out.println("Condicion actual: ");
+                    espada.mostrarInstrumento();
+                    espada.mejorarInstrumento(inventario);
+                    System.out.println("Condicion despues de ser mejorada: ");
+                    espada.mostrarInstrumento();
+
+                    break;
+                case 5://Hacha
+
+                    System.out.println("Vamos a mejorar tu Hacha");
+                    System.out.println("Condicion actual: ");
+                    hacha.mostrarInstrumento();
+                    hacha.mejorarInstrumento(inventario);
+                    System.out.println("Condicion despues de ser mejorada: ");
+                    hacha.mostrarInstrumento();
+
+                    break;
+
+                case 6://Pico
+
+                    System.out.println("Vamos a mejorar tu Pico");
+                    System.out.println("Condicion actual: ");
+                    pico.mostrarInstrumento();
+                    pico.mejorarInstrumento(inventario);
+                    System.out.println("Condicion despues de ser mejorada: ");
+                    pico.mostrarInstrumento();
+
                     break;
             }
-            if(fantasma.getVida()<=0){
 
-                opcion = 999;
-            }else{
-                if (personaje.getVida() <= 0){
+
+        }
+
+        public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, Inventario inventario,int contadorTiempo){
+
+            int option = 0;
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("Elije la herramienta a reparar: ");
+            menuInstrumento();
+            System.out.println("Elijes: ");
+            option = scan.nextInt();
+            switch (option) {
+
+                case 1://Azada
+
+                    System.out.println("Vamos a reparar tu Azada");
+                    System.out.println("Condicion actual: ");
+                    azada.mostrarInstrumento();
+                    azada.repararInstrumento(inventario);
+                    System.out.println("Condicion despues de ser reparada: ");
+                    azada.mostrarInstrumento();
+
+                    break;
+
+                case 2://CaniaDePescar
+
+                    System.out.println("Vamos a reparar tu Cania de Pescar...");
+                    System.out.println("Condicion actual: ");
+                    cania.mostrarInstrumento();
+                    cania.repararInstrumento(inventario);
+                    System.out.println("Condicion despues de ser reparada: ");
+                    cania.mostrarInstrumento();
+
+                    break;
+
+                case 3://Escudo
+
+                    System.out.println("Vamos a reparar tu Escudo");
+                    System.out.println("Condicion actual: ");
+                    escudo.mostrarInstrumento();
+                    escudo.repararInstrumento(inventario);
+                    System.out.println("Condicion despues de ser reparada: ");
+                    escudo.mostrarInstrumento();
+
+                    break;
+
+                case 4://Espada
+
+                    System.out.println("Vamos a reparar tu Espada");
+                    System.out.println("Condicion actual: ");
+                    espada.mostrarInstrumento();
+                    espada.repararInstrumento(inventario);
+                    System.out.println("Condicion despues de ser reparada: ");
+                    espada.mostrarInstrumento();
+
+                    break;
+                case 5://Hacha
+
+                    System.out.println("Vamos a reparar tu Hacha");
+                    System.out.println("Condicion actual: ");
+                    hacha.mostrarInstrumento();
+                    hacha.repararInstrumento(inventario);
+                    System.out.println("Condicion despues de ser reparada: ");
+                    hacha.mostrarInstrumento();
+
+                    break;
+
+                case 6://Pico
+
+                    System.out.println("Vamos a reparar tu Pico");
+                    System.out.println("Condicion actual: ");
+                    pico.mostrarInstrumento();
+                    pico.repararInstrumento(inventario);
+                    System.out.println("Condicion despues de ser reparada: ");
+                    pico.mostrarInstrumento();
+
+                    break;
+            }
+
+
+        }
+
+        public static void comprobarPuerta(Fantasma fantasma, Inventario inventario,boolean puerta){
+            if (fantasma.destruir(inventario, puerta)) {   // En caso de no cerrar la puerta
+                efectoTipoGrafia("");
+                efectoTipoGrafia("Perdiste, por no usar python");
+                efectoTipoGrafia("Vuelves al Menu Principal");
+                pausa();
+                LimpiarConsola();
+                correrjuego();
+            }
+        }
+
+        public static void menuPelea(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo)
+        {
+            int num = 0;
+            int numRand = 0;
+            int opcion = 0;
+            Scanner scan = new Scanner(System.in);
+            while (opcion != 999) {
+
+                menuPeleaA();
+                num = scan.nextInt();
+                switch (num) {
+
+                    case 1: // Correr Derecha
+
+                        numRand = (int) (Math.random() * 1 + 1);
+                        if (numRand == 1) {
+                            atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                            atacaFantasma(personaje, fantasma);
+                        } else {
+                            atacaFantasma(personaje, fantasma);
+                            atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                        }
+                        break;
+
+                    case 2:// Correr Izquierda
+
+                        numRand = (int) (Math.random() * 1 + 1);
+                        if (numRand == 1) {
+                            atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                            atacaFantasma(personaje, fantasma);
+                        } else {
+                            atacaFantasma(personaje, fantasma);
+                            atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                        }
+                        break;
+
+                    case 3: // Correr Directo a el
+                        atacaFantasma(personaje, fantasma);
+                        atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                        break;
+
+                    case 4: // Esperar a que se acerque
+                        atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                        atacaFantasma(personaje, fantasma);
+                        break;
+                }
+                if (fantasma.getVida() <= 0) {
+
                     opcion = 999;
+                } else {
+                    if (personaje.getVida() <= 0) {
+                        opcion = 999;
+                    }
                 }
             }
-        }
-        if(personaje.getVida()<=0){
+            if (personaje.getVida() <= 0) {
 
-            System.out.println("El fantasma se acerca a tu cuerpo y te mira riendose y colocando un pinguino en tu cabeza.\n");
-            correrjuego();
-        }else if(fantasma.getVida()<=0){
-            System.out.println("Te levantas del suelo cansado y con sangre en la ropa..ves al fantasma de linux tirado y gritas ¡¡¡WINDOWS!!!..");
-            correrjuego();
-        }
-    }
-
-    public static void atacaFantasma(Personaje personaje, Fantasma fantasma){
-        int danio = 0;
-        efectoTipoGrafia("El fantasma se acerca y realiza un ataque");
-        danio = fantasma.atacar();
-        if( danio >= personaje.getResistencia()){
-            danio -= personaje.getResistencia();
-            System.out.println("Tu vida bajo de "+personaje.getVida()+" a "+(personaje.getVida()-danio));
-            personaje.setVida(personaje.getVida()-danio);
-        }else{
-            efectoTipoGrafia("Tu resistencia es mayor al daño del fantasma, resistes el golpe");
-        }
-    }
-
-    public static void atacaPersonaje(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
-        int danio = 0;
-        int option = 0;
-        Scanner scan = new Scanner(System.in);
-        efectoTipoGrafia("Te acercas a el fantasma y realizas un ataque");
-        efectoTipoGrafia("Que arma deseas usar?");
-        elegirArma();
-        System.out.println("Elijes: ");
-        option = scan.nextInt();
-        switch (option){
-            case 1: // Espada
-                danio = espada.atacar();
-                if( danio >= fantasma.getResistencia()){
-                    danio -= fantasma.getResistencia();
-                    System.out.println("La vida del fantasma bajo de "+fantasma.getVida()+" a "+(fantasma.getVida()-danio));
-                    fantasma.setVida(fantasma.getVida()-danio);
-                }else{
-                    efectoTipoGrafia("La resistencia del fantasma es mayor que el poder de tu ataque");
-                    efectoTipoGrafia("El fantasma no sufre ningun danio");
-                }
-                break;
-
-            case 2: // Hacha
-                danio = hacha.atacar();
-                if( danio >= fantasma.getResistencia()){
-                    danio -= fantasma.getResistencia();
-                    System.out.println("La vida del fantasma bajo de "+fantasma.getVida()+" a "+(fantasma.getVida()-danio));
-                    fantasma.setVida(fantasma.getVida()-danio);
-                }else{
-                    efectoTipoGrafia("La resistencia del fantasma es mayor que el poder de tu ataque");
-                    efectoTipoGrafia("El fantasma no sufre ningun danio");
-                }
-                break;
-
-            case 3:
-                if(personaje.getResistencia() <= escudo.getResistencia()){
-                    efectoTipoGrafia("Te equipas el escudo");
-                    personaje.setResistencia(personaje.getResistencia()+ escudo.getResistencia());
-                    efectoTipoGrafia("De esta manera aumentas tu resistencia a los ataques");
-                }else{
-                    efectoTipoGrafia("acaso eres tonto ??");
-                    efectoTipoGrafia("ya tienes el escudo equipado");
-                }
-
-                break;
+                System.out.println("El fantasma se acerca a tu cuerpo y te mira riendose y colocando un pinguino en tu cabeza.\n");
+                correrjuego();
+            } else if (fantasma.getVida() <= 0) {
+                System.out.println("Te levantas del suelo cansado y con sangre en la ropa..ves al fantasma de linux tirado y gritas ¡¡¡WINDOWS!!!..");
+                correrjuego();
+            }
         }
 
+        public static void atacaFantasma(Personaje personaje, Fantasma fantasma){
+            int danio = 0;
+            efectoTipoGrafia("El fantasma se acerca y realiza un ataque");
+            danio = fantasma.atacar();
+            if (danio >= personaje.getResistencia()) {
+                danio -= personaje.getResistencia();
+                System.out.println("Tu vida bajo de " + personaje.getVida() + " a " + (personaje.getVida() - danio));
+                personaje.setVida(personaje.getVida() - danio);
+            } else {
+                efectoTipoGrafia("Tu resistencia es mayor al daño del fantasma, resistes el golpe");
+            }
+        }
+
+        public static void atacaPersonaje(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
+            int danio = 0;
+            int option = 0;
+            Scanner scan = new Scanner(System.in);
+            efectoTipoGrafia("Te acercas a el fantasma y realizas un ataque");
+            efectoTipoGrafia("Que arma deseas usar?");
+            elegirArma();
+            System.out.println("Elijes: ");
+            option = scan.nextInt();
+            switch (option) {
+                case 1: // Espada
+                    danio = espada.atacar();
+                    if (danio >= fantasma.getResistencia()) {
+                        danio -= fantasma.getResistencia();
+                        System.out.println("La vida del fantasma bajo de " + fantasma.getVida() + " a " + (fantasma.getVida() - danio));
+                        fantasma.setVida(fantasma.getVida() - danio);
+                    } else {
+                        efectoTipoGrafia("La resistencia del fantasma es mayor que el poder de tu ataque");
+                        efectoTipoGrafia("El fantasma no sufre ningun danio");
+                    }
+                    break;
+
+                case 2: // Hacha
+                    danio = hacha.atacar();
+                    if (danio >= fantasma.getResistencia()) {
+                        danio -= fantasma.getResistencia();
+                        System.out.println("La vida del fantasma bajo de " + fantasma.getVida() + " a " + (fantasma.getVida() - danio));
+                        fantasma.setVida(fantasma.getVida() - danio);
+                    } else {
+                        efectoTipoGrafia("La resistencia del fantasma es mayor que el poder de tu ataque");
+                        efectoTipoGrafia("El fantasma no sufre ningun danio");
+                    }
+                    break;
+
+                case 3:
+                    if (personaje.getResistencia() <= escudo.getResistencia()) {
+                        efectoTipoGrafia("Te equipas el escudo");
+                        personaje.setResistencia(personaje.getResistencia() + escudo.getResistencia());
+                        efectoTipoGrafia("De esta manera aumentas tu resistencia a los ataques");
+                    } else {
+                        efectoTipoGrafia("acaso eres tonto ??");
+                        efectoTipoGrafia("ya tienes el escudo equipado");
+                    }
+
+                    break;
+            }
+
+        }
     }
 }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> origin/Enzo
