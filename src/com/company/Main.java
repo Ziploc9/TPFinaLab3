@@ -4,14 +4,18 @@ import RecursoNatural.Recurso;
 import Inventario.*;
 import Personaje.*;
 import Herramientas.*;
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 import java.io.*;
 import java.util.Random;
+import java.io.FileWriter;
+import com.google.gson.Gson;
 
+import javax.swing.text.html.parser.Parser;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.FileReader;
 
 
 
@@ -199,7 +203,7 @@ public class Main {
         int option = 0;
         Scanner scan = new Scanner(System.in);
         Gson gson = new Gson();
-        File file = new File("Personajes.json");
+        final String nombreArchivo = "Personajes.json";
 
         System.out.println("\n\nBienvenido a la Comarca");
 
@@ -220,6 +224,35 @@ public class Main {
 
         Inventario inventario = new Inventario(madera, piedra, frutos, peces);
 
+        String json = gson.toJson(personaje);
+        System.out.println(json);
+
+        try {
+            FileWriter fw = new FileWriter(nombreArchivo);
+            fw.write(json);
+
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Personaje aux = new Personaje();
+
+        try {
+            File file = new File(nombreArchivo);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+
+            Gson gson1 = new Gson();
+            aux = gson.fromJson(br, Personaje.class);
+
+            br.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         while (option != 11199207){
 
             menuStart();
@@ -230,7 +263,7 @@ public class Main {
 
                 case 1:
 
-                   /* LimpiarConsola();
+                    /*LimpiarConsola();
                     nombrePersonaje(personaje);
                     pausa();
                     LimpiarConsola();
@@ -239,7 +272,7 @@ public class Main {
                     LimpiarConsola();*/
                     try (BufferedReader br = new BufferedReader(new FileReader("Personajes.json"))) {
 
-                        String json = gson.toJson(personaje);
+                        //String json = gson.toJson(personaje);
                         System.out.println(json);
                     }
 
@@ -248,8 +281,8 @@ public class Main {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    juego_deNoche(personaje,fantasma,azada, cania, escudo, espada, hacha, pico,inventario);
                     juego_deDia(personaje, madera, piedra, frutos, peces, inventario);
+                    juego_deNoche(personaje,fantasma,azada, cania, escudo, espada, hacha, pico,inventario);
 
 
                     break;
