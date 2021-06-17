@@ -12,8 +12,9 @@ public class Box {
     private Espada espada;
     private Hacha hacha;
     private Pico pico;
+    private int contadorDia;
 
-    public Box(Inventario inventario, Personaje personaje, Azada azada, CaniaDePescar caniaDePescar, Escudo escudo, Espada espada, Hacha hacha, Pico pico) {
+    public Box(Inventario inventario, Personaje personaje, Azada azada, CaniaDePescar caniaDePescar, Escudo escudo, Espada espada, Hacha hacha, Pico pico,int contadorDia) {
         this.inventario = inventario;
         this.personaje = personaje;
         this.azada = azada;
@@ -22,10 +23,20 @@ public class Box {
         this.espada = espada;
         this.hacha = hacha;
         this.pico = pico;
+        this.contadorDia =contadorDia;
     }
 
     public Box(){
 
+    }
+
+
+    public int getContadorDia() {
+        return contadorDia;
+    }
+
+    public void setContadorDia(int contadorDia) {
+        this.contadorDia = contadorDia;
     }
 
     public Inventario getInventario() {

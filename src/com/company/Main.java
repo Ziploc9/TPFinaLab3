@@ -2,24 +2,19 @@ package com.company;
 
 
 import Inventario.*;
-import RecursoNatural.*;
+
 import RecursoNatural.Recurso;
 import Herramientas.*;
 
-import java.util.Properties;
 import java.util.Random;
 import Personaje.*;
 
 
 import java.io.*;
-import java.util.Random;
 import java.io.FileWriter;
 import com.google.gson.Gson;
 
-import javax.swing.text.html.parser.Parser;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.io.FileReader;
 
 
@@ -230,8 +225,8 @@ public class Main {
         }
     }
 
-    public static  void guardarPartida(Inventario inventario,Personaje personaje, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico){
-        Box caja = new Box(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+    public static  void guardarPartida(Inventario inventario,Personaje personaje, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, int contadorDias){
+        Box caja = new Box(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
         guardarCajita(caja);
         efectoTipoGrafia("Se ha guardo la partida automaticamente. . .");
         pausa();
@@ -287,14 +282,17 @@ public class Main {
                     LimpiarConsola();
 
                     while(contadorDias <= 5) {
+                        System.out.println("Dia: "+ contadorDias);
                         juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
                         contadorDias++;
                         contadorTiempos=0;
                     }
+
+                    efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
 
 
                     break;
@@ -329,16 +327,20 @@ public class Main {
                     espada = cajita.getEspada();
                     hacha = cajita.getHacha();
                     pico = cajita.getPico();
+                    contadorDias= cajita.getContadorDia();
 
                     while(contadorDias <= 5) {
+                        System.out.println("Dia: "+ contadorDias);
                         juego_deDia(personaje, madera, piedra, frutos, peces, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
-                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico);
+                        guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
                         contadorDias++;
                         contadorTiempos=0;
                     }
+
+                    efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
 
 
 
@@ -444,7 +446,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -509,7 +511,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -573,7 +575,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -637,7 +639,7 @@ public class Main {
                                   System.out.println("Restringete a las opciones que te damos.");
                                   break;
                           }
-                          if(contadorTiempos==20){
+                          if(contadorTiempos==10){
                               optionRecurso=9124;
                           }
                       }
@@ -669,7 +671,7 @@ public class Main {
                       break;
 
               }
-              if(contadorTiempos==20){
+              if(contadorTiempos==10){
                   option=9212;
               }
 
