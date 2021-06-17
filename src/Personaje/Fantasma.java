@@ -1,4 +1,5 @@
 package Personaje;
+
 import Inventario.Inventario;
 
 
@@ -98,6 +99,8 @@ public class Fantasma extends Personaje {
         }
         return danio;
     }
+
+
 
 
 }
