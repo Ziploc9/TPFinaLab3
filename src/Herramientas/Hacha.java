@@ -17,7 +17,7 @@ public class Hacha extends Instrumento implements  Armas{
             this.setResistencia(this.getResistencia()+10);
             System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia\n", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -27,7 +27,7 @@ public class Hacha extends Instrumento implements  Armas{
             this.setDurabilidad(this.getDurabilidad()+5);
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad\n", this.getNombre(), getDurabilidad());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -42,9 +42,9 @@ public class Hacha extends Instrumento implements  Armas{
         int danio=0;
         switch (numRand) {
             case 1:
-                System.out.println("Tomas el hacha con las dos manos");
-                System.out.println("Pero erras el golpe");
-                System.out.println("No inflijes danio");
+                System.out.println("\nTomas el hacha con las dos manos");
+                System.out.println("Pero erras el golpe\n");
+                System.out.println("No inflijes danio\n");
                 danio=0;
 
                 break;
@@ -52,9 +52,9 @@ public class Hacha extends Instrumento implements  Armas{
 
                 case 2:
 
-                    System.out.println("Tomas el hacha con una mano");
-                    System.out.println("Le pegas en el hombro");
-                    System.out.println("Inflijis el danio del arma mas tu fuerza");
+                    System.out.println("\nTomas el hacha con una mano");
+                    System.out.println("Le pegas en el hombro\n");
+                    System.out.println("Inflijis el danio del arma mas tu fuerza\n");
 
                     danio = this.getDanio();
 
@@ -62,19 +62,19 @@ public class Hacha extends Instrumento implements  Armas{
 
                     case 3:
 
-                        System.out.println("Tomas el hacha con las dos manos");
-                        System.out.println("y le pegas..");
-                        System.out.println("Inflijes el doble de danio");
+                        System.out.println("\nTomas el hacha con las dos manos");
+                        System.out.println("y le pegas..\n");
+                        System.out.println("Inflijes el doble de danio\n");
                         danio = this.getDanio() * 2;
 
                     break;
 
                     case 4:
 
-                        System.out.println("Lanzas el hacha apuntando a la cabeza del fantasma");
+                        System.out.println("\nLanzas el hacha apuntando a la cabeza del fantasma");
                         System.out.println("Pero el fantasma grita !PYTHON¡");
-                        System.out.println("y desvia el arma");
-                        System.out.println("No inflijes daño");
+                        System.out.println("y desvia el arma\n");
+                        System.out.println("No inflijes daño\n");
 
                         danio = 0;
 
@@ -82,9 +82,9 @@ public class Hacha extends Instrumento implements  Armas{
 
                     case 5:
 
-                        System.out.println("Lanzas el hacha apuntando a la cabeza del fantasma");
-                        System.out.println("le aciertas");
-                        System.out.println("PEGAS UN GOLPE CRITICOOOOO");
+                        System.out.println("\nLanzas el hacha apuntando a la cabeza del fantasma");
+                        System.out.println("le aciertas\n");
+                        System.out.println("PEGAS UN GOLPE CRITICOOOOO\n");
 
                         danio = this.getDanio()*3;
                     break;

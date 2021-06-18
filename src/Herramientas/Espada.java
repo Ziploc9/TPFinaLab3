@@ -16,7 +16,7 @@ public class Espada extends Instrumento implements Armas{
             this.setResistencia(this.getResistencia()+10);
             System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia\n", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -27,7 +27,7 @@ public class Espada extends Instrumento implements Armas{
             this.setDurabilidad(this.getDurabilidad()+5);
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad\n", this.getNombre(), getDurabilidad());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -42,18 +42,18 @@ public class Espada extends Instrumento implements Armas{
         int danio=0;
         switch (numRand) {
             case 1:
-                System.out.println("Tomas la espada con las dos manos");
-                System.out.println("Y le pegas en la cabeza");
-                System.out.println("PUM!! GOLPE CRITICO EN NOMBRE DE WINDOWS");
+                System.out.println("\nTomas la espada con las dos manos");
+                System.out.println("Y le pegas en la cabeza\n");
+                System.out.println("PUM!! GOLPE CRITICO EN NOMBRE DE WINDOWS\n");
                 danio=this.getDanio()*3;
 
                 break;
 
             case 2:
 
-                System.out.println("Tomas la espada con una mano");
-                System.out.println("Es muy pesada y el golpe muy lento");
-                System.out.println("El fantasma lo esquiva al grito de LINUX");
+                System.out.println("\nTomas la espada con una mano");
+                System.out.println("Es muy pesada y el golpe muy lento\n");
+                System.out.println("El fantasma lo esquiva al grito de LINUX\n");
 
                 danio = 0;
 
@@ -61,19 +61,19 @@ public class Espada extends Instrumento implements Armas{
 
             case 3:
 
-                System.out.println("Tomas la espada con las dos manos");
-                System.out.println("y le pegas..");
-                System.out.println("Inflijes el doble de danio");
+                System.out.println("\nTomas la espada con las dos manos");
+                System.out.println("y le pegas..\n");
+                System.out.println("Inflijes el doble de danio\n");
                 danio = this.getDanio() * 2;
 
                 break;
 
             case 4:
 
-                System.out.println("Lanzas la espada apuntando a la cabeza del fantasma");
+                System.out.println("\nLanzas la espada apuntando a la cabeza del fantasma");
                 System.out.println("Pero el fantasma grita !PYTHON¡");
-                System.out.println("y desvia el arma");
-                System.out.println("No inflijes daño");
+                System.out.println("y desvia el arma\n");
+                System.out.println("No inflijes daño\n");
 
                 danio = 0;
 
@@ -81,8 +81,8 @@ public class Espada extends Instrumento implements Armas{
 
             case 5:
 
-                System.out.println("Le pegas al fantasma con el hacha");
-                System.out.println("le aciertas");
+                System.out.println("\nLe pegas al fantasma con el hacha\n");
+                System.out.println("le aciertas\n");
 
                 danio = this.getDanio();
                 break;

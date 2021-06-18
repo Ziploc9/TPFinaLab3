@@ -45,7 +45,7 @@ public class Inventario {
             int cantidadAgregarNueva = cantidadAgregar - exceso;
             recursos[i].setStack(recursos[i].getStack() + cantidadAgregarNueva);
             setPeso(getPeso()+cantidadAgregarNueva);
-            System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!");
+            System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!\n");
         }
     }
 

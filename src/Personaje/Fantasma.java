@@ -1,10 +1,5 @@
 package Personaje;
-
-<<<<<<< HEAD
-import Inventario.*;
-=======
 import Inventario.Inventario;
->>>>>>> 71c024f397a1547106ed1ebdd393ce306d54fb2a
 
 
 public class Fantasma extends Personaje{
@@ -13,44 +8,33 @@ public class Fantasma extends Personaje{
         super(nombre, vida, danio, resistencia, velocidad);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-    public boolean destruir(Inventario inv, boolean puerta) {
-        if (puerta) {
-
-=======
-=======
     public Fantasma() {
     }
 
->>>>>>> origin/Enzo
     public boolean destruir(Inventario inv, boolean puerta) {
         if (puerta) {
->>>>>>> origin/Enzo
-            System.out.println("Olvidaste de cerrar la casa y fuiste asesinado!");
+            System.out.println("Olvidaste de cerrar la casa y fuiste asesinado!\n");
             return true;
         }
         else {
             int numRand = (int)(Math.random()*5+1);
             if (numRand == 3) {
-                System.out.println("El fantasma no logro entrar a la casa. Pero causo algunos daños externos!");
+                System.out.println("El fantasma no logro entrar a la casa. Pero causo algunos daños externos!\n");
                 if (inv.usarDelInventario("madera", 4)) {
-                    System.out.println("Usaste 4 de madera para las reparaciones!");
+                    System.out.println("Usaste 4 de madera para las reparaciones!\n");
                 } else {
                     if (inv.usarDelInventario("frutos", 2)) {
-                        System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos frutos por madera.");
+                        System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos frutos por madera.\n");
                     } else {
                         if (inv.usarDelInventario("peces", 2)) {
-                            System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos pescados por madera.");
+                            System.out.println("No tienes suficiente madera para las reparaciones, tuviste que ir al pueblo a cambiar algunos pescados por madera.\n");
                         } else {
-                            System.out.println("No tienes suficiente madera para las reparaciones, pasaras frio esta noche!");
+                            System.out.println("No tienes suficiente madera para las reparaciones, pasaras frio esta noche!\n");
                         }
                     }
                 }
             }
-            System.out.println("El fantasma no logro causar mas daños importante y se retiro, por ahora.");
+            System.out.println("El fantasma no logro causar mas daños importante y se retiro, por ahora.\n");
             return false;
         }
 
@@ -68,7 +52,7 @@ public class Fantasma extends Personaje{
                 System.out.println(".......");
                 System.out.println("sudo...");
                 System.out.println("SUPERUSER DO");
-                System.out.println("Con esto logra realizar un golpe critico");
+                System.out.println("Con esto logra realizar un golpe critico\n");
                 danio=this.getDamage()*3;
 
                 break;
@@ -76,8 +60,8 @@ public class Fantasma extends Personaje{
             case 2:
 
                 System.out.println("El fantasma esta intentado arreglar su codigo interno");
-                System.out.println("nuevamente tiene problemas de compatibilidad");
-                System.out.println("Te riees de el mientra el sigue perdiendo el tiempo");
+                System.out.println("nuevamente tiene problemas de compatibilidad\n");
+                System.out.println("Te riees de el mientra el sigue perdiendo el tiempo\n");
 
                 danio = 0;
 
@@ -86,7 +70,7 @@ public class Fantasma extends Personaje{
             case 3:
 
                 System.out.println("El fantasma usa el comando zip");
-                System.out.println("logrando comprimir tu vida");
+                System.out.println("logrando comprimir tu vida\n");
                 danio = this.getDamage() * 2;
 
                 break;
@@ -94,10 +78,10 @@ public class Fantasma extends Personaje{
             case 4:
 
                 System.out.println("El fantasma habla sobre la superioridad de linux como sistema operativo");
-                System.out.println("Pero ve tu collar de windows");
+                System.out.println("Pero ve tu collar de windows\n");
                 System.out.println("Se enfurece e intenta atacarte");
                 System.out.println("Pero gritas AGUANTE WINDOWS y tira su poder especial cd..");
-                System.out.println("Volviendo a su posicion anterior");
+                System.out.println("Volviendo a su posicion anterior\n");
 
                 danio = 0;
 
@@ -106,7 +90,7 @@ public class Fantasma extends Personaje{
             case 5:
 
                 System.out.println("El fantasma usa el comando rmdir");
-                System.out.println("Eliminando parte de tu vida....");
+                System.out.println("Eliminando parte de tu vida....\n");
 
                 danio = this.getDamage();
                 break;
@@ -114,12 +98,4 @@ public class Fantasma extends Personaje{
         }
         return danio;
     }
-
-
-<<<<<<< HEAD
 }
-=======
-
-
-}
->>>>>>> 71c024f397a1547106ed1ebdd393ce306d54fb2a

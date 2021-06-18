@@ -85,16 +85,6 @@ public class Personaje {
 
     //region [Metodos]
 
-
-
-    public static void caminar(String lugar){
-        System.out.println("Estas caminando hacia "+lugar);
-    }
-
-    public static void abrircasa(){
-        System.out.println("Abriste la casa");
-    }
-
     public static void comer(){
 
     }
