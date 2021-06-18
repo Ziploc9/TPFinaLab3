@@ -102,7 +102,6 @@ public class Recurso extends TipoRecurso {
     public int recolectarRecurso(double danio){   //
         int acumuladorRecurso=0;
         if(comprobarRecurso()){                                                 // compruebo que el recurso este disponible
-            //if() {                                                     // compruebo que tenga el arma en mano
             if(getResistencia() < danio) {                              // compruebo que el danio del arma sea mayor al de la resistencia del recurso
                 if ("madera".equals(getNombre())) {
                     System.out.println("Agarraste el Hacha con la mano derecha y llegaste hasta el arbol..");
@@ -127,10 +126,6 @@ public class Recurso extends TipoRecurso {
             }else{
                 System.out.println("El arma que tienes no es lo suficiente fuerte para utilizar en este recurso.");
             }
-            //  }else
-            //   {
-            //     System.out.println("No tienes nada en la mano como para explotar este recurso");
-            //  }
         }else{
             System.out.println("\n Recurso en regeneracion..");
         }
@@ -169,21 +164,6 @@ public class Recurso extends TipoRecurso {
         int recu = 1;
         setCantidadRecurso(getCantidadRecurso() - recu);
 
-       /*
-        if ("madera".equals(getNombre())) {
-            recu = getCantidadRecurso();
-            setCantidadRecurso(recu-1);
-        } else if ("peces".equals(getNombre())) {
-            recu = getCantidadRecurso();
-            setCantidadRecurso(recu-1);
-        } else if ("frutos".equals(getNombre())) {
-            recu = getCantidadRecurso();
-            setCantidadRecurso(recu-1);
-        } else if ("piedra".equals(getNombre())) {
-            recu = getCantidadRecurso();
-            setCantidadRecurso(recu-1);
-        }
-        */
         return recu;
     }
 

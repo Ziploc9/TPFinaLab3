@@ -43,7 +43,7 @@ public class Espada extends Instrumento implements Armas{
         switch (numRand) {
             case 1:
                 System.out.println("\nTomas la espada con las dos manos");
-                System.out.println("Y le pegas en la cabeza\n");
+                System.out.println("Y le pegas en la cabeza");
                 System.out.println("PUM!! GOLPE CRITICO EN NOMBRE DE WINDOWS\n");
                 danio=this.getDanio()*3;
 
@@ -52,7 +52,7 @@ public class Espada extends Instrumento implements Armas{
             case 2:
 
                 System.out.println("\nTomas la espada con una mano");
-                System.out.println("Es muy pesada y el golpe muy lento\n");
+                System.out.println("Es muy pesada y el golpe muy lento");
                 System.out.println("El fantasma lo esquiva al grito de LINUX\n");
 
                 danio = 0;
@@ -62,7 +62,7 @@ public class Espada extends Instrumento implements Armas{
             case 3:
 
                 System.out.println("\nTomas la espada con las dos manos");
-                System.out.println("y le pegas..\n");
+                System.out.println("y le pegas..");
                 System.out.println("Inflijes el doble de danio\n");
                 danio = this.getDanio() * 2;
 
@@ -72,7 +72,7 @@ public class Espada extends Instrumento implements Armas{
 
                 System.out.println("\nLanzas la espada apuntando a la cabeza del fantasma");
                 System.out.println("Pero el fantasma grita !PYTHON¡");
-                System.out.println("y desvia el arma\n");
+                System.out.println("y desvia el arma");
                 System.out.println("No inflijes daño\n");
 
                 danio = 0;
@@ -81,7 +81,7 @@ public class Espada extends Instrumento implements Armas{
 
             case 5:
 
-                System.out.println("\nLe pegas al fantasma con el hacha\n");
+                System.out.println("\nLe pegas al fantasma con el hacha");
                 System.out.println("le aciertas\n");
 
                 danio = this.getDanio();
