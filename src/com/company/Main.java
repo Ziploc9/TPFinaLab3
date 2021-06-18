@@ -2,18 +2,13 @@ package com.company;
 
 
 import Inventario.*;
-
 import RecursoNatural.Recurso;
 import Herramientas.*;
-
 import java.util.Random;
 import Personaje.*;
-
-
 import java.io.*;
 import java.io.FileWriter;
 import com.google.gson.Gson;
-
 import java.util.Scanner;
 import java.io.FileReader;
 
@@ -215,7 +210,6 @@ public class Main {
     public static void guardarCajita(Box cajita){
         Gson gson = new Gson();
         String json = gson.toJson(cajita);
-
         try {
             FileWriter fw = new FileWriter("Cajita.json");
             fw.write(json);
@@ -308,6 +302,7 @@ public class Main {
 
                      inventario = new Inventario();
 
+                     //Cargar partida
                     try {
                         File file = new File("Cajita.json");
                         BufferedReader br = new BufferedReader(new FileReader(file));
