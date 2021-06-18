@@ -50,12 +50,15 @@ public class Instrumento {
         this.nombre = nombre;
     }
 
+
+    // Imprime el instrumento por pantalla
     public void mostrarInstrumento(){
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d\n", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
+    //Si tiene los recursos necesarios, aumenta el daño y la resistencia del instrumento
     public void mejorarInstrumento(Inventario inventario) {
-        if (inventario.usarDelInventario("hola", 1)){
+        if (inventario.usarDelInventario("", 1)){
             this.setDanio(this.getDanio()+10);
             this.setResistencia(this.getResistencia()+10);
             System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia\n", this.getNombre(), this.getDanio(), this.getResistencia());
@@ -64,6 +67,7 @@ public class Instrumento {
         }
     }
 
+    //Si tiene los recursos necesarios, aumenta la durabilidad del instrumento
     public void repararInstrumento(Inventario inventario) {
         if(inventario.usarDelInventario("hola", 1)){
             this.setDurabilidad(this.getDurabilidad()+5);
@@ -73,6 +77,7 @@ public class Instrumento {
         }
     }
 
+    //Reduce la durabilidad del instrumento
     public void desgastarInstrumento(){
         if(this.getDurabilidad() > 0) {
             this.setDurabilidad(this.getDurabilidad()-2);

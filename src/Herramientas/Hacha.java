@@ -36,6 +36,7 @@ public class Hacha extends Instrumento implements  Armas{
         System.out.format("Nombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d\n", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
 
+    //Seleccion a uno de los 5 ataques posibles, y devuelve la cantidad de daño que a realizar
     @Override
     public int atacar(){
         int numRand = (int)(Math.random()*4+1);

@@ -21,45 +21,13 @@ public class Main {
         correrjuego();
     }
 
-    /**
-     * --------Menus de juego ----------------
-     */
 
-    //region [Menus]
-    public static void menuStart() {
-        System.out.println("-> 1- Iniciar juego");
-        System.out.println("-> 2- Cargar Partida");
-        System.out.println("-> 3- Creditos");
-        System.out.println("-> 4- Salir juego");
 
-    }
-
-    public static void menuJuego() {
-        System.out.println("-> 1- Ir por madera.");
-        System.out.println("-> 2- Ir por piedra.");
-        System.out.println("-> 3- Ir a la huerta");
-        System.out.println("-> 4- Ir a pescar");
-        System.out.println("-> 5- Caminar por el lugar");
-        System.out.println("-> 6- Estirar");
-    }
-
-    public static void intro() {
-        efectoTipoGrafia("9 am.. suena tu telefono");
-        efectoTipoGrafia("Te levantas de la cama y vas a buscar el telefono\n");
-
-        efectoTipoGrafia("-¿Hola?..");
-        efectoTipoGrafia("Anonimo: No salgas de tu casa en la noche.\n");
-
-        efectoTipoGrafia("-¿Cristian?..¿Sos vos?.. Ya te dije que no me interesa tener Linux.");
-        efectoTipoGrafia("El anonimo colgo\n");
-
-        efectoTipoGrafia("-Dios..me hacen despertar temprano.. mejor voy afuera, de lo que se pierden estos de no estar en Necochea papa..");
-        efectoTipoGrafia("Sales de la casa, el sol te da plenamente\n");
-
-    }
+    //region [Escritura]
 
     public static void pausa() {
         String seguir;
+        efectoTipoGrafia("Presione enter...");
         Scanner scan = new Scanner(System.in);
         seguir = scan.nextLine();
     }
@@ -70,6 +38,7 @@ public class Main {
         }
     }
 
+    // Efecto de escritura
     public static void efectoTipoGrafia(String message) {
         if (message == null)
             return;
@@ -87,74 +56,137 @@ public class Main {
         System.out.println();
     }
 
+    //endregion
+    /**--------Menus de juego ----------------*/
+    /**   Escritura de los menues, previos a los switchs*/
+    //region [Menus]
+
+    public static void menuStart() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
+        System.out.println("-> 1- Iniciar juego");
+        System.out.println("-> 2- Cargar Partida");
+        System.out.println("-> 3- Creditos");
+        System.out.println("-> 4- Salir juego");
+        System.out.print("Elijes: ");
+    }
+
+    public static void menuJuego() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
+        System.out.println("-> 1- Ir por madera.");
+        System.out.println("-> 2- Ir por piedra.");
+        System.out.println("-> 3- Ir a la huerta");
+        System.out.println("-> 4- Ir a pescar");
+        System.out.println("-> 5- Caminar por el lugar");
+        System.out.println("-> 6- Estirar");
+        System.out.print("Elijes: ");
+    }
+
+    public static void intro() {
+        efectoTipoGrafia("9 am.. suena tu telefono");
+        efectoTipoGrafia("Te levantas de la cama y vas a buscar el telefono\n");
+
+        efectoTipoGrafia("-¿Hola?..");
+        efectoTipoGrafia("Anonimo: No salgas de tu casa en la noche.\n");
+
+        efectoTipoGrafia("-¿Cristian?..¿Sos vos?.. Ya te dije que no me interesa tener Linux.");
+        efectoTipoGrafia("El anonimo colgo\n");
+
+        efectoTipoGrafia("-Dios..me hacen despertar temprano.. mejor voy afuera, de lo que se pierden estos de no estar en Necochea papa..");
+        efectoTipoGrafia("Sales de la casa, el sol te da plenamente\n");
+
+    }
+
+
+
     public static void menuMadera() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Talar");
         System.out.println("-> 3- Guardar Madera");
         System.out.println("-> 4- Ver Inventario");
         System.out.println("-> 5- Dejar de talar\n");
+        System.out.print("Elijes: ");
     }
 
     public static void menuPiedra() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Picar");
         System.out.println("-> 3- Guardar piedra");
         System.out.println("-> 4- Ver Inventario");
         System.out.println("-> 5- Dejar la mineria\n");
+        System.out.print("Elijes: ");
     }
 
     public static void menuPeces() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Pescar");
         System.out.println("-> 3- Guardar Pescado");
         System.out.println("-> 4- Ver Inventario");
         System.out.println("-> 5- Dejar la pesca");
+        System.out.print("Elijes: ");
     }
 
     public static void menuFrutos() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
         System.out.println("-> 1- Observar.");
         System.out.println("-> 2- Recolectar frutos");
         System.out.println("-> 3- Guardar frutos");
         System.out.println("-> 4- Ver Inventario");
         System.out.println("-> 5- Dejar la huerta");
+        System.out.print("Elijes: ");
     }
 
     public static void menuJuegoNocheC() {
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
         System.out.println("1- Salir de la Casa para pelear con el mounstro");
         System.out.println("2- Dormir");
         System.out.println("3- Mejorar Instrumento");
         System.out.println("4- Reparar Instrumento");
         System.out.println("5- Cerrar Puerta");
+        System.out.print("Elijes: ");
     }
 
     public static void menuJuegoNocheSinDormir(){
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
         System.out.println("1- Salir de la Casa para pelear con el mounstro");
         System.out.println("2- Dormir");
         System.out.println("2- Mejorar Instrumento");
         System.out.println("3- Reparar Instrumento");
+        System.out.print("Elijes: ");
     }
 
-    public static void menuInstrumento() {
+    public static void menuInstrumento(int opcion) {
+        if(opcion == 1){
+            efectoTipoGrafia("Elije la herramienta a mejorar: ");
+        }else{
+            efectoTipoGrafia("Elije la herramienta a reparar: ");
+        }
         System.out.println("1- Azada");
         System.out.println("2- Cania de Pescar");
         System.out.println("3- Escudo");
         System.out.println("4- Espada");
         System.out.println("5- Hacha");
         System.out.println("6- Pico");
+        System.out.print("Elijes: ");
         }
 
     public static void menuPeleaA(){
-
-            System.out.println("1- Correr hacia la derecha.");
-            System.out.println("2- Correr hacia la izquierda.");
-            System.out.println("3- Correr directo a el.");
-            System.out.println("4- Esperar a que se acerque a ti.");
+        efectoTipoGrafia("¿Que quieres hacer ahora?");
+        System.out.println("1- Correr hacia la derecha.");
+        System.out.println("2- Correr hacia la izquierda.");
+        System.out.println("3- Correr directo a el.");
+        System.out.println("4- Esperar a que se acerque a ti.");
+        System.out.print("Elijes: ");
         }
 
     public static void elegirArma(){
-            System.out.println("1- Agarrar la espada.\n");
-            System.out.println("2- Agarrar el hacha.\n");
-            System.out.println("3- Agarrar el escudo.\n");
+        efectoTipoGrafia("Que arma deseas usar?");
+        System.out.println("1- Agarrar la espada.\n");
+        System.out.println("2- Agarrar el hacha.\n");
+        System.out.println("3- Agarrar el escudo.\n");
+        System.out.print("Elijes: ");
         }
         //endregion
 
@@ -226,6 +258,7 @@ public class Main {
 
         //region [Json]
 
+        //guarda la caja en el archivo
         public static void guardarCajita (Box cajita){
             Gson gson = new Gson();
             String json = gson.toJson(cajita);
@@ -240,6 +273,7 @@ public class Main {
 
         }
 
+        //crea la caja para despues guardarla en el archivo
         public static void guardarPartida (Inventario inventario, Personaje personaje, Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico,int contadorDias){
             Box caja = new Box(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
             guardarCajita(caja);
@@ -247,15 +281,14 @@ public class Main {
             pausa();
             LimpiarConsola();
         }
-    //endregion
+        //endregion
 
         /**------- Switch inicia el menu principal del juego----*/
 
         //region [Menu principal]
-        public static void correrjuego() {
+        public static void correrjuego()
+        {
             int option = 0,contadorTiempos = 0, contadorDias = 0;
-            Scanner scan = new Scanner(System.in);
-
 
             Recurso peces = new Recurso("peces", 10, true, 8, 10, 9);
             Recurso frutos = new Recurso("frutos", 5, true, 5, 7, 20);
@@ -279,8 +312,7 @@ public class Main {
             while (option != 11199207) {
 
                 menuStart();
-                System.out.println("Tu opcion: ");
-                option = scan.nextInt();
+                option = validador();
                 switch (option) {
 
                     case 1: //Iniciar Juego
@@ -298,7 +330,7 @@ public class Main {
 
                         while (contadorDias <= 5) {
                             System.out.println("Dia: " + contadorDias);
-                            juego_deDia(personaje, madera, piedra, frutos, peces, inventario, contadorTiempos,hacha,pico,cania);
+                            juego_deDia(personaje,fantasma, madera, piedra, frutos, peces, inventario, contadorTiempos,hacha,pico,cania);
                             guardarPartida(inventario, personaje, azada, cania, escudo, espada, hacha, pico, contadorDias);
 
                             contadorTiempos = 0;
@@ -309,6 +341,8 @@ public class Main {
                         }
 
                         efectoTipoGrafia("Se te terminaron los dias, vuelves al inicio");
+
+                        break;
 
 
                 case 2: //Cargar Partida
@@ -346,7 +380,7 @@ public class Main {
 
                     while(contadorDias <= 5) {
                         System.out.println("Dia: "+ contadorDias);
-                        juego_deDia(personaje, madera, piedra, frutos, peces, inventario, contadorTiempos,hacha,pico,cania);
+                        juego_deDia(personaje,fantasma, madera, piedra, frutos, peces, inventario, contadorTiempos,hacha,pico,cania);
                         guardarPartida(inventario,personaje,azada,cania,escudo,espada,hacha,pico,contadorDias);
                         contadorTiempos=0;
                         juego_deNoche(personaje, fantasma, azada, cania, escudo, espada, hacha, pico, inventario,contadorTiempos);
@@ -354,7 +388,6 @@ public class Main {
                         contadorDias++;
                         contadorTiempos=0;
                     }
-
 
                         break;
 
@@ -376,6 +409,8 @@ public class Main {
                     default:
                         System.out.println("Oye no te pases de listo, mi creador me aviso sobre personas como tu, introducce bien la opcion.");
                         System.out.println("No me voy a olvidar de esto humano.. te va a ser mas dificil matar a tu enemigo ahora.\n");
+                        fantasma.buffear();
+                        pausa();
                         break;
                 }
 
@@ -383,17 +418,32 @@ public class Main {
         }
         //endregion
 
+
+        //Recibe lo que ingresa el usuario por teclado, si es un numero lo devuelve
+        public static int validador(){
+            Integer conversor;
+            String soption ="";
+            Scanner scan = new Scanner(System.in);
+            soption = scan.next();
+
+            try {
+                conversor = Integer.parseInt(soption);
+                return conversor;
+            } catch (NumberFormatException nfe){
+                return 0;
+            }
+        }
+
         /**---------Modo juego de dia--------------*/
         //region [De Dia]
-        public static void juego_deDia(Personaje personaje, Recurso madera, Recurso piedra, Recurso frutos, Recurso peces, Inventario inventario,int contadorTiempos, Hacha hacha, Pico pico,CaniaDePescar cania){
+        public static void juego_deDia(Personaje personaje,Fantasma fantasma, Recurso madera, Recurso piedra, Recurso frutos, Recurso peces, Inventario inventario,int contadorTiempos, Hacha hacha, Pico pico,CaniaDePescar cania){
             int option = 0,optionRecurso = 0, acumuladorRecurso = 0;
-            Scanner scan = new Scanner(System.in);
+
 
             while (option != 9212) {
-                efectoTipoGrafia("¿Que quieres hacer ahora?");
                 menuJuego();
-                System.out.print("Elijes: ");
-                option = scan.nextInt();
+                option = validador();
+
                 switch (option) {
 
                     case 1:// Buscar madera
@@ -407,7 +457,7 @@ public class Main {
                         while (optionRecurso != 9124) {
 
                             menuMadera();
-                            optionRecurso = scan.nextInt();
+                            optionRecurso=validador();
                             LimpiarConsola();
                             switch (optionRecurso) {
 
@@ -476,7 +526,7 @@ public class Main {
                         pausa();
                         while (optionRecurso != 9124) {
                             menuPiedra();
-                            optionRecurso = scan.nextInt();
+                            optionRecurso = validador();
                             LimpiarConsola();
                             switch (optionRecurso) {
 
@@ -523,6 +573,7 @@ public class Main {
                                     break;
                                 default:
                                     System.out.println("Restringete a las opciones que te damos.\n");
+                                    pausa();
                                     break;
                             }
                             if (contadorTiempos == 10) {
@@ -544,7 +595,7 @@ public class Main {
                         pausa();
                         while (optionRecurso != 9124) {
                             menuFrutos();
-                            optionRecurso = scan.nextInt();
+                            optionRecurso = validador();
                             LimpiarConsola();
                             switch (optionRecurso) {
 
@@ -612,7 +663,7 @@ public class Main {
                         pausa();
                         while (optionRecurso != 9124) {
                             menuPeces();
-                            optionRecurso = scan.nextInt();
+                            optionRecurso = validador();
                             LimpiarConsola();
                             switch (optionRecurso) {
 
@@ -682,13 +733,12 @@ public class Main {
                             efectoTipoGrafia("Te estiras para relajarte un poco..\n");
                         }
                         break;
-                    case 7://pasar a la noche
-                        option = 9212;
-                        break;
+
                     default:
                         System.out.println("¿Por que haces esto? Ahora le voy a subir la vida y el daño al enemigo, segui nomas.\n");
+                        fantasma.buffear();
                         pausa();
-                        //subir vida y daño al enemigo
+
                         break;
 
                 }
@@ -711,7 +761,6 @@ public class Main {
             int option = 0;
             boolean puerta = true;
 
-            Scanner scan = new Scanner(System.in);
             LimpiarConsola();
             efectoTipoGrafia("Se hace de noche y decides entrar a la casa\n");
             while (option != 999) {
@@ -723,7 +772,7 @@ public class Main {
                 }
 
                 System.out.println("Elijes: ");
-                option = scan.nextInt();
+                option = validador();
 
                 switch (option) {
                     case 1: //Salir de la casa
@@ -768,7 +817,8 @@ public class Main {
                         }
                         break;
                     default:
-                        efectoTipoGrafia("Trata de elegir correctamente la opcion\n");
+                        efectoTipoGrafia("Trata de elegir correctamente la opcion");
+                        efectoTipoGrafia("O sufriras las consecuensias");
                         break;
                 }
                 if (contadorTiempo >= 8) {
@@ -778,21 +828,14 @@ public class Main {
         }
 
         public static void menuMejorar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, Inventario inventario){
-
-
             int option = 0;
-            Scanner scan = new Scanner(System.in);
-
-            System.out.println("Elije la herramienta a mejorar: ");
-            menuInstrumento();
-            System.out.println("Elijes: ");
-            option = scan.nextInt();
+            menuInstrumento(1);
+            option = validador();
             switch (option) {
 
                 case 1://Azada
 
                     System.out.println("Vamos a mejorar tu Azada\n");
-
                     System.out.println("Condicion actual: \n");
                     azada.mostrarInstrumento();
                     azada.mejorarInstrumento(inventario);
@@ -856,20 +899,21 @@ public class Main {
                     pico.mostrarInstrumento();
 
                     break;
+
+                default:
+                    efectoTipoGrafia("Le pedimos que use algunas de las opciones mencionadas");
+                    efectoTipoGrafia("o sufrira las consecuensias");
+                    pausa();
+                    break;
             }
 
 
         }
 
         public static void menuReparar(Azada azada, CaniaDePescar cania, Escudo escudo, Espada espada, Hacha hacha, Pico pico, Inventario inventario,int contadorTiempo){
-
             int option = 0;
-            Scanner scan = new Scanner(System.in);
-
-            System.out.println("Elije la herramienta a reparar: ");
-            menuInstrumento();
-            System.out.println("Elijes: ");
-            option = scan.nextInt();
+            menuInstrumento(0);
+            option = validador();
             switch (option) {
 
                 case 1://Azada
@@ -936,6 +980,12 @@ public class Main {
                     pico.mostrarInstrumento();
 
                     break;
+
+                default:
+                    efectoTipoGrafia("Le pedimos que use algunas de las opciones mencionadas");
+                    efectoTipoGrafia("o sufrira las consecuensias");
+                    pausa();
+                    break;
             }
 
 
@@ -952,40 +1002,41 @@ public class Main {
             }
         }
 
+        //Determina si ataca primero el fantasma o el personaje
+        public static void secuenciaDeAtaqueRandom(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
+            int numRand = 0;
+
+            numRand = (int) (Math.random() * 1 + 1);
+            if (numRand == 1) {
+                atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+                atacaFantasma(personaje, fantasma);
+            } else {
+                atacaFantasma(personaje, fantasma);
+                atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
+            }
+
+        }
+
         public static void menuPelea(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo)
         {
-            int num = 0;
-            int numRand = 0;
+
             int opcion = 0;
-            Scanner scan = new Scanner(System.in);
             while (opcion != 999) {
 
                 menuPeleaA();
-                num = scan.nextInt();
-                switch (num) {
+                opcion = validador();
+                switch (opcion) {
 
                     case 1: // Correr Derecha
 
-                        numRand = (int)(Math.random()*1+1);
-                        if(numRand == 1){
-                            atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                            atacaFantasma(personaje,fantasma);
-                        }else{
-                            atacaFantasma(personaje,fantasma);
-                            atacaPersonaje(personaje,fantasma,espada,hacha,escudo);
-                        }
+                        secuenciaDeAtaqueRandom(personaje,fantasma,espada,hacha,escudo);
+
                         break;
 
                     case 2:// Correr Izquierda
 
-                        numRand = (int) (Math.random() * 1 + 1);
-                        if (numRand == 1) {
-                            atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
-                            atacaFantasma(personaje, fantasma);
-                        } else {
-                            atacaFantasma(personaje, fantasma);
-                            atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
-                        }
+                        secuenciaDeAtaqueRandom(personaje,fantasma,espada,hacha,escudo);
+
                         break;
 
                     case 3: // Correr Directo a el
@@ -996,6 +1047,12 @@ public class Main {
                     case 4: // Esperar a que se acerque
                         atacaPersonaje(personaje, fantasma, espada, hacha, escudo);
                         atacaFantasma(personaje, fantasma);
+                        break;
+
+                    default:
+                        efectoTipoGrafia("Intentas romper el programa???");
+                        efectoTipoGrafia("Puede que lo logres pero no en este momento");
+                        pausa();
                         break;
                 }
                 if (fantasma.getVida() <= 0) {
@@ -1008,7 +1065,6 @@ public class Main {
                 }
             }
             if (personaje.getVida() <= 0) {
-
                 System.out.println("El fantasma se acerca a tu cuerpo y te mira riendose y colocando un pinguino en tu cabeza.\n");
                 pausa();
                 LimpiarConsola();
@@ -1021,10 +1077,54 @@ public class Main {
             }
         }
 
+
+        //Realiza un ataque random del fantasma
         public static void atacaFantasma(Personaje personaje, Fantasma fantasma){
             int danio = 0;
+            int numRand = (int)(Math.random()*4+1);
             efectoTipoGrafia("El fantasma se acerca y realiza un ataque\n");
-            danio = fantasma.atacar();
+            danio = fantasma.atacar(numRand);
+            switch (numRand) {
+                case 1:
+                    System.out.println("El fantasma usa el comando mas peligroso.... ");
+                    System.out.println(".......");
+                    System.out.println(".......");
+                    System.out.println(".......");
+                    System.out.println(".......");
+                    System.out.println("sudo...");
+                    System.out.println("SUPERUSER DO");
+                    System.out.println("Con esto logra realizar un golpe critico\n");
+                    break;
+
+                case 2:
+                    System.out.println("El fantasma esta intentado arreglar su codigo interno");
+                    System.out.println("nuevamente tiene problemas de compatibilidad\n");
+                    System.out.println("Te riees de el mientra el sigue perdiendo el tiempo\n");
+                    break;
+
+                case 3:
+
+                    System.out.println("El fantasma usa el comando zip");
+                    System.out.println("logrando comprimir tu vida\n");
+                    break;
+
+                case 4:
+
+                    System.out.println("El fantasma habla sobre la superioridad de linux como sistema operativo");
+                    System.out.println("Pero ve tu collar de windows\n");
+                    System.out.println("Se enfurece e intenta atacarte");
+                    System.out.println("Pero gritas AGUANTE WINDOWS y tira su poder especial cd..");
+                    System.out.println("Volviendo a su posicion anterior\n");
+                    break;
+
+                case 5:
+
+                    System.out.println("El fantasma usa el comando rmdir");
+                    System.out.println("Eliminando parte de tu vida....\n");
+                    break;
+                default:
+                    break;
+            }
             if (danio >= personaje.getResistencia()) {
                 danio -= personaje.getResistencia();
                 System.out.println("\nTu vida bajo de " + personaje.getVida() + " a " + (personaje.getVida() - danio));
@@ -1034,15 +1134,13 @@ public class Main {
             }
         }
 
+        //Realiza un ataque random del Personaje
         public static void atacaPersonaje(Personaje personaje, Fantasma fantasma, Espada espada, Hacha hacha, Escudo escudo){
             int danio = 0;
             int option = 0;
-            Scanner scan = new Scanner(System.in);
             efectoTipoGrafia("Te acercas a el fantasma y realizas un ataque\n");
-            efectoTipoGrafia("Que arma deseas usar?");
             elegirArma();
-            System.out.println("Elijes: ");
-            option = scan.nextInt();
+            option = validador();
             switch (option) {
                 case 1: // Espada
                     danio = espada.atacar();
@@ -1077,6 +1175,14 @@ public class Main {
                         efectoTipoGrafia("acaso eres tonto ??");
                         efectoTipoGrafia("ya tienes el escudo equipado\n");
                     }
+
+                    break;
+
+                default:
+
+                    efectoTipoGrafia("Le pedimos que use algunas de las opciones mencionadas");
+                    efectoTipoGrafia("o sufrira las consecuensias");
+                    pausa();
 
                     break;
             }
