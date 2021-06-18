@@ -18,8 +18,6 @@ public class CaniaDePescar extends Instrumento {
 
     }
 
-
-
     @Override
     public void mejorarInstrumento(Inventario inventario) {
         if (inventario.usarDelInventario("madera", 2) == true){

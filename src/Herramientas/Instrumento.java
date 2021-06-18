@@ -60,7 +60,7 @@ public class Instrumento {
             this.setResistencia(this.getResistencia()+10);
             System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia\n", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -69,7 +69,7 @@ public class Instrumento {
             this.setDurabilidad(this.getDurabilidad()+5);
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad\n", this.getNombre(), getDurabilidad());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -77,7 +77,7 @@ public class Instrumento {
         if(this.getDurabilidad() > 0) {
             this.setDurabilidad(this.getDurabilidad()-2);
         }else{
-            System.out.println(" Tu "+ this.getNombre() + "esta roto, no se puede usar");
+            System.out.println(" Tu "+ this.getNombre() + "esta roto, no se puede usar\n");
         }
     }
 
