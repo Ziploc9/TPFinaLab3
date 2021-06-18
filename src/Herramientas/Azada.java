@@ -17,7 +17,7 @@ public class Azada extends Instrumento {
             this.setResistencia(this.getResistencia()+10);
             System.out.format("Mejoraste tu %s, ahora tiene %d de daño y %d de resistencia\n", this.getNombre(), this.getDanio(), this.getResistencia());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -27,7 +27,7 @@ public class Azada extends Instrumento {
             this.setDurabilidad(this.getDurabilidad()+5);
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad\n", this.getNombre(), getDurabilidad());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 

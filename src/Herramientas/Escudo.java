@@ -15,7 +15,7 @@ public class Escudo extends Instrumento {
             this.setResistencia(this.getResistencia()+10);
             System.out.format("Mejoraste tu %s, ahora tiene %d de resistencia\n", this.getNombre(), this.getResistencia());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -25,7 +25,7 @@ public class Escudo extends Instrumento {
             this.setDurabilidad(this.getDurabilidad()+5);
             System.out.format("Reparaste tu %s, ahora tiene %d de durabilidad\n", this.getNombre(), getDurabilidad());
         }else{
-            System.out.println("No tenes los objetos necesarios");
+            System.out.println("No tenes los objetos necesarios\n");
         }
     }
 
@@ -34,6 +34,4 @@ public class Escudo extends Instrumento {
     public void mostrarInstrumento(){
         System.out.format("\n\nNombre: %s // Danio: %d // Durabilidad: %d // Resistencia: %d\n", this.getNombre(), this.getDanio(), this.getDurabilidad(), this.getResistencia());
     }
-
-
 }

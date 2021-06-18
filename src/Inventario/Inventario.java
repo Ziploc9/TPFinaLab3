@@ -3,6 +3,7 @@ package Inventario;
 import RecursoNatural.Recurso;
 import RecursoNatural.TipoRecurso;
 
+
 public class Inventario {
     private Recurso recursos[] = new Recurso[4];
     private int peso = 0;
@@ -27,7 +28,7 @@ public class Inventario {
 
     public void agregarAlInventario(Recurso x, int cantidadAgregar) {
         int i = 0;
-        for (TipoRecurso aux : recursos) {
+        for (TipoRecurso aux : this.recursos) {
             if (aux.getNombre().equals(x.getNombre())) {
                 checkearPeso(cantidadAgregar, i);
             }
@@ -44,7 +45,7 @@ public class Inventario {
             int cantidadAgregarNueva = cantidadAgregar - exceso;
             recursos[i].setStack(recursos[i].getStack() + cantidadAgregarNueva);
             setPeso(getPeso()+cantidadAgregarNueva);
-            System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!");
+            System.out.println("Se desperdiciaron " + exceso + " recursos ya que tienes un exceso de peso!\n");
         }
     }
 
@@ -56,6 +57,7 @@ public class Inventario {
 
 
     public boolean usarDelInventario(String nombre, int cantidad){ //solo para usar en otras funciones!
+
         for (Recurso aux:this.recursos) {
             if (aux.getNombre().equals(nombre)) {
                 if((aux.getStack() - cantidad) > 0){
@@ -67,10 +69,7 @@ public class Inventario {
                     return false;
                 }
             }
-            else{
-            }
         }
         return false;
     }
 }
-
