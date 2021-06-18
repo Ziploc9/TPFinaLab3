@@ -1,19 +1,12 @@
 package com.company;
-
-
 import Inventario.*;
-
 import RecursoNatural.Recurso;
 import Herramientas.*;
-
 import java.util.Random;
 import Personaje.*;
-
-
 import java.io.*;
 import java.io.FileWriter;
 import com.google.gson.Gson;
-
 import java.util.Scanner;
 import java.io.FileReader;
 
